@@ -1,0 +1,37 @@
+<?php
+$position = isset($options['file-position'])
+    ? html_escape($options['file-position'])
+    : 'left';
+$size = isset($options['file-size'])
+    ? html_escape($options['file-size'])
+    : 'fullsize';
+$captionPosition = isset($options['captions-position'])
+    ? html_escape($options['captions-position'])
+    : 'center';
+?>
+<div class='row content'>
+  <div class="col-12 col-md-6">
+    <div class='row'>
+      <div class="col-12">
+          <hr align="left">
+      </div>
+    </div>
+    <div class='row'>
+      <div class="col-12">
+        <h1><span class="exhibit-page"><?php echo metadata('exhibit_page', 'title'); ?></h1>
+      </div>
+    </div>
+    <div class='row'>
+      <div class="col-12">
+          <?php echo $text; ?>
+      </div>
+    </div>
+  </div>
+  <div class="offset-md-1 col-12 col-md-5">
+    <div class="exhibit-items <?php echo $position; ?> <?php echo $size; ?> captions-<?php echo $captionPosition; ?>">
+        <?php foreach ($attachments as $attachment): ?>
+            <?php echo $this->exhibitAttachment($attachment, array('imageSize' => $size)); ?>
+        <?php endforeach; ?>
+    </div>
+  </div>
+</div>
