@@ -4,13 +4,8 @@ echo head(array(
     'bodyclass' => 'exhibits', ));
 ?>
 <style>
-.jumbotron {
-    border-radius: 0;
-    padding: 0;
-    margin: 0;
-    background: #fff;
+header {
     background: url("<?php echo img('banner_kadoc_1.jpg');?>") no-repeat center center/cover;
-    border-top: 1px solid rgba(49, 57, 112, 0.1);
 }
 </style>
 <section class="exhibit-show-section">
@@ -30,7 +25,7 @@ echo head(array(
       <div class="col-12">
         <div class='row content'>
           <div class="col-12">
-          
+
             <div id="exhibit-blocks">
               <?php exhibit_builder_render_exhibit_page(); ?>
             </div>

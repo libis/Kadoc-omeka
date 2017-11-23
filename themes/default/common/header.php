@@ -41,37 +41,23 @@
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
     <header role="banner">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-            <nav class="navbar navbar-toggleable-md navbar-light bg-faded <?php echo $smallheader;?> <?php echo $style['kleur'];?>">
-              <button class="navbar-toggler navbar-toggler-right justify-content-end" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class='material-icons'>&#xE5D2;</i>
-              </button>
-
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <?php echo public_nav_main_bootstrap();?>
-              </div>
-
-              <!--<a class="navbar-toggler-right search-toggle" href="#search"><i class="material-icons">search</i></a>-->
-            </nav>
-          </div>
-          <div class="col-md-4">
-            <form class="form-inline">
-              <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="submit"><i class="material-icons">search</i></button>
-                </span>
-              </div>
-            </form>
-          </div>
+      <section class="nav-section">
+        <div class='container'>
+          <nav class="navbar navbar-expand-md navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <i class='material-icons'>&#xE5D2;</i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <?php echo public_nav_main_bootstrap();?>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn my-2 my-sm-0" type="submit"><i class="material-icons">search</i></button>
+              </form>
+            </div>
+          </nav>
         </div>
-      </div>
+      </section>
 
-      <div class="collapse" id="navbarToggler">
-        <?php echo public_nav_main(array('role' => 'navigation')) -> setUlClass('mr-auto mt-2 mt-md-0 navbar-nav'); ?>
-      </div>
       <div class="jumbotron">
         <div class='container' role="main" tabindex="-1">
           <section class="jumbo-section">
