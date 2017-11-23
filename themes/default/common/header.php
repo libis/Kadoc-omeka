@@ -43,16 +43,20 @@
     <header role="banner">
       <section class="nav-section">
         <div class='container'>
-          <nav class="navbar navbar-expand-md navbar-light">
+          <nav class="navbar navbar-expand-lg navbar-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <i class='material-icons'>&#xE5D2;</i>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <?php echo public_nav_main_bootstrap();?>
+              <span class="navbar-text">
+                <?php echo multi_language_nav();?>
+              </span>
               <form class="form-inline my-2 my-lg-0">
                 <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn my-2 my-sm-0" type="submit"><i class="material-icons">search</i></button>
               </form>
+
             </div>
           </nav>
         </div>

@@ -8036,6 +8036,23 @@ header {
   content: '';
 }
 
+.navbar-text {
+  margin-left: 10px;
+  margin-right: 20px;
+  color: rgba(49, 57, 112, 0.6) !important;
+}
+
+@media (max-width: 991px) {
+  .navbar-text {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+
+.navbar-text a {
+  color: #313970 !important;
+}
+
 .form-inline {
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
@@ -8049,7 +8066,7 @@ header {
   font-family: "Roboto", sans-serif;
   border: none;
   padding: 0.4rem 0.4rem;
-  color: #313970;
+  border: 1px solid white;
   background: rgba(49, 57, 112, 0.05);
 }
 
@@ -8060,10 +8077,10 @@ header {
 }
 
 .form-inline .form-control:focus {
-  background-color: #fff;
-  border-color: rgba(49, 57, 112, 0.2);
+  background: rgba(49, 57, 112, 0.05);
+  border: 1px solid rgba(49, 57, 112, 0.2);
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(49, 57, 112, 0.25);
+  box-shadow: 0 0 0 0 rgba(49, 57, 112, 0.25);
 }
 
 .form-inline *::-webkit-input-placeholder {
@@ -8135,7 +8152,7 @@ header {
 .jumbotron .slogan {
   font-size: 2.8rem;
   text-transform: uppercase;
-  background: rgba(49, 57, 112, 0.9);
+  background: rgba(49, 57, 112, 0.7);
   padding: 1rem 2rem;
   margin-top: 10rem;
   line-height: 1.1;
@@ -8856,7 +8873,7 @@ header {
   .browse-section .side .side-nav li,
   .exhibit-show-section .side .side-nav li,
   .simple-page-section .side .side-nav li {
-    border-top: 1px solid #f8f9fa;
+    border-top: 1px solid #eee;
     padding: 0.5rem 0 0.5rem 0;
   }
   .browse-section .side .side-nav li:first-of-type,
@@ -8879,6 +8896,11 @@ footer .co {
   margin-bottom: 1rem !important;
 }
 
+footer .co .col-content {
+  margin-bottom: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
 footer h4 {
   font-size: 1.2rem;
   font-weight: bold;
@@ -8888,7 +8910,14 @@ footer h4 {
 footer img {
   height: 60px;
   width: auto !important;
-  margin: 0 10px !important;
+  margin-bottom: 0.5rem !important;
+  margin-right: 15px !important;
+}
+
+@media (max-width: 1199px) {
+  footer img {
+    height: 45px;
+  }
 }
 
 footer img:first-of-type {
@@ -8899,8 +8928,8 @@ footer ul {
   padding-left: 0;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem !important;
-  border-top: 1px solid #f8f9fa;
-  border-bottom: 1px solid #f8f9fa;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
   padding: 0.8rem 0 !important;
 }
 

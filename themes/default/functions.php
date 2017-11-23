@@ -13,7 +13,7 @@ function simple_nav(){
     $links = simple_pages_get_links_for_children_pages();
 
     $html ="";
-  
+
     if(!$links && $page->parent_id != 0):
         $links = simple_pages_get_links_for_children_pages($page->parent_id);
     elseif(!$links && $page->parent_id == 0):
@@ -42,32 +42,21 @@ function libis_get_simple_page_content($title) {
     endif;
 }
 
-function get_color()
+function multi_language_nav()
 {
-    //colors: page id -> different css (production)
-    $colors = array(
-      "0" => array("naam" => "","kleur" => "grijs", "logo" => "","site" => ""),
-      "10" => array("naam" => "Heron", "kleur" => "paars", "logo" => "heron_logo.png","site" => "http://heron-net.be"),//default
-      "13" => array("naam" => "Lias", "kleur" => "oranje", "logo" => "lias_logo.png","site" => "http://lias.be"),
-      "16" => array("naam" => "LIBISnet", "kleur" => "groen", "logo" => "LIBISnet_LOGO.png","site" => "http://libisnet.be"),
-      "19" => array("naam" => "LIBISplus", "kleur" => "blauw", "logo" => "LIBISplus_LOGO.png","site" => "http://libisplus.be")
-    );
+  //check default (from config)
+  $defaultCodes = Zend_Locale::getDefault();
+  $code = current(array_keys($defaultCodes));
 
-    //get current page
-    $current_page = get_current_record('simple_pages_page', false);
-    if($current_page):
-      if (array_key_exists($current_page->id, $colors)) :
-          return $colors[$current_page->id];
-      endif;
+  //check session
+  $langNamespace = new Zend_Session_Namespace('lang');
+  if (isset($langNamespace->lang)):
+    $code = $langNamespace->lang;
+  endif;
 
-      //determine ancestor
-      $pageAncestors = get_db()->getTable('SimplePagesPage')->findAncestorPages($current_page->id);
-      foreach ($pageAncestors as $page) :
-          if (array_key_exists($page->id, $colors)) :
-              return $colors[$page->id];
-          endif;
-      endforeach;
-    endif;
-
-    return $colors['0'];
+  if($code != "fr"):
+    return 'NL | <a href="'.url("/?lang=fr").'">FR</a>';
+  else:
+    return '<a href="'.url("/?lang=nl").'">NL</a> | FR';
+  endif;
 }

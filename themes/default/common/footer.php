@@ -26,14 +26,14 @@
                       <img src="<?php echo img("uitpas-leuven.png");?>">
                     </div>
                   </div>
-                  <div class="co col-md-6 col-lg-4">
+                  <div class="co col-md-4 col-lg-4 d-none d-sm-none d-md-block">
                     <div class="col-content gebouw">
                       <img src="<?php echo img('kadoc_gebouw.jfif');?>">
                     </div>
                   </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-12 col-xl-12">
+                    <div class="col-12 col-xl-12 ">
                         <div class="copyright">© KADOC</div>
                     </div>
                 </div>
