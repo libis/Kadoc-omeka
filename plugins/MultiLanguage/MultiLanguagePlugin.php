@@ -32,8 +32,8 @@ class MultiLanguagePlugin extends Omeka_Plugin_AbstractPlugin
     public function filterLocale($locale)
     {
       //check default (from config)
-      $defaultCodes = Zend_Locale::getDefault();
-      $this->locale_code = current(array_keys($defaultCodes));
+      $defaultCodes = "nl_BE";
+      $this->locale_code = "nl_BE";
 
       //check session
       $langNamespace = new Zend_Session_Namespace('lang');
@@ -57,5 +57,5 @@ class MultiLanguagePlugin extends Omeka_Plugin_AbstractPlugin
       endif;
 
       return $this->locale_code;
-    }    
+    }
 }

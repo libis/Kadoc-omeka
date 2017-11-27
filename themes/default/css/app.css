@@ -8023,6 +8023,7 @@ header {
 
 .navbar .navbar-nav li .dropdown-menu {
   border: none;
+  border-radius: 0;
   font-size: 0.9rem;
   background: #F4F5F8;
   top: 85%;
@@ -8104,7 +8105,6 @@ header {
 .form-inline .btn {
   background: none;
   padding: 0px 5px;
-  margin-left: 8px;
   border: none;
   color: #313970;
   cursor: pointer;
@@ -8901,6 +8901,11 @@ footer .co .col-content {
   padding-bottom: 0rem !important;
 }
 
+footer .co .col-content a {
+  color: rgba(52, 58, 64, 0.55);
+  text-decoration: underline;
+}
+
 footer h4 {
   font-size: 1.2rem;
   font-weight: bold;
@@ -8941,8 +8946,9 @@ footer ul li {
   margin-right: 10px !important;
 }
 
-footer a {
-  color: rgba(52, 58, 64, 0.5);
+footer ul li a {
+  color: rgba(52, 58, 64, 0.55) !important;
+  text-decoration: none !important;
 }
 
 footer a:hover {

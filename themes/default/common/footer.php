@@ -19,11 +19,11 @@
                         <li><a href="<?php echo url("route");?>">Routebeschrijving</a></li>
                         <li><a href="<?php echo url("contact");?>">Contact</a></li>
                       </ul>
-                      <img src="<?php echo img("kadoc.jpg");?>">
+                      <a href="https://kadoc.kuleuven.be/"><img src="<?php echo img("kadoc.jpg");?>"></a>
                       <img src="<?php echo img("ErkendCultArch.jpg");?>">
                       <img src="<?php echo img("_erkendeerfbib.gif");?>">
-                      <img src="<?php echo img("vlaanderen.png");?>">
-                      <img src="<?php echo img("uitpas-leuven.png");?>">
+                      <a href="http://www.ditisvlaanderen.be/"><img src="<?php echo img("vlaanderen.png");?>"></a>
+                      <a href="https://www.leuven.be/uitpas"><img src="<?php echo img("uitpas-leuven.png");?>"></a>
                     </div>
                   </div>
                   <div class="co col-md-4 col-lg-4 d-none d-sm-none d-md-block">
