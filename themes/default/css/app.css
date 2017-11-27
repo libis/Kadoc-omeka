@@ -8112,7 +8112,8 @@ header {
 
 .form-inline .btn:focus, .form-inline .btn.focus {
   outline: 0;
-  box-shadow: 0 0 0 0rem rgba(0, 123, 255, 0.25);
+  border-radius: 0;
+  box-shadow: 0 0 0 0rem rgba(0, 123, 255, 0.5);
 }
 
 .form-inline i {
@@ -8580,9 +8581,9 @@ header {
 .browse-section h3,
 .exhibit-show-section h3,
 .simple-page-section h3 {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 1.1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-family: "Roboto", sans-serif;
 }
 
@@ -8607,14 +8608,16 @@ header {
 .browse-section .field input,
 .exhibit-show-section .field input,
 .simple-page-section .field input {
-  border: 1px solid #f8f9fa;
+  border: 1px solid rgba(134, 142, 150, 0.2);
+  background: rgba(49, 57, 112, 0.02);
   padding: 0.3rem 0.5rem;
 }
 
 .browse-section .field textarea,
 .exhibit-show-section .field textarea,
 .simple-page-section .field textarea {
-  border: 1px solid #f8f9fa;
+  border: 1px solid rgba(134, 142, 150, 0.2);
+  background: rgba(49, 57, 112, 0.02);
   padding: 0.3rem 0.5rem;
   max-height: 200px !important;
 }
