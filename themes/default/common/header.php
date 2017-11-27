@@ -16,15 +16,6 @@
 
     <?php echo auto_discovery_link_tags(); ?>
 
-    <!-- Determine color and logo -->
-    <?php $style = get_color();?>
-
-    <?php
-    $smallheader = "";
-    if($style["kleur"] != 'grijs'):
-      $smallheader = "small-nav";
-    endif;
-    ?>
     <!-- Plugin Stuff -->
     <?php fire_plugin_hook('public_head', array('view' => $this)); ?>
 
