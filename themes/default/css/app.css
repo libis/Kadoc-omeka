@@ -8704,12 +8704,95 @@ header {
   color: white;
 }
 
+.browse-section .feat-row,
+.exhibit-show-section .feat-row,
+.simple-page-section .feat-row {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: rgba(49, 57, 112, 0.05);
+}
+
+.browse-section .feat-row .list-item h2,
+.exhibit-show-section .feat-row .list-item h2,
+.simple-page-section .feat-row .list-item h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.browse-section .feat-row .list-item h2 a,
+.exhibit-show-section .feat-row .list-item h2 a,
+.simple-page-section .feat-row .list-item h2 a {
+  color: #313970;
+  border-bottom: 2px solid rgba(49, 57, 112, 0.8);
+}
+
+.browse-section .feat-row .list-item h3,
+.exhibit-show-section .feat-row .list-item h3,
+.simple-page-section .feat-row .list-item h3 {
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: #313970;
+  margin-bottom: 0rem;
+}
+
+.browse-section .feat-row .credits,
+.exhibit-show-section .feat-row .credits,
+.simple-page-section .feat-row .credits {
+  font-style: italic;
+  color: rgba(49, 57, 112, 0.8);
+}
+
+.browse-section .feat-row .credits p,
+.exhibit-show-section .feat-row .credits p,
+.simple-page-section .feat-row .credits p {
+  font-family: "Roboto", sans-serif;
+}
+
+.browse-section .feat-row .view-items-link a,
+.exhibit-show-section .feat-row .view-items-link a,
+.simple-page-section .feat-row .view-items-link a {
+  font-family: "Roboto", sans-serif;
+  padding: 0.4rem;
+  border: 1px solid rgba(49, 57, 112, 0.2);
+  font-weight: 100;
+}
+
+.browse-section .feat-row .list-footer,
+.exhibit-show-section .feat-row .list-footer,
+.simple-page-section .feat-row .list-footer {
+  text-align: right;
+  margin-top: 2rem;
+}
+
+.browse-section .feat-row .list-footer a,
+.exhibit-show-section .feat-row .list-footer a,
+.simple-page-section .feat-row .list-footer a {
+  padding: 0.4rem;
+  font-weight: 100;
+  border: 1px solid rgba(49, 57, 112, 0.8);
+}
+
+.browse-section .feat-row .list-footer a:hover,
+.exhibit-show-section .feat-row .list-footer a:hover,
+.simple-page-section .feat-row .list-footer a:hover {
+  color: white !important;
+  background: #29305e;
+}
+
+.browse-section .exhibits-feat .list-item h2,
+.exhibit-show-section .exhibits-feat .list-item h2,
+.simple-page-section .exhibits-feat .list-item h2 {
+  margin-bottom: 1rem;
+}
+
 .browse-section .list-row,
 .exhibit-show-section .list-row,
 .simple-page-section .list-row {
-  padding: 2rem;
-  margin-bottom: 1rem;
-  background: rgba(49, 57, 112, 0.05);
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(49, 57, 112, 0.1);
 }
 
 .browse-section .list-row .credits,
@@ -8762,6 +8845,14 @@ header {
 .simple-page-section .list-row .list-footer a:hover {
   color: white !important;
   background: #29305e;
+}
+
+.browse-section .list-row:last-of-type,
+.exhibit-show-section .list-row:last-of-type,
+.simple-page-section .list-row:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .browse-section .exhibit-block h1,

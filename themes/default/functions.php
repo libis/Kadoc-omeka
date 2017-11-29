@@ -60,3 +60,12 @@ function multi_language_nav()
     return '<a href="'.url("/?lang=nl").'">NL</a> | FR';
   endif;
 }
+
+function libis_get_featured($type = 'item'){
+  $records = get_records($type,array('featured'=>'1'));
+  if($records):
+    return $records;
+  else:
+    return false;
+  endif;
+}

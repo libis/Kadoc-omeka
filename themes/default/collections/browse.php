@@ -28,12 +28,75 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
      </div>
    </div>
 
+   <?php
+     //only show featured records on featured page and with filter on
+     $params = $_GET;
+     $show_featured = false;
+     if ($this->pageCount > 1):
+         $page = $params['page'];
+     else:
+         $page = 0;
+     endif;
+
+     if(isset($params['featured'])):
+       if($params['featured']=="no" && $page == 0):
+           $show_featured = true;
+       endif;
+     endif;
+
+     if($show_featured):
+       if($feat_records = libis_get_featured('collection')):
+         foreach ($feat_records as $feat): ?>
+         <div class="row">
+           <div class="col-sm-12">
+             <div class="feat-row">
+               <div class="row">
+                 <div class="col-sm-5">
+                   <?php if ($collectionImage = record_image($feat,'fullsize')): ?>
+                       <?php echo link_to_collection($collectionImage, array('class' => 'image'),'show',$feat); ?>
+                   <?php else: ?>
+                         <div class="dummy"></div>
+                   <?php endif; ?>
+                 </div>
+                 <div class="col-sm-6">
+                   <div class="list-item">
+                     <h3><span><?php echo __('Featured');?></span></h3>
+                     <h2><?php echo link_to_collection(metadata($feat, array('Dublin Core', 'Title')),array(),'show',$feat); ?></h2>
+
+                     <?php if ($description = metadata($feat, array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
+                     <div class="item-description">
+                         <p><?php echo $description; ?></p>
+                     </div>
+                     <?php endif; ?>
+
+                     <?php if ($feat->hasContributor()): ?>
+                       <div class="collection-contributors">
+                           <p>
+                           <strong><?php echo __('Contributors'); ?>:</strong>
+                           <?php echo metadata($feat, array('Dublin Core', 'Contributor'), array('all'=>true, 'delimiter'=>', ')); ?>
+                           </p>
+                       </div>
+                     <?php endif; ?>
+
+                   </div>
+                   <div class="list-footer">
+                     <?php echo link_to_items_browse(__('View the items in %s', metadata($feat, array('Dublin Core', 'Title'))), array('collection' => metadata($feat, 'id'))); ?>
+                   </div>
+                 </div>
+               </div>
+             </div>
+         </div>
+       </div>
+       <?php endforeach;
+       endif;
+     endif;
+   ?>
+
    <?php echo pagination_links(); ?>
 
-   <?php foreach (loop('collections') as $collection): ?>
-
-      <div class="row">
-        <div class="col-sm-10">
+   <div class="row">
+     <div class="col-sm-10">
+       <?php foreach (loop('collections') as $collection): ?>
           <div class="list-row">
             <div class="row">
               <div class="col-sm-3">
@@ -64,14 +127,13 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
                   <p class="view-items-link"><?php echo link_to_items_browse(__('View the items in %s', metadata('collection', array('Dublin Core', 'Title'))), array('collection' => metadata('collection', 'id'))); ?></p>
 
                   <?php fire_plugin_hook('public_collections_browse_each', array('view' => $this, 'collection' => $collection)); ?>
-
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        <?php endforeach; ?>
       </div>
-    <?php endforeach; ?>
+    </div>
   </div>
 </section>
 
