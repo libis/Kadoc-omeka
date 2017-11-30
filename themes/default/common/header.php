@@ -43,8 +43,9 @@
               <span class="navbar-text">
                 <?php echo multi_language_nav();?>
               </span>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+              <form class="form-inline my-2 my-lg-0" action="<?php echo url("search");?>">
+                <input id="query" name="query" class="form-control" type="search" placeholder="Search" aria-label="Search">
+                <input name="query_type" value="keyword" id="query_type" type="hidden">
                 <button class="btn my-2 my-sm-0" type="submit"><i class="material-icons">search</i></button>
               </form>
 
