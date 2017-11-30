@@ -14,7 +14,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
    </div>
    <div class='row top'>
      <div class="col-sm-12 col-xs-12">
-         <h1><?php echo $pageTitle;?> <?php echo __('(%s total)', $total_results); ?></h1>
+         <h1><?php echo $pageTitle;?></h1>
          <?php if ($total_results > 0): ?>
              <?php
              $sortLinks[__('Title')] = 'Dublin Core,Title';
@@ -133,7 +133,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
           </div>
           <?php endforeach; ?>
       </div>
-    </div>    
+    </div>
   </div>
 </div>
 <?php echo pagination_links(); ?>

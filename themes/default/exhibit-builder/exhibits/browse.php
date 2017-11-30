@@ -14,7 +14,7 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
    </div>
    <div class='row top'>
      <div class="col-sm-12 col-xs-12">
-         <h1><?php echo $title; ?> <?php echo __('(%s total)', $total_results); ?></h1>
+         <h1><?php echo $title; ?></h1>
      </div>
    </div>
 

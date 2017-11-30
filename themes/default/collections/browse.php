@@ -15,7 +15,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
    </div>
    <div class='row top'>
      <div class="col-sm-12 col-xs-12">
-        <h1><?php echo $pageTitle; ?> <?php echo __('(%s total)', $total_results); ?></h1>
+        <h1><?php echo $pageTitle; ?></h1>
          <?php if ($total_results > 0): ?>
              <?php
              $sortLinks[__('Title')] = 'Dublin Core,Title';
