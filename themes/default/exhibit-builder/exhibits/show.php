@@ -5,7 +5,7 @@ echo head(array(
 ?>
 <style>
 header {
-    background: url("<?php echo img('banner_kadoc_1.jpg');?>") no-repeat center center/cover;
+    background: #F4F5F8 url("<?php echo WEB_PUBLIC_THEME.'/ddefault/images/exhibits/banner_'.metadata('exhibit', 'slug').'.jpg';?>") no-repeat center center/cover;
 }
 </style>
 <section class="exhibit-show-section">
