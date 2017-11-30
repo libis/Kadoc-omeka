@@ -22,14 +22,9 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
      //only show featured records on featured page and with filter on
      $params = $_GET;
      $show_featured = false;
-     if ($this->pageCount > 1):
-         $page = $params['page'];
-     else:
-         $page = 0;
-     endif;
 
-     if(isset($params['featured'])):
-       if($params['featured']=="0" && $page == 0):
+     if(isset($params['featured']) && isset($params['page'])):
+       if($params['featured']=="0" && ($params['page'] == 0 || $params['page'] == 1)):
            $show_featured = true;
        endif;
      endif;
@@ -110,7 +105,6 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
             <?php endforeach; ?>
         </div>
     </div>
-    <?php echo pagination_links(); ?>
 
     <?php else: ?>
     <p><?php echo __('There are no exhibits available yet.'); ?></p>

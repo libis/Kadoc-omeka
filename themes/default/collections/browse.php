@@ -32,14 +32,9 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
      //only show featured records on featured page and with filter on
      $params = $_GET;
      $show_featured = false;
-     if ($this->pageCount > 1):
-         $page = $params['page'];
-     else:
-         $page = 0;
-     endif;
 
-     if(isset($params['featured'])):
-       if($params['featured']=="no" && $page == 0):
+     if(isset($params['featured']) && isset($params['page'])):
+       if($params['featured']=="no" && ($params['page'] == 0 || $params['page'] == 1)):
            $show_featured = true;
        endif;
      endif;
@@ -136,8 +131,6 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
     </div>
   </div>
 </section>
-
-<?php echo pagination_links(); ?>
 
 <?php fire_plugin_hook('public_collections_browse', array('collections'=>$collections, 'view' => $this)); ?>
 

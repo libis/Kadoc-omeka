@@ -8649,7 +8649,7 @@ header {
 .browse-section #sort-links,
 .exhibit-show-section #sort-links,
 .simple-page-section #sort-links {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .browse-section #sort-links i,
@@ -8707,8 +8707,7 @@ header {
 .browse-section .feat-row,
 .exhibit-show-section .feat-row,
 .simple-page-section .feat-row {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   padding: 2rem;
   background: rgba(49, 57, 112, 0.05);
 }
@@ -8874,7 +8873,7 @@ header {
 .browse-section .card-columns,
 .exhibit-show-section .card-columns,
 .simple-page-section .card-columns {
-  column-gap: 2rem;
+  column-gap: 3rem;
   column-count: 4;
 }
 
@@ -8898,6 +8897,7 @@ header {
 .exhibit-show-section .card-columns .card,
 .simple-page-section .card-columns .card {
   border: none;
+  margin-bottom: 1rem;
 }
 
 .browse-section .card-columns .card h2,
@@ -8913,6 +8913,61 @@ header {
 .simple-page-section .card-columns .card hr {
   border: 2px solid #313970;
   margin: 0;
+}
+
+.browse-section .pagination,
+.exhibit-show-section .pagination,
+.simple-page-section .pagination {
+  list-style: none;
+  text-align: right;
+  display: block;
+  padding: 0.5rem 0;
+  margin: 0.5rem 0;
+  border-top: 1px solid rgba(49, 57, 112, 0.1);
+}
+
+@media (max-width: 575px) {
+  .browse-section .pagination,
+  .exhibit-show-section .pagination,
+  .simple-page-section .pagination {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.browse-section .pagination li,
+.exhibit-show-section .pagination li,
+.simple-page-section .pagination li {
+  display: inline-block;
+  margin: 0 5px;
+  text-align: center;
+}
+
+.browse-section .pagination li a,
+.exhibit-show-section .pagination li a,
+.simple-page-section .pagination li a {
+  line-height: inherit;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.browse-section .pagination li a i,
+.exhibit-show-section .pagination li a i,
+.simple-page-section .pagination li a i {
+  font-size: 1.9rem;
+  line-height: 0.7;
+  vertical-align: text-top;
+}
+
+.browse-section .pagination li input,
+.exhibit-show-section .pagination li input,
+.simple-page-section .pagination li input {
+  background: rgba(49, 57, 112, 0.05);
+  border: none;
+  padding: 3px 5px;
+  margin: 0;
+  width: 55px;
+  text-align: right;
 }
 
 .browse-section .exhibit-block h1,
