@@ -51,14 +51,14 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
            <div class="col-sm-12">
              <div class="feat-row">
                <div class="row">
-                 <div class="col-sm-5">
+                 <div class="col-md-12 col-lg-5">
                    <?php if ($collectionImage = record_image($feat,'fullsize')): ?>
                        <?php echo link_to_collection($collectionImage, array('class' => 'image'),'show',$feat); ?>
                    <?php else: ?>
                          <div class="dummy"></div>
                    <?php endif; ?>
                  </div>
-                 <div class="col-sm-6">
+                 <div class="col-md-12 col-lg-6">
                    <div class="list-item">
                      <h3><span><?php echo __('Featured');?></span></h3>
                      <h2><?php echo link_to_collection(metadata($feat, array('Dublin Core', 'Title')),array(),'show',$feat); ?></h2>

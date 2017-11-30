@@ -51,7 +51,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
             <div class="col-sm-12">
               <div class="feat-row">
                 <div class="row">
-                  <div class="col-sm-5">
+                  <div class="col-md-12 col-lg-5">
                     <?php if (metadata($feat, 'has files')): ?>
                       <div class="item-img">
                           <?php echo link_to_item(
@@ -63,7 +63,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
                       </div>
                     <?php endif; ?>
                   </div>
-                  <div class="col-sm-6">
+                  <div class="col-md-12 col-lg-6">
                     <div class="list-item">
                       <h3><span><?php echo __('Featured');?></span></h3>
                       <h2><?php echo link_to_item(metadata($feat, array('Dublin Core', 'Title')), array('class'=>'permalink'),'show',$feat); ?></h2>
@@ -97,41 +97,38 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
     <?php //echo item_search_filters(); ?>
     <?php echo pagination_links(); ?>
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-md-12">
+        <div class="card-columns">
         <?php foreach (loop('items') as $item): ?>
-          <div class="list-row">
-            <div class="row">
-              <div class="col-sm-3">
+              <div class="card">
                 <?php if (metadata('item', 'has files')): ?>
                   <div class="item-img">
-                      <?php echo link_to_item(item_image()); ?>
+                      <?php echo link_to_item(item_image('thumbnail')); ?>
                   </div>
-                <?php else: ?>
-                      <div class="dummy"></div>
                 <?php endif; ?>
-              </div>
-              <div class="col-sm-9">
-                <div class="list-item">
-                  <h2><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h2>
+                <hr>
+                <div class="card-block">
+                  <div class="list-item">
+                    <h2><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h2>
 
-                  <?php if ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
-                  <div class="item-description">
-                      <p><?php echo $description; ?></p>
+                    <!--<?php if ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>200))): ?>
+                    <div class="item-description">
+                        <p><?php echo $description; ?></p>
+                    </div>
+                  <?php endif; ?>-->
+
+                    <?php if (metadata('item', 'has tags')): ?>
+                    <div class="tags"><p><strong><?php echo __('Tags'); ?>:</strong>
+                        <?php echo tag_string('items'); ?></p>
+                    </div>
+                    <?php endif; ?>
+
+                    <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
                   </div>
-                  <?php endif; ?>
-
-                  <?php if (metadata('item', 'has tags')): ?>
-                  <div class="tags"><p><strong><?php echo __('Tags'); ?>:</strong>
-                      <?php echo tag_string('items'); ?></p>
-                  </div>
-                  <?php endif; ?>
-
-                  <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
                 </div>
               </div>
-            </div>
-          </div>
           <?php endforeach; ?>
+        </div>
       </div>
     </div>
   </div>

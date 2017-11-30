@@ -41,12 +41,12 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
            <div class="col-sm-12">
              <div class="feat-row exhibits-feat">
                <div class="row">
-                 <div class="col-sm-5">
+                 <div class="col-md-12 col-lg-5">
                    <?php if ($exhibitImage = record_image($exhibit, 'fullsize')): ?>
                        <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'image')); ?>
                    <?php endif; ?>
                  </div>
-                 <div class="col-sm-6">
+                 <div class="col-md-12 col-lg-6">
                    <div class="list-item">
                      <h3><span><?php echo __('Featured');?></span></h3>
                      <h2><?php echo exhibit_builder_link_to_exhibit($exhibit,metadata($exhibit,'title')); ?></h2>

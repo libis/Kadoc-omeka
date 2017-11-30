@@ -8721,6 +8721,14 @@ header {
   font-weight: bold;
 }
 
+@media (max-width: 767px) {
+  .browse-section .feat-row .list-item h2,
+  .exhibit-show-section .feat-row .list-item h2,
+  .simple-page-section .feat-row .list-item h2 {
+    font-size: 1.5rem;
+  }
+}
+
 .browse-section .feat-row .list-item h2 a,
 .exhibit-show-section .feat-row .list-item h2 a,
 .simple-page-section .feat-row .list-item h2 a {
@@ -8736,6 +8744,14 @@ header {
   font-size: 0.9rem;
   color: #313970;
   margin-bottom: 0rem;
+}
+
+@media (max-width: 991px) {
+  .browse-section .feat-row .list-item h3,
+  .exhibit-show-section .feat-row .list-item h3,
+  .simple-page-section .feat-row .list-item h3 {
+    margin-top: 1rem;
+  }
 }
 
 .browse-section .feat-row .credits,
@@ -8853,6 +8869,50 @@ header {
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+.browse-section .card-columns,
+.exhibit-show-section .card-columns,
+.simple-page-section .card-columns {
+  column-gap: 2rem;
+  column-count: 4;
+}
+
+@media (max-width: 991px) {
+  .browse-section .card-columns,
+  .exhibit-show-section .card-columns,
+  .simple-page-section .card-columns {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 767px) {
+  .browse-section .card-columns,
+  .exhibit-show-section .card-columns,
+  .simple-page-section .card-columns {
+    column-count: 2;
+  }
+}
+
+.browse-section .card-columns .card,
+.exhibit-show-section .card-columns .card,
+.simple-page-section .card-columns .card {
+  border: none;
+}
+
+.browse-section .card-columns .card h2,
+.exhibit-show-section .card-columns .card h2,
+.simple-page-section .card-columns .card h2 {
+  font-size: 1rem;
+  font-weight: 100;
+  padding: 1rem 0;
+}
+
+.browse-section .card-columns .card hr,
+.exhibit-show-section .card-columns .card hr,
+.simple-page-section .card-columns .card hr {
+  border: 2px solid #313970;
+  margin: 0;
 }
 
 .browse-section .exhibit-block h1,
