@@ -8,7 +8,6 @@ function public_nav_main_bootstrap() {
 
 function simple_nav(){
     $page = get_current_record('SimplePagesPage');
-    $dienst = get_color();
 
     $links = simple_pages_get_links_for_children_pages();
 
