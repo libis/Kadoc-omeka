@@ -8153,7 +8153,7 @@ header {
 .jumbotron .slogan {
   font-size: 2.8rem;
   text-transform: uppercase;
-  background: rgba(49, 57, 112, 0.7);
+  background: rgba(49, 57, 112, 0.8);
   padding: 1rem 2rem;
   margin-top: 10rem;
   line-height: 1.1;
@@ -9140,6 +9140,10 @@ header {
 .exhibit-show-section .search-results .even,
 .simple-page-section .search-results .even {
   background: rgba(49, 57, 112, 0.05);
+}
+
+.summary .summary-text {
+  text-align: justify;
 }
 
 .summary .summary-text .cover-container {

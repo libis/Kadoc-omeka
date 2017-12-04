@@ -28,7 +28,7 @@ header {
             </div>
           </div>
         </div>
-        <div class='col-md-5 col-12'>
+        <div class='offset-md-1 col-md-5 col-12'>
 
           <div class="side">
 
