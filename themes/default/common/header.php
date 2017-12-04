@@ -67,6 +67,9 @@
                       <?php $title_exhibit = explode(' &middot; ', $title);?>
                       <p class="type"><?php echo __('Exhibit'); ?></p>
                       <p><span><?php echo $title_exhibit[1]; ?></span></p>
+                  <?php elseif ( $bodyclass == 'exhibits summary'): ?>
+                      <p class="type"><?php echo __('Exhibit'); ?></p>
+                      <p><span><?php echo $title; ?></span></p>    
                   <?php elseif($description):?>
                       <p><span><?php echo $description; ?></span></p>
                   <?php endif; ?>

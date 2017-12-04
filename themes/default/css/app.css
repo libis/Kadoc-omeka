@@ -8632,13 +8632,6 @@ header {
   cursor: pointer;
 }
 
-.browse-section .cover,
-.exhibit-show-section .cover,
-.simple-page-section .cover {
-  width: 100%;
-  margin-bottom: 2rem;
-}
-
 .browse-section .exhibit-item-caption,
 .exhibit-show-section .exhibit-item-caption,
 .simple-page-section .exhibit-item-caption {
@@ -9149,11 +9142,51 @@ header {
   background: rgba(49, 57, 112, 0.05);
 }
 
+.summary .summary-text .cover-container {
+  width: 250px;
+  float: left;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.summary .summary-text .exhibit-credits h3 {
+  font-style: italic;
+  font-weight: 100;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.summary .start {
+  text-align: right;
+  margin-top: 1.5rem;
+}
+
+.summary .start a {
+  padding: 0.4rem;
+  color: white !important;
+  background: #313970;
+  font-weight: 700;
+}
+
+.summary .start a:hover {
+  color: white !important;
+  background: #29305e;
+}
+
+.summary .side {
+  padding: 2rem;
+  background: rgba(49, 57, 112, 0.1);
+}
+
+.summary .side .cover-container {
+  margin-bottom: 2rem;
+}
+
 footer {
   background: white;
   border-top: 1px solid rgba(49, 57, 112, 0.1);
   margin-top: 3rem;
-  padding: 3rem 0 3rem 0;
+  padding: 2rem 0 2rem 0;
   color: rgba(52, 58, 64, 0.7);
   font-family: "Roboto", sans-serif;
 }
