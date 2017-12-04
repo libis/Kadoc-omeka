@@ -8982,6 +8982,12 @@ header {
   width: 150px;
 }
 
+.browse-section .exhibit-block p,
+.exhibit-show-section .exhibit-block p,
+.simple-page-section .exhibit-block p {
+  text-align: justify;
+}
+
 .browse-section .intro,
 .exhibit-show-section .intro,
 .simple-page-section .intro {
