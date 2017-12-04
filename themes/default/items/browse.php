@@ -33,7 +33,11 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
       $params = $_GET;
       $show_featured = false;
 
-      if(isset($params['featured']) && isset($params['page'])):
+      if(!isset($params['page'])):
+        $params['page'] = "0";
+      endif;
+
+      if(isset($params['featured'])):
         if($params['featured']=="no" && ($params['page'] == 0 || $params['page'] == 1)):
             $show_featured = true;
         endif;

@@ -33,6 +33,10 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'collections browse'));
      $params = $_GET;
      $show_featured = false;
 
+     if(!isset($params['page'])):
+       $params['page'] = "0";
+     endif;
+
      if(isset($params['featured']) && isset($params['page'])):
        if($params['featured']=="no" && ($params['page'] == 0 || $params['page'] == 1)):
            $show_featured = true;

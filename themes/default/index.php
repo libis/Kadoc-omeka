@@ -12,7 +12,7 @@
               </div>
             </div>
             <div class="col-footer">
-              <a href="<?php echo url("exhibits");?>">Bezoek onze tentoonstellingen</a>
+              <a href="<?php echo url("exhibits")."?featured=0";?>">Bezoek onze tentoonstellingen</a>
             </div>
         </div>
         <div class="co col-sm-6 col-md-6 col-lg-4">
@@ -24,7 +24,7 @@
               </div>
             </div>
             <div class="col-footer">
-              <a href="<?php echo url("collections");?>">Meer over onze collecties</a>
+              <a href="<?php echo url("collections")."?featured=no";?>">Meer over onze collecties</a>
             </div>
         </div>
         <div class="co col-md-6 col-sm-6 col-lg-4">
@@ -36,7 +36,7 @@
               </div>
             </div>
             <div class="col-footer">
-              <a href="<?php echo url("items");?>">Lees meer</a>
+              <a href="<?php echo url("items")."?featured=no";?>">Lees meer</a>
             </div>
         </div>
       </div>
