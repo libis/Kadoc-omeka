@@ -8,7 +8,7 @@ header {
   <div id="content" class='container' role="main" tabindex="-1">
 
       <div class='row'>
-        <div class='col-md-6 col-12'>
+        <div class='col-md-7 col-lg-6 col-12'>
           <div class="summary-text">
             <h1>Inleiding</h1>
             <?php if (($exhibitCredits = metadata('exhibit', 'credits'))): ?>
@@ -28,7 +28,7 @@ header {
             </div>
           </div>
         </div>
-        <div class='offset-md-1 col-md-5 col-12'>
+        <div class='offset-lg-1 col-md-5 col-12'>
 
           <div class="side">
 

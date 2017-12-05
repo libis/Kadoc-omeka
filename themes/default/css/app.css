@@ -8170,6 +8170,12 @@ header {
   margin-bottom: 0;
 }
 
+@media (max-width: 1199px) {
+  .jumbotron .slogan {
+    font-size: 2.2rem;
+  }
+}
+
 @media (max-width: 991px) {
   .jumbotron .slogan {
     font-size: 2rem;
@@ -8181,7 +8187,7 @@ header {
 
 @media (max-width: 575px) {
   .jumbotron .slogan {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     min-height: 0px;
     margin: 5rem 0 0 0;
     padding: 1rem;
@@ -8204,71 +8210,6 @@ header {
   font-weight: bold;
   border-bottom: 2px solid #F3CE11;
   font-family: "Roboto", sans-serif;
-}
-
-.jumbotron .dienst-section {
-  margin: 2rem;
-  padding: 2rem;
-}
-
-@media (max-width: 991px) {
-  .jumbotron .dienst-section {
-    margin: 1rem 0;
-  }
-}
-
-@media (max-width: 767px) {
-  .jumbotron .dienst-section {
-    font-size: 1rem;
-    padding: 1rem;
-  }
-}
-
-.jumbotron .dienst-section .slogan-dienst {
-  font-size: 1.2rem;
-  color: white;
-  padding: 0rem;
-  text-align: justify;
-}
-
-.jumbotron .dienst-section .slogan-dienst p {
-  margin-bottom: 0;
-}
-
-.jumbotron .dienst-section .slogan-dienst span {
-  border-bottom: none;
-}
-
-@media (max-width: 991px) {
-  .jumbotron .dienst-section .slogan-dienst {
-    margin: 1rem 0 0rem 0;
-  }
-}
-
-@media (max-width: 767px) {
-  .jumbotron .dienst-section .slogan-dienst {
-    font-size: 1rem;
-    text-align: center;
-  }
-}
-
-.jumbotron .dienst-section .co-slogan img {
-  width: 100%;
-  padding: 1rem;
-  background: white;
-}
-
-@media (max-width: 991px) {
-  .jumbotron .dienst-section .co-slogan .slogan-logo {
-    margin-top: 0rem;
-    padding: 0rem;
-    margin-left: 0rem;
-    text-align: center;
-  }
-  .jumbotron .dienst-section .co-slogan img {
-    width: 100%;
-    max-width: 250px;
-  }
 }
 
 .jumbotron img {
@@ -8554,6 +8495,14 @@ header {
   font-family: "Roboto", sans-serif;
   line-height: 1.4;
   color: #313970;
+}
+
+@media (max-width: 767px) {
+  .browse-section h1,
+  .exhibit-show-section h1,
+  .simple-page-section h1 {
+    font-size: 1.8rem;
+  }
 }
 
 .browse-section h6,
@@ -8886,6 +8835,14 @@ header {
   }
 }
 
+@media (max-width: 575px) {
+  .browse-section .card-columns,
+  .exhibit-show-section .card-columns,
+  .simple-page-section .card-columns {
+    column-count: 1;
+  }
+}
+
 .browse-section .card-columns .card,
 .exhibit-show-section .card-columns .card,
 .simple-page-section .card-columns .card {
@@ -9168,7 +9125,14 @@ header {
 
 .summary .start {
   text-align: right;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+}
+
+@media (max-width: 767px) {
+  .summary .start {
+    margin-bottom: 2rem;
+  }
 }
 
 .summary .start a {
@@ -9188,8 +9152,20 @@ header {
   background: rgba(49, 57, 112, 0.1);
 }
 
+@media (max-width: 767px) {
+  .summary .side {
+    padding: 1.5rem;
+  }
+}
+
 .summary .side .cover-container {
   margin-bottom: 2rem;
+}
+
+@media (max-width: 767px) {
+  .summary .side .side-nav {
+    margin: 0;
+  }
 }
 
 footer {
@@ -9213,6 +9189,18 @@ footer .co .col-content {
 footer .co .col-content a {
   color: rgba(52, 58, 64, 0.55);
   text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  footer .co {
+    padding: 0 1rem;
+    margin: 0;
+    height: auto;
+  }
+  footer .co p {
+    font-size: 0.9rem;
+    text-shadow: none;
+  }
 }
 
 footer h4 {
