@@ -8773,6 +8773,22 @@ header {
   width: 100%;
 }
 
+@media (max-width: 767px) {
+  .browse-section .list-row .dummy,
+  .exhibit-show-section .list-row .dummy,
+  .simple-page-section .list-row .dummy {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .browse-section .list-row .image img,
+  .exhibit-show-section .list-row .image img,
+  .simple-page-section .list-row .image img {
+    margin-bottom: 1rem;
+  }
+}
+
 .browse-section .list-row .view-items-link a,
 .exhibit-show-section .list-row .view-items-link a,
 .simple-page-section .list-row .view-items-link a {

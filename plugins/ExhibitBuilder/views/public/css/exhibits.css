@@ -14,10 +14,11 @@
     padding:1rem;
     background: #F4F5F8;
     line-height: 1.2;
+    overflow: auto;
 }
 
 #exhibit-page-navigation div {
-    width: 33%;
+    width: 45%;
 }
 
 #exhibit-nav-prev {
@@ -33,6 +34,7 @@
 #exhibit-nav-up {
     margin: 0 auto;
     text-align: center;
+    display:none;
 }
 
 .exhibit-block {

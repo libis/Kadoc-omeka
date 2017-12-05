@@ -58,7 +58,7 @@
         <div class='container' role="main" tabindex="-1">
           <section class="jumbo-section">
             <div class="row">
-              <div class="co-slogan col-md-6">
+              <div class="co-slogan col-md-7 col-lg-6">
                 <div class="slogan">
                   <?php
                     $description = option('description');
@@ -69,7 +69,7 @@
                       <p><span><?php echo $title_exhibit[1]; ?></span></p>
                   <?php elseif ( $bodyclass == 'exhibits summary'): ?>
                       <p class="type"><?php echo __('Exhibit'); ?></p>
-                      <p><span><?php echo $title; ?></span></p>    
+                      <p><span><?php echo $title; ?></span></p>
                   <?php elseif($description):?>
                       <p><span><?php echo $description; ?></span></p>
                   <?php endif; ?>
