@@ -8523,8 +8523,14 @@ header {
 .exhibit-show-section h2,
 .simple-page-section h2 {
   font-size: 1.5rem;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
   font-family: "Roboto", sans-serif;
+}
+
+.browse-section h2.items-title,
+.exhibit-show-section h2.items-title,
+.simple-page-section h2.items-title {
+  margin: 1rem 0 2rem;
 }
 
 .browse-section h3,
@@ -8584,8 +8590,17 @@ header {
 .browse-section .exhibit-item-caption,
 .exhibit-show-section .exhibit-item-caption,
 .simple-page-section .exhibit-item-caption {
-  border-top: 1px solid #9aa1d3;
+  border-top: 3px solid #313970;
   padding-top: 0.5rem;
+  max-width: 200px;
+  font-weight: 100;
+  color: #313970;
+}
+
+.browse-section .exhibit-item-caption p,
+.exhibit-show-section .exhibit-item-caption p,
+.simple-page-section .exhibit-item-caption p {
+  font-family: "Roboto", sans-serif;
 }
 
 .browse-section #sort-links,
@@ -9182,6 +9197,11 @@ header {
   .summary .side .side-nav {
     margin: 0;
   }
+}
+
+.layout-geolocation-map .exhibit-geolocation-map {
+  width: 100%;
+  height: 500px;
 }
 
 footer {

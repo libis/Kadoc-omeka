@@ -26,34 +26,40 @@ $collectionTitle = metadata('collection', 'display_title');
      </div>
    </div>
    <div class="row">
-     <div class="col-sm-10">
-       <h2><?php echo link_to_items_browse(__('Items in the %s Collection', $collectionTitle), array('collection' => metadata('collection', 'id'))); ?></h2>
+     <div class="col-sm-12">
+       <h2 class="items-title"><?php echo link_to_items_browse(__('Items in the %s Collection', $collectionTitle), array('collection' => metadata('collection', 'id'))); ?></h2>
        <?php if (metadata('collection', 'total_items') > 0): ?>
-         <?php foreach (loop('items') as $item): ?>
-           <?php $itemTitle = metadata('item', 'display_title'); ?>
-           <div class="list-row">
-             <div class="row">
-               <div class="col-sm-3">
-                 <?php if (metadata('item', 'has thumbnail')): ?>
+         <div class="card-columns">
+           <?php foreach (loop('items') as $item): ?>
+             <div class="card">
+               <?php if (metadata('item', 'has files')): ?>
                  <div class="item-img">
-                     <?php echo link_to_item(item_image(null, array('alt' => $itemTitle))); ?>
+                     <?php echo link_to_item(item_image('thumbnail')); ?>
                  </div>
-                 <?php endif; ?>
-               </div>
-               <div class="col-sm-9">
+               <?php endif; ?>
+               <hr>
+               <div class="card-block">
                  <div class="list-item">
+                   <h2><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h2>
 
-                   <h3><?php echo link_to_item($itemTitle, array('class'=>'permalink')); ?></h3>
-                   <?php if ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
-                      <div class="item-description">
-                          <p><?php echo $description; ?></p>
-                      </div>
-                    <?php endif; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <?php endforeach; ?>
+                   <!--<?php if ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>200))): ?>
+                   <div class="item-description">
+                       <p><?php echo $description; ?></p>
+                   </div>
+                 <?php endif; ?>-->
+
+                   <?php if (metadata('item', 'has tags')): ?>
+                   <div class="tags"><p><strong><?php echo __('Tags'); ?>:</strong>
+                       <?php echo tag_string('items'); ?></p>
+                   </div>
+                   <?php endif; ?>
+
+                   <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
+                 </div>
+               </div>
+             </div>
+           <?php endforeach; ?>
+         </div>
         <?php else: ?>
             <p><?php echo __("There are currently no items within this collection."); ?></p>
         <?php endif; ?>
