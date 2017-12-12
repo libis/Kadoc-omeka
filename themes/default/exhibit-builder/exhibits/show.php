@@ -13,9 +13,9 @@ header {
     <div class='row breadcrumbs'>
       <div class="col-sm-12 col-12">
           <p id="simple-pages-breadcrumbs">
-            <span><a href="<?php echo url('/');?>">Home</a></span>
+            <!--<span><a href="<?php echo url('/');?>">Home</a></span>
              > <span><a href="<?php echo url('exhibits/browse');?>">Exhibits</a></span>
-             > <?php echo exhibit_builder_link_to_exhibit($exhibit); ?>
+             > --><?php echo exhibit_builder_link_to_exhibit($exhibit); ?>
              > <?php echo metadata('exhibit_page', 'title'); ?>
            </p>
        </div>

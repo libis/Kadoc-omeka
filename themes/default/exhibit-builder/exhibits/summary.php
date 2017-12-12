@@ -29,10 +29,9 @@ header {
           </div>
         </div>
         <div class='offset-lg-1 col-md-5 col-12'>
-
           <div class="side">
-
             <div class="side-nav">
+              <h4><?php echo __("Table of contents");?></h4>
               <?php echo exhibit_builder_page_nav(); ?>
               <?php
               $pageTree = exhibit_builder_page_tree();
@@ -44,15 +43,6 @@ header {
             <?php endif; ?>
             </div>
           </div>
-          <?php if (($exhibit->cover_image_file_id)): ?>
-              <?php
-                $file = get_record_by_id('File',$exhibit->cover_image_file_id);
-                $cover_url = $file->getWebPath('fullsize');
-              ?>
-              <div class="cover-container"><img class="cover" src="<?php echo $cover_url ?>"></div>
-          <?php elseif ($exhibitImage = record_image($exhibit, 'fullsize')): ?>
-              <div class="cover-container"><?php echo $exhibitImage ?></div>
-          <?php endif; ?>
         </div>
       </div>
   </div>

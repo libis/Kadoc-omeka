@@ -2,6 +2,23 @@
 $pageTitle = __('Browse Items');
 echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
 ?>
+
+<?php
+  //only show featured records on featured page and with filter on
+  $params = $_GET;
+  $show_featured = false;
+
+  if(!isset($params['page'])):
+    $params['page'] = "0";
+  endif;
+
+  if(isset($params['featured'])):
+    if($params['featured']=="1"):
+        $show_featured = true;
+    endif;
+  endif;
+?>
+
 <section class="browse-section">
   <div id="content" class='container' role="main" tabindex="-1">
     <div class='row breadcrumbs'>
@@ -23,26 +40,25 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
              ?>
              <div id="sort-links">
                  <span class="sort-label"><i class="material-icons">&#xE164;</i> <?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
+                 <span class="sort-label"><i class="material-icons">&#xE152;</i>
+                    <?php echo __('Filter: '); ?></span>
+                    <?php if($show_featured):?>
+                      <a href="<?php echo url('items/browse');?>">
+                        <?php echo __("All"); ?>
+                      </a>
+                    <?php else:?>
+                      <a href="<?php echo url('items/browse?featured=1');?>">
+                        <?php echo __("Featured"); ?>
+                      </a>
+                    <?php endif;?>
              </div>
          <?php endif; ?>
      </div>
    </div>
 
+
+    <!--
     <?php
-      //only show featured records on featured page and with filter on
-      $params = $_GET;
-      $show_featured = false;
-
-      if(!isset($params['page'])):
-        $params['page'] = "0";
-      endif;
-
-      if(isset($params['featured'])):
-        if($params['featured']=="no" && ($params['page'] == 0 || $params['page'] == 1)):
-            $show_featured = true;
-        endif;
-      endif;
-
       if($show_featured):
         if($feat_records = libis_get_featured('item')):
           foreach ($feat_records as $feat): ?>
@@ -91,7 +107,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
         <?php endforeach;
         endif;
       endif;
-    ?>
+    ?>-->
 
     <?php //echo item_search_filters(); ?>
     <?php echo pagination_links(); ?>
@@ -99,7 +115,13 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
       <div class="col-md-12">
         <div class="card-columns">
         <?php foreach (loop('items') as $item): ?>
-              <div class="card">
+              <?php
+                $class = "";
+                if($item->featured):
+                  $class = 'featured';
+                endif;
+              ?>
+              <div class="card <?php echo $class;?>">
                 <?php if (metadata('item', 'has files')): ?>
                   <div class="item-img">
                       <?php echo link_to_item(item_image('thumbnail')); ?>
@@ -108,6 +130,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
                 <hr>
                 <div class="card-block">
                   <div class="list-item">
+                    <h3 class="star"><i class="material-icons">&#xE83A;</i><span><?php echo __('Featured');?></span></h3>
                     <h2><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h2>
 
                     <!--<?php if ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>200))): ?>

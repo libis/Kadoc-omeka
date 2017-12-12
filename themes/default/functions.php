@@ -53,10 +53,10 @@ function multi_language_nav()
     $code = $langNamespace->lang;
   endif;
 
-  if($code != "fr"):
-    return 'NL | <a href="'.url("/?lang=fr").'">FR</a>';
+  if($code != "en_US"):
+    return 'NL | <a href="'.url("/?lang=en_US").'">EN</a>';
   else:
-    return '<a href="'.url("/?lang=nl").'">NL</a> | FR';
+    return '<a href="'.url("/?lang=nl").'">NL</a> | EN';
   endif;
 }
 

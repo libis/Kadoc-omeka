@@ -8041,6 +8041,7 @@ header {
   margin-left: 10px;
   margin-right: 20px;
   color: rgba(49, 57, 112, 0.6) !important;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 991px) {
@@ -8151,7 +8152,7 @@ header {
 }
 
 .jumbotron .slogan {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   text-transform: uppercase;
   background: rgba(49, 57, 112, 0.8);
   padding: 1rem 2rem;
@@ -8613,7 +8614,14 @@ header {
 .exhibit-show-section #sort-links i,
 .simple-page-section #sort-links i {
   vertical-align: text-bottom;
-  font-size: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.browse-section #sort-links a,
+.exhibit-show-section #sort-links a,
+.simple-page-section #sort-links a {
+  text-decoration: underline;
 }
 
 .browse-section #sort-links #sort-links-list,
@@ -8629,12 +8637,6 @@ header {
   display: inline;
   list-style: none;
   margin-right: 8px;
-}
-
-.browse-section #sort-links #sort-links-list li a,
-.exhibit-show-section #sort-links #sort-links-list li a,
-.simple-page-section #sort-links #sort-links-list li a {
-  text-decoration: underline;
 }
 
 .browse-section #item-filters ul,
@@ -8664,7 +8666,7 @@ header {
 .browse-section .feat-row,
 .exhibit-show-section .feat-row,
 .simple-page-section .feat-row {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   padding: 2rem;
   background: rgba(49, 57, 112, 0.05);
 }
@@ -8672,7 +8674,7 @@ header {
 .browse-section .feat-row .list-item h2,
 .exhibit-show-section .feat-row .list-item h2,
 .simple-page-section .feat-row .list-item h2 {
-  font-size: 2.2rem;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
   font-weight: bold;
 }
@@ -8763,21 +8765,43 @@ header {
 .browse-section .list-row,
 .exhibit-show-section .list-row,
 .simple-page-section .list-row {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid rgba(49, 57, 112, 0.1);
+  margin-bottom: 1rem;
 }
 
-.browse-section .list-row .credits,
-.exhibit-show-section .list-row .credits,
-.simple-page-section .list-row .credits {
+.browse-section .list-row .list-item,
+.exhibit-show-section .list-row .list-item,
+.simple-page-section .list-row .list-item {
+  padding: 1rem;
+  border: 1px solid rgba(49, 57, 112, 0.1);
+  border-top: none;
+}
+
+.browse-section .list-row .list-item h2,
+.exhibit-show-section .list-row .list-item h2,
+.simple-page-section .list-row .list-item h2 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.browse-section .list-row .list-item h2 a,
+.exhibit-show-section .list-row .list-item h2 a,
+.simple-page-section .list-row .list-item h2 a {
+  color: #313970;
+}
+
+.browse-section .list-row .list-item .credits,
+.exhibit-show-section .list-row .list-item .credits,
+.simple-page-section .list-row .list-item .credits {
   font-style: italic;
+  font-size: 0.9rem;
   color: rgba(49, 57, 112, 0.8);
 }
 
-.browse-section .list-row .credits p,
-.exhibit-show-section .list-row .credits p,
-.simple-page-section .list-row .credits p {
+.browse-section .list-row .list-item .credits p,
+.exhibit-show-section .list-row .list-item .credits p,
+.simple-page-section .list-row .list-item .credits p {
   font-family: "Roboto", sans-serif;
+  margin-bottom: 0;
 }
 
 .browse-section .list-row .dummy,
@@ -8796,12 +8820,10 @@ header {
   }
 }
 
-@media (max-width: 767px) {
-  .browse-section .list-row .image img,
-  .exhibit-show-section .list-row .image img,
-  .simple-page-section .list-row .image img {
-    margin-bottom: 1rem;
-  }
+.browse-section .list-row .image img,
+.exhibit-show-section .list-row .image img,
+.simple-page-section .list-row .image img {
+  border-bottom: 2px solid #313970;
 }
 
 .browse-section .list-row .view-items-link a,
@@ -8833,14 +8855,6 @@ header {
 .simple-page-section .list-row .list-footer a:hover {
   color: white !important;
   background: #29305e;
-}
-
-.browse-section .list-row:last-of-type,
-.exhibit-show-section .list-row:last-of-type,
-.simple-page-section .list-row:last-of-type {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
 }
 
 .browse-section .card-columns,
@@ -8894,6 +8908,67 @@ header {
 .simple-page-section .card-columns .card hr {
   border: 2px solid #313970;
   margin: 0;
+}
+
+.browse-section .card-columns .card .star,
+.exhibit-show-section .card-columns .card .star,
+.simple-page-section .card-columns .card .star {
+  display: none;
+}
+
+.browse-section .card-columns .featured,
+.exhibit-show-section .card-columns .featured,
+.simple-page-section .card-columns .featured {
+  background: #313970;
+}
+
+.browse-section .card-columns .featured h2,
+.exhibit-show-section .card-columns .featured h2,
+.simple-page-section .card-columns .featured h2 {
+  padding: 0.5rem 0 1rem 0;
+  font-weight: bold;
+}
+
+.browse-section .card-columns .featured h2 a:hover,
+.exhibit-show-section .card-columns .featured h2 a:hover,
+.simple-page-section .card-columns .featured h2 a:hover {
+  color: white !important;
+  text-decoration: underline;
+}
+
+.browse-section .card-columns .featured .card-block,
+.exhibit-show-section .card-columns .featured .card-block,
+.simple-page-section .card-columns .featured .card-block {
+  padding: 0 1rem;
+  color: white;
+  position: relative;
+}
+
+.browse-section .card-columns .featured .card-block .star,
+.exhibit-show-section .card-columns .featured .card-block .star,
+.simple-page-section .card-columns .featured .card-block .star {
+  font-size: 0.7rem;
+  line-height: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  display: block;
+  margin-bottom: 0;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+.browse-section .card-columns .featured .card-block .star i,
+.exhibit-show-section .card-columns .featured .card-block .star i,
+.simple-page-section .card-columns .featured .card-block .star i {
+  font-size: 0.8rem;
+  vertical-align: bottom;
+  margin-right: 5px;
+}
+
+.browse-section .card-columns .featured .card-block a,
+.exhibit-show-section .card-columns .featured .card-block a,
+.simple-page-section .card-columns .featured .card-block a {
+  color: white;
 }
 
 .browse-section .pagination,
@@ -9025,6 +9100,13 @@ header {
 .exhibit-show-section .side,
 .simple-page-section .side {
   margin-top: 0rem;
+}
+
+.browse-section .side h4,
+.exhibit-show-section .side h4,
+.simple-page-section .side h4 {
+  color: #313970;
+  font-size: 1.3rem;
 }
 
 .browse-section .side .side-nav,
@@ -9211,67 +9293,66 @@ footer {
   padding: 2rem 0 2rem 0;
   color: rgba(52, 58, 64, 0.7);
   font-family: "Roboto", sans-serif;
+  overflow: auto;
 }
 
-footer .co {
-  margin-bottom: 1rem !important;
+footer #footer-text {
+  overflow: auto;
 }
 
-footer .co .col-content {
+footer .logo-kadoc {
+  float: left;
+  max-width: 100px;
+  margin-right: 1.5rem;
+  margin-top: 3px;
+}
+
+footer .logo-kadoc img {
+  width: 100%;
+}
+
+footer .col-content {
   margin-bottom: 0rem !important;
-  padding-bottom: 0rem !important;
+  padding-bottom: 1rem !important;
+  float: left;
 }
 
-footer .co .col-content a {
+footer .col-content span {
+  color: #313970;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+}
+
+footer .col-content a {
   color: rgba(52, 58, 64, 0.55);
   text-decoration: underline;
 }
 
-@media (max-width: 767px) {
-  footer .co {
-    padding: 0 1rem;
-    margin: 0;
-    height: auto;
-  }
-  footer .co p {
-    font-size: 0.9rem;
-    text-shadow: none;
-  }
-}
-
-footer h4 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 1.3rem;
-}
-
-footer img {
-  height: 60px;
+footer .col-content img {
+  height: 40px;
   width: auto !important;
   margin-bottom: 0.5rem !important;
   margin-right: 15px !important;
 }
 
 @media (max-width: 1199px) {
-  footer img {
-    height: 45px;
+  footer .col-content img {
+    height: 40px;
   }
 }
 
-footer img:first-of-type {
+footer .col-content img:first-of-type {
   margin-left: 0 !important;
 }
 
-footer ul {
+footer .col-content ul {
   padding-left: 0;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem !important;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  margin-top: 1rem;
+  margin-bottom: 1rem !important;
   padding: 0.8rem 0 !important;
 }
 
-footer ul li {
+footer .col-content ul li {
   list-style: none;
   border: none !important;
   font-size: 0.9rem;
@@ -9279,9 +9360,28 @@ footer ul li {
   margin-right: 10px !important;
 }
 
-footer ul li a {
+footer .col-content ul li a {
   color: rgba(52, 58, 64, 0.55) !important;
   text-decoration: none !important;
+}
+
+footer p {
+  font-size: 0.8rem;
+  text-shadow: none;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+@media (max-width: 767px) {
+  footer {
+    padding: 0 1rem;
+    margin: 0;
+    height: auto;
+  }
+  footer p {
+    font-size: 0.9rem;
+    text-shadow: none;
+  }
 }
 
 footer a:hover {
@@ -9289,14 +9389,9 @@ footer a:hover {
   text-decoration: none;
 }
 
-footer .gebouw img {
-  width: 100% !important;
-  height: auto !important;
-  margin: 0 !important;
-}
-
 footer .copyright {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
+  clear: both;
   color: rgba(52, 58, 64, 0.4);
 }
 

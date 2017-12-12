@@ -97,9 +97,9 @@ class MultilanguagePlugin extends Omeka_Plugin_AbstractPlugin
         if ($lang == "nl"):
             $this->locale_code = "nl_BE";
             $langNamespace->lang = "nl_BE";
-        elseif($lang == "fr"):
-            $this->locale_code = "fr";
-            $langNamespace->lang = "fr";
+        elseif($lang == "en_US"):
+            $this->locale_code = "en_US";
+            $langNamespace->lang = "en_US";
         endif;
 
 
