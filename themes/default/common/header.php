@@ -21,7 +21,7 @@
 
     <!-- Stylesheets -->
     <?php
-      queue_css_file(array('iconfonts', 'app'));echo head_css();
+      queue_css_file(array('iconfonts', 'app','lightbox'));echo head_css();
       echo theme_header_background();
     ?>
     <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i|Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
@@ -35,6 +35,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="<?php echo WEB_PUBLIC_THEME;?>/default/javascripts/bootstrap.min.js"></script>
     <?php queue_js_file("map");?>
+    <?php queue_js_file("lightbox");?>
     <?php echo head_js(false);?>
 
 </head>
