@@ -9345,65 +9345,71 @@ footer {
   color: rgba(52, 58, 64, 0.7);
   font-family: "Roboto", sans-serif;
   overflow: auto;
+  text-align: right;
 }
 
 footer #footer-text {
   overflow: auto;
 }
 
-footer .logo-kadoc {
-  float: left;
+footer #footer-text .footer-row {
+  clear: both;
+  overflow: auto;
+}
+
+footer #footer-text .footer-row .logo-kadoc {
+  float: right;
   max-width: 100px;
-  margin-right: 1.5rem;
+  margin-left: 1.5rem;
   margin-top: 3px;
 }
 
-footer .logo-kadoc img {
+footer #footer-text .footer-row .logo-kadoc img {
   width: 100%;
 }
 
-footer .col-content {
+footer #footer-text .footer-row .col-content {
   margin-bottom: 0rem !important;
   padding-bottom: 1rem !important;
-  float: left;
+  float: right;
 }
 
-footer .col-content span {
+footer #footer-text .footer-row .col-content span {
   color: #313970;
   font-weight: bold;
   font-family: "Roboto", sans-serif;
 }
 
-footer .col-content a {
+footer #footer-text .footer-row .col-content a {
   color: rgba(52, 58, 64, 0.55);
   text-decoration: underline;
 }
 
-footer .col-content img {
+footer #footer-text .footer-row .col-content img {
   height: 40px;
   width: auto !important;
   margin-bottom: 0.5rem !important;
-  margin-right: 15px !important;
+  margin-left: 15px !important;
 }
 
 @media (max-width: 1199px) {
-  footer .col-content img {
+  footer #footer-text .footer-row .col-content img {
     height: 40px;
   }
 }
 
-footer .col-content img:first-of-type {
-  margin-left: 0 !important;
+footer #footer-text .footer-row .col-content img:first-of-type {
+  margin-right: 0 !important;
 }
 
-footer .col-content ul {
+footer #footer-text .footer-row .col-content ul {
   padding-left: 0;
   margin-top: 1rem;
   margin-bottom: 1rem !important;
   padding: 0.8rem 0 !important;
 }
 
-footer .col-content ul li {
+footer #footer-text .footer-row .col-content ul li {
   list-style: none;
   border: none !important;
   font-size: 0.9rem;
@@ -9411,16 +9417,14 @@ footer .col-content ul li {
   margin-right: 10px !important;
 }
 
-footer .col-content ul li a {
+footer #footer-text .footer-row .col-content ul li a {
   color: rgba(52, 58, 64, 0.55) !important;
   text-decoration: none !important;
 }
 
-footer p {
+footer #footer-text .footer-row .col-content p {
   font-size: 0.8rem;
   text-shadow: none;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #eee;
   font-family: "Roboto", sans-serif;
 }
 
