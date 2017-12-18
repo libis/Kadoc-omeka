@@ -7,7 +7,7 @@ $collectionTitle = metadata('collection', 'display_title');
 <section class="browse-section">
   <div id="content" class='container' role="main" tabindex="-1">
     <div class='row breadcrumbs'>
-      <div class="col-sm-12 col-xs-12">
+      <div class="col-sm-12 col-12">
         <p id="simple-pages-breadcrumbs">
           <span><a href="<?php echo url('/');?>">Home</a></span>
            > <span><a href="<?php echo url('/collections/browse');?>"><?php echo __('Collections');?></a></span>
@@ -16,7 +16,7 @@ $collectionTitle = metadata('collection', 'display_title');
        </div>
     </div>
    <div class='row top'>
-     <div class="col-md-10 col-xs-12">
+     <div class="col-md-10 col-12">
        <h1><?php echo $collectionTitle; ?></h1>
        <?php if (metadata('collection', array('Dublin Core', 'Description'))): ?>
          <div class="collection-description">
@@ -65,8 +65,10 @@ $collectionTitle = metadata('collection', 'display_title');
         <?php endif; ?>
       </div>
     </div>
+    <div class="plugins">
+      <?php fire_plugin_hook('public_collections_show', array('view' => $this, 'collection' => $collection)); ?>
+    </div>
   </div>
 </section>
-<?php fire_plugin_hook('public_collections_show', array('view' => $this, 'collection' => $collection)); ?>
 
 <?php echo foot(); ?>

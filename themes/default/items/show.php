@@ -84,6 +84,9 @@
               </ul>
             </div>
         </div>
+        <div class="plugins">
+          <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
+        </div>
     </div>
 </section>
 <?php echo foot(); ?>

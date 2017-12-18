@@ -9337,6 +9337,147 @@ header {
   height: 500px;
 }
 
+.plugins {
+  margin-top: 2rem;
+}
+
+.plugins h2 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #313970;
+}
+
+.plugins .addthis_toolbox {
+  margin-bottom: 1.5rem;
+}
+
+.plugins #comments-container .comment-body {
+  margin-left: 100px !important;
+  margin-top: 12px !important;
+  min-height: 60px;
+  padding: 6px;
+}
+
+.plugins #comment-form {
+  clear: both;
+  padding-top: 1em;
+}
+
+.plugins #comment-form #submit {
+  clear: both;
+  display: block;
+  color: #313970;
+  background: white;
+  border: 1px solid rgba(49, 57, 112, 0.2);
+  padding: 0.3rem 0.5rem;
+}
+
+.plugins .commenting-field {
+  margin-bottom: 1em;
+}
+
+.plugins .commenting-field textarea {
+  border: 1px solid rgba(134, 142, 150, 0.2);
+  background: rgba(49, 57, 112, 0.02);
+  padding: 0.3rem 0.5rem;
+  max-height: 200px !important;
+}
+
+.plugins .commenting-field #send {
+  background: #313970;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.plugins .commenting-field label, .plugins .commenting-field input {
+  display: inline-block !important;
+  vertical-align: middle;
+}
+
+.plugins .commenting-field input {
+  border: 1px solid rgba(134, 142, 150, 0.2);
+  background: rgba(49, 57, 112, 0.02);
+  padding: 0.3rem 0.5rem;
+}
+
+.plugins .commenting-field label {
+  max-width: 200px;
+  width: 200px;
+  margin: 0;
+  color: #868e96;
+}
+
+.plugins .commenting-field label[for="captcha"] {
+  width: 100%;
+}
+
+.plugins .commenting-field input[type="text"] {
+  width: 58%;
+  margin: 0;
+}
+
+.plugins .commenting-explanation {
+  margin: 1em 0;
+  font-size: 0.8rem;
+}
+
+.plugins div#comments-container div.comment-children {
+  margin-left: 18px !important;
+}
+
+.plugins div.comment {
+  margin-left: 12px;
+  margin-top: 3px;
+  margin-bottom: 6px;
+  clear: both;
+  min-height: 80px;
+  width: 60%;
+  min-width: 400px;
+}
+
+.plugins div.comment-author {
+  float: left;
+  margin: 0 6px;
+  width: 100px;
+}
+
+.plugins .comment-flag, .plugins .comment-unflag {
+  float: left;
+  cursor: pointer;
+}
+
+.plugins div.comment-flagged {
+  background-color: pink;
+}
+
+.plugins div.comment-body p {
+  font-size: 1em;
+}
+
+.plugins .comment-reply {
+  cursor: pointer;
+  float: right;
+}
+
+.plugins p.comment-author-name {
+  margin: 0;
+}
+
+.plugins div.success {
+  font-size: 1.8em;
+}
+
+.plugins span.comment-flag, .plugins span.comment-unflag {
+  padding-left: 6px;
+  cursor: pointer;
+}
+
+.plugins a.mceButton {
+  overflow: inherit;
+}
+
 footer {
   background: white;
   border-top: 1px solid rgba(49, 57, 112, 0.1);

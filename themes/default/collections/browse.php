@@ -128,9 +128,11 @@
         </div>
       <?php endforeach; ?>
     </div>
+
+    <?php fire_plugin_hook('public_collections_browse', array('collections'=>$collections, 'view' => $this)); ?>
+
   </div>
 </section>
 
-<?php fire_plugin_hook('public_collections_browse', array('collections'=>$collections, 'view' => $this)); ?>
 
 <?php echo foot(); ?>
