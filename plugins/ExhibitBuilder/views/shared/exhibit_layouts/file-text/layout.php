@@ -11,23 +11,11 @@ $captionPosition = isset($options['captions-position'])
 ?>
 <div class='row content'>
   <div class="col-12 col-md-6">
-    <div class='row'>
-      <div class="col-12">
-          <hr align="left">
-      </div>
-    </div>
-    <div class='row'>
-      <div class="col-12">
-        <h1><span class="exhibit-page"><?php echo metadata('exhibit_page', 'title'); ?></h1>
-      </div>
-    </div>
-    <div class='row'>
-      <div class="col-12">
-          <?php echo $text; ?>
-      </div>
-    </div>
+    <hr align="left">
+    <h1><span class="exhibit-page"><?php echo metadata('exhibit_page', 'title'); ?></h1>
+    <?php echo $text; ?>
   </div>
-  <div class="offset-md-1 col-12 col-md-5">
+  <div class="col-12 col-md-6">
     <div class="exhibit-items <?php echo $position; ?> <?php echo $size; ?> captions-<?php echo $captionPosition; ?>">
         <?php foreach ($attachments as $attachment):
             $item = $attachment->getItem();

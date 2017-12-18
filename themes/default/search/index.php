@@ -1,19 +1,15 @@
 <?php
-$pageTitle = __('Zoek') . ' ' . __('(%s)', $total_results);
+$pageTitle = __('Search') . ' ' . __('(%s)', $total_results);
 echo head(array('title' => $pageTitle, 'bodyclass' => 'search'));
 $searchRecordTypes = get_search_record_types();
 ?>
 <section class="browse-section">
   <div class="container">
     <!-- Content -->
-    <div class='row top'>
-      <div class="col-sm-12 col-xs-12">
+    <div class='top'>
         <h1><?php echo $pageTitle; ?></h1>
-      </div>
     </div>
-    <div class='row content search-results'>
-      <div class="col-sm-12 col-xs-12">
-        <?php //echo search_filters(); ?>
+    <div class='content search-results'>
         <?php if ($total_results): ?>
             <?php echo pagination_links(); ?>
             <?php $filter = new Zend_Filter_Word_CamelCaseToDash; ?>
@@ -43,8 +39,7 @@ $searchRecordTypes = get_search_record_types();
                   </div>
                 </div>
               </div>
-              <?php endforeach; ?>
-          </div>
+            <?php endforeach; ?>
         </div>
         <?php echo pagination_links(); ?>
         <?php else: ?>

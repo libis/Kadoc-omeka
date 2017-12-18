@@ -12,7 +12,7 @@
               </div>
             </div>
             <div class="col-footer">
-              <a href="<?php echo url("exhibits");?>">Bezoek onze tentoonstellingen</a>
+              <a href="<?php echo url("exhibits");?>"><?php echo __('Visit our exhibits');?></a>
             </div>
         </div>
         <div class="co col-sm-6 col-md-6 col-lg-4">
@@ -24,11 +24,11 @@
               </div>
             </div>
             <div class="col-footer">
-              <a href="<?php echo url("collections");?>">Meer over onze collecties</a>
+              <a href="<?php echo url("collections");?>"><?php echo __('Discover our collections');?></a>
             </div>
         </div>
         <div class="co col-md-6 col-sm-6 col-lg-4">
-          <a class="block-link" href="<?php echo url("items");?>"><h2>Erfgoed in de kijker</h2></a>
+          <a class="block-link" href="<?php echo url("items");?>"><h2><?php echo __('Featured heritage item');?></h2></a>
             <div class="col-content">
               <a class="block-link" href="<?php echo url("items");?>"><img src="<?php echo img('placeholder1.jpg');?>"></a>
               <div class="summary">
@@ -36,7 +36,7 @@
               </div>
             </div>
             <div class="col-footer">
-              <a href="<?php echo url("items");?>">Lees meer</a>
+              <a href="<?php echo url("items");?>"><?php echo __('Discover our heritage items');?></a>
             </div>
         </div>
       </div>

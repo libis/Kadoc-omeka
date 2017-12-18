@@ -69,9 +69,6 @@
             <div class="row">
               <div class="co-slogan col-md-7 col-lg-6">
                 <div class="slogan">
-                  <?php
-                    $description = option('description');
-                  ?>
                   <?php if ( $bodyclass == 'exhibits'): ?>
                       <?php $title_exhibit = explode(' &middot; ', $title);?>
                       <p class="type"><?php echo __('Exhibit'); ?></p>
@@ -79,8 +76,8 @@
                   <?php elseif ( $bodyclass == 'exhibits summary'): ?>
                       <p class="type"><?php echo __('Exhibit'); ?></p>
                       <p><span><?php echo $title; ?></span></p>
-                  <?php elseif($description):?>
-                      <p><span><?php echo $description; ?></span></p>
+                  <?php else:?>
+                      <p><span><?php echo __("Portal for<br>Religion, culture<br> and society"); ?></span></p>
                   <?php endif; ?>
                 </div>
               </div>
@@ -88,5 +85,4 @@
           </section>
         </div>
       </div>
-
     </header>

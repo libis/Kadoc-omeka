@@ -6,11 +6,10 @@ header {
 </style>
 <section class="exhibit-show-section">
   <div id="content" class='container' role="main" tabindex="-1">
-
       <div class='row'>
-        <div class='col-md-7 col-lg-6 col-12'>
+        <div class='col-md-7 col-lg-7 col-12'>
           <div class="summary-text">
-            <h1>Inleiding</h1>
+            <h1><?php echo __("Introduction");?></h1>
             <?php if (($exhibitCredits = metadata('exhibit', 'credits'))): ?>
                 <div class="exhibit-credits">
                       <h3><?php echo $exhibitCredits; ?></h3>
@@ -19,16 +18,15 @@ header {
 
             <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
                 <div class="exhibit-description">
-
                     <?php echo $exhibitDescription; ?>
                 </div>
             <?php endif; ?>
             <div class="start">
-              <a href="<?php echo $exhibit->getFirstTopPage()->getRecordUrl();?>"><?php echo __("Start tentoonstelling");?></a>
+              <a href="<?php echo $exhibit->getFirstTopPage()->getRecordUrl();?>"><?php echo __("Start exhibit");?></a>
             </div>
           </div>
         </div>
-        <div class='offset-lg-1 col-md-5 col-12'>
+        <div class='col-md-5 col-12'>
           <div class="side">
             <div class="side-nav">
               <h4><?php echo __("Table of contents");?></h4>
