@@ -40,7 +40,19 @@ function social_bookmarking_get_default_service_settings()
 function social_bookmarking_get_services_xml()
 {
     static $xml = null;
+
     if (!$xml) {
+        $PROXY_HOST = "icts-http-gw.cc.kuleuven.be:8080"; // Proxy server address
+
+        stream_context_set_default(
+           array(
+              'http' => array(
+               'proxy' => "tcp://$PROXY_HOST",
+               'request_fulluri' => true
+              )
+           )
+        );
+        
         $file = file_get_contents(SocialBookmarkingPlugin::ADDTHIS_SERVICES_URL);
         $xml = new SimpleXMLElement($file);
     }
