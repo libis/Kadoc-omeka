@@ -43,11 +43,11 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
                  <span class="sort-label"><i class="material-icons">&#xE152;</i>
                     <?php echo __('Filter: '); ?></span>
                     <?php if($show_featured):?>
-                      <a href="<?php echo url('collections/browse');?>">
+                      <a href="<?php echo url('items/browse');?>">
                         <?php echo __("All"); ?>
                       </a>
                     <?php else:?>
-                      <a href="<?php echo url('collections/browse?featured=1');?>">
+                      <a href="<?php echo url('items/browse?featured=1');?>">
                         <?php echo __("Featured"); ?>
                       </a>
                     <?php endif;?>
