@@ -40,6 +40,15 @@ header {
               </nav>
             <?php endif; ?>
             </div>
+
+          </div>
+          <div class="plugins">
+            <?php
+              $url = current_url();
+              $title = strip_formatting(metadata($exhibit, 'title'));
+              $description = strip_formatting(metadata($exhibit, 'description', array('no_escape' => true)));
+              echo social_bookmarking_toolbar($url, $title, $description);
+            ?>
           </div>
         </div>
       </div>

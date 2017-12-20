@@ -2,6 +2,7 @@
 echo head(array(
     'title' => metadata('exhibit_page', 'title').' &middot; '.metadata('exhibit', 'title'),
     'bodyclass' => 'exhibits', ));
+$last_page = false;
 ?>
 <style>
 header {
@@ -12,9 +13,7 @@ header {
   <div id="content" class='container' role="main" tabindex="-1">
     <div class='breadcrumbs'>
         <p id="simple-pages-breadcrumbs">
-          <!--<span><a href="<?php echo url('/');?>">Home</a></span>
-           > <span><a href="<?php echo url('exhibits/browse');?>">Exhibits</a></span>
-           > --><?php echo exhibit_builder_link_to_exhibit($exhibit); ?>
+           <?php echo exhibit_builder_link_to_exhibit($exhibit); ?>
            > <?php echo metadata('exhibit_page', 'title'); ?>
          </p>
     </div>
@@ -33,10 +32,26 @@ header {
         <div id="exhibit-nav-next">
         <?php echo $nextLink; ?>
         </div>
+        <?php else:
+          $last_page = true;
+        ?>
         <?php endif; ?>
         <div id="exhibit-nav-up">
         <?php echo exhibit_builder_page_trail(); ?>
         </div>
+    </div>
+    <div class="plugins">
+      <?php
+        $url = current_url();
+        $title = strip_formatting(metadata('exhibit_page', 'title'));
+        $description = strip_formatting(metadata($exhibit, 'description', array('no_escape' => true)));
+        echo social_bookmarking_toolbar($url, $title, $description);
+      ?>
+      <?php
+        if($last_page):
+          CommentingPlugin::showComments();
+        endif;
+      ?>
     </div>
   </div>
 </section>
