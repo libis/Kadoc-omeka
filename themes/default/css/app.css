@@ -8609,6 +8609,19 @@ header {
   font-family: "Roboto", sans-serif;
 }
 
+.browse-section .captions-center .exhibit-item-caption,
+.exhibit-show-section .captions-center .exhibit-item-caption,
+.simple-page-section .captions-center .exhibit-item-caption {
+  margin: 0 auto;
+}
+
+.browse-section .captions-right .exhibit-item-caption,
+.exhibit-show-section .captions-right .exhibit-item-caption,
+.simple-page-section .captions-right .exhibit-item-caption {
+  float: right;
+  width: 200px;
+}
+
 .browse-section #sort-links,
 .exhibit-show-section #sort-links,
 .simple-page-section #sort-links {
