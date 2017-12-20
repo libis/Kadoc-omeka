@@ -7924,6 +7924,10 @@ a:hover {
   color: #313970 !important;
 }
 
+.btn {
+  cursor: pointer;
+}
+
 header {
   z-index: 1;
   background: white;
