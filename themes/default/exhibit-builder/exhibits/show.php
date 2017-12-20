@@ -22,6 +22,19 @@ header {
       <?php exhibit_builder_render_exhibit_page(); ?>
     </div>
 
+    <?php if ($prevLink = exhibit_builder_link_to_previous_page('<i class="material-icons">&#xE314;</i>')): ?>
+    <div id="abs-exhibit-nav-prev">
+    <?php echo $prevLink; ?>
+    </div>
+    <?php endif; ?>
+    <?php if ($nextLink = exhibit_builder_link_to_next_page('<i class="material-icons">&#xE315;</i>')): ?>
+    <div id="abs-exhibit-nav-next">
+    <?php echo $nextLink; ?>
+    </div>
+    <?php else:
+      $last_page = true;
+    endif; ?>
+
     <div id="exhibit-page-navigation">
         <?php if ($prevLink = exhibit_builder_link_to_previous_page()): ?>
         <div id="exhibit-nav-prev">
@@ -34,8 +47,7 @@ header {
         </div>
         <?php else:
           $last_page = true;
-        ?>
-        <?php endif; ?>
+        endif; ?>
         <div id="exhibit-nav-up">
         <?php echo exhibit_builder_page_trail(); ?>
         </div>

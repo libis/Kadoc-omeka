@@ -9103,6 +9103,43 @@ header {
   text-align: justify;
 }
 
+.browse-section #content,
+.exhibit-show-section #content,
+.simple-page-section #content {
+  position: relative;
+}
+
+.browse-section #abs-exhibit-nav-prev, .browse-section #abs-exhibit-nav-next,
+.exhibit-show-section #abs-exhibit-nav-prev,
+.exhibit-show-section #abs-exhibit-nav-next,
+.simple-page-section #abs-exhibit-nav-prev,
+.simple-page-section #abs-exhibit-nav-next {
+  line-height: 1;
+  position: absolute;
+  top: 40%;
+  background: rgba(49, 57, 112, 0.05);
+}
+
+.browse-section #abs-exhibit-nav-prev i, .browse-section #abs-exhibit-nav-next i,
+.exhibit-show-section #abs-exhibit-nav-prev i,
+.exhibit-show-section #abs-exhibit-nav-next i,
+.simple-page-section #abs-exhibit-nav-prev i,
+.simple-page-section #abs-exhibit-nav-next i {
+  font-size: 6rem;
+}
+
+.browse-section #abs-exhibit-nav-prev,
+.exhibit-show-section #abs-exhibit-nav-prev,
+.simple-page-section #abs-exhibit-nav-prev {
+  left: -5.5rem;
+}
+
+.browse-section #abs-exhibit-nav-next,
+.exhibit-show-section #abs-exhibit-nav-next,
+.simple-page-section #abs-exhibit-nav-next {
+  right: -5.5rem;
+}
+
 .browse-section .intro,
 .exhibit-show-section .intro,
 .simple-page-section .intro {

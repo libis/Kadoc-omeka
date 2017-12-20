@@ -12,7 +12,8 @@
     width: 100%;
     margin: 2rem 0 0 0;
     padding:1rem;
-    background: #F4F5F8;
+    border-top: 1px solid #F4F5F8;
+    border-bottom: 1px solid #F4F5F8;
     line-height: 1.2;
     overflow: auto;
 }
