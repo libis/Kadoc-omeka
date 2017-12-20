@@ -167,7 +167,13 @@ class CommentingPlugin extends Omeka_Plugin_AbstractPlugin
         echo "<div class='row'>";
         echo "<div class='col-lg-8'>";
         echo "<div id='comments-container'>";
-        echo "<div id='comment-main-container'>";
+        ?>
+        <button class="btn" type="button" data-toggle="collapse" data-target="#comment-main-container" aria-expanded="false" aria-controls="comment-main-container">
+            <?php echo __('Comments'); ?>
+        </button>
+
+    <?php
+        echo "<div id='comment-main-container' class='collapse'>";
         if( (get_option('commenting_allow_public') == 1)
                 || (get_option('commenting_allow_public_view') == 1)
                 || is_allowed('Commenting_Comment', 'show') ) {
@@ -175,13 +181,13 @@ class CommentingPlugin extends Omeka_Plugin_AbstractPlugin
             $comments = isset($args['comments']) ? $args['comments'] : $view->getComments($options);
             echo $view->partial('comments.php', array('comments'=>$comments, 'threaded'=>$options['threaded']));
         }
-        echo "</div>";
+
 
         if( (get_option('commenting_allow_public') == 1)
                 || is_allowed('Commenting_Comment', 'add') ) {
             echo $view->getCommentForm();
         }
-        echo "</div></div></div>";
+        echo "</div></div></div></div>";
     }
 
     public function hookPublicItemsShow($args)

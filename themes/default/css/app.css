@@ -8442,7 +8442,8 @@ header {
 
 .metadata-section .item-pagination {
   clear: both;
-  padding: 1rem 2rem;
+  padding: 1rem 0rem;
+  margin: 0;
 }
 
 .metadata-section .item-pagination .next {
@@ -9343,12 +9344,38 @@ header {
 
 .plugins h2 {
   font-size: 1.1rem;
+  margin-bottom: 1rem;
   font-weight: bold;
   color: #313970;
+  display: block;
 }
 
 .plugins .addthis_toolbox {
   margin-bottom: 1.5rem;
+}
+
+.plugins #comments-container #comment-main-container {
+  background: rgba(49, 57, 112, 0.05);
+}
+
+.plugins #comments-container button {
+  padding: 0.5rem;
+  margin: 0;
+  background: rgba(49, 57, 112, 0.2);
+  color: #313970;
+  border-bottom: 2px solid rgba(49, 57, 112, 0.6);
+  border-radius: 3px;
+}
+
+.plugins #comments-container button:focus {
+  box-shadow: none;
+}
+
+.plugins #comments-container button[aria-expanded="true"] {
+  border-radius: 3px 3px 0 0;
+  background: rgba(49, 57, 112, 0.1);
+  color: #313970;
+  border-bottom: 2px solid rgba(49, 57, 112, 0.2);
 }
 
 .plugins #comments-container .comment-body {
@@ -9360,27 +9387,24 @@ header {
 
 .plugins #comment-form {
   clear: both;
-  padding-top: 1em;
+  background: rgba(49, 57, 112, 0.02);
+  padding: 2em;
 }
 
 .plugins #comment-form #submit {
   clear: both;
   display: block;
-  color: #313970;
-  background: white;
-  border: 1px solid rgba(49, 57, 112, 0.2);
-  padding: 0.3rem 0.5rem;
+  border: none;
+  padding: 0.5rem;
+  margin: 0;
+  background: #313970;
+  color: white;
+  border-bottom: 2px solid rgba(49, 57, 112, 0.6);
+  border-radius: 3px;
 }
 
 .plugins .commenting-field {
   margin-bottom: 1em;
-}
-
-.plugins .commenting-field textarea {
-  border: 1px solid rgba(134, 142, 150, 0.2);
-  background: rgba(49, 57, 112, 0.02);
-  padding: 0.3rem 0.5rem;
-  max-height: 200px !important;
 }
 
 .plugins .commenting-field #send {
@@ -9389,6 +9413,12 @@ header {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  padding: 0.5rem;
+  margin: 0;
+  background: rgba(49, 57, 112, 0.2);
+  color: #313970;
+  border-bottom: 2px solid rgba(49, 57, 112, 0.6);
+  border-radius: 3px;
 }
 
 .plugins .commenting-field label, .plugins .commenting-field input {
@@ -9398,7 +9428,7 @@ header {
 
 .plugins .commenting-field input {
   border: 1px solid rgba(134, 142, 150, 0.2);
-  background: rgba(49, 57, 112, 0.02);
+  background: rgba(255, 255, 255, 0.9);
   padding: 0.3rem 0.5rem;
 }
 
@@ -9406,7 +9436,6 @@ header {
   max-width: 200px;
   width: 200px;
   margin: 0;
-  color: #868e96;
 }
 
 .plugins .commenting-field label[for="captcha"] {
@@ -9421,6 +9450,7 @@ header {
 .plugins .commenting-explanation {
   margin: 1em 0;
   font-size: 0.8rem;
+  color: #868e96;
 }
 
 .plugins div#comments-container div.comment-children {
