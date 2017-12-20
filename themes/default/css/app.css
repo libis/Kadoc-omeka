@@ -8364,18 +8364,15 @@ header {
   padding-top: 0;
 }
 
-.item-section #itemfiles {
+.item-section .item-files {
+  margin-top: 1.5rem;
   overflow: hidden;
-  padding: 1rem 1rem;
+  padding: 2rem;
   background: rgba(52, 58, 64, 0.05);
 }
 
-.item-section #itemfiles img {
+.item-section .item-files img {
   width: 100%;
-}
-
-.item-section #itemfiles .image {
-  padding: 1rem;
 }
 
 .metadata-section {
@@ -8417,10 +8414,11 @@ header {
   width: 200px;
   float: left;
   font-size: 1rem;
-  font-weight: bold;
   text-align: right;
   margin-right: 20px;
   line-height: 1.5;
+  margin-bottom: 0;
+  color: rgba(52, 58, 64, 0.9);
 }
 
 @media (max-width: 767px) {
@@ -8433,6 +8431,8 @@ header {
 
 .metadata-section .element .element-text {
   overflow: hidden;
+  font-size: 1rem;
+  line-height: 1.5;
   font-family: "Merriweather", serif;
 }
 

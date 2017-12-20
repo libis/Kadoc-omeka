@@ -4,22 +4,18 @@
   <section class="item-section">
       <div class="container">
         <div class='row breadcrumbs'>
-          <div class="col-12">
-              <p id="simple-pages-breadcrumbs">
-                <span><a href="<?php echo url('/');?>">Home</a></span>
-                 > <span><a href="<?php echo url('items/browse');?>"><?php echo __('Items');?></a></span>
-                 > <?php echo metadata('item', array('Dublin Core', 'Title')); ?>
-               </p>
-           </div>
-         </div>
-         <div class="row">
-           <div class="col-12">
-              <!-- The following returns all of the files associated with an item. -->
-              <div id="itemfiles" class="element">
-                  <div class="element-text"><?php echo item_image_gallery(array('linkWrapper' => array('wrapper' => null,'class' => 'col-sm-2 col-xs-12 image')),'thumbnail'); ?></div>
-              </div>
-           </div>
-         </div>
+            <div class="col-12">
+                <p id="simple-pages-breadcrumbs">
+                  <span><a href="<?php echo url('/');?>">Home</a></span>
+                   > <span><a href="<?php echo url('items/browse');?>"><?php echo __('Items');?></a></span>
+                   > <?php echo metadata('item', array('Dublin Core', 'Title')); ?>
+                 </p>
+             </div>
+        </div>
+        <!-- The following returns all of the files associated with an item. -->
+        <div class="item-files">
+          <?php echo item_image_gallery(array('wrapper'=> array('class' => 'row'),'linkWrapper' => array('wrapper' => 'null','class' => 'col-sm-6 col-md-3 col-12 image'),'link'=>array('data-lightbox'=>'lightbox')),'thumbnail'); ?>
+        </div>
       </div>
   </section>
 <?php endif; ?>
@@ -88,7 +84,7 @@
           <?php echo get_specific_plugin_hook_output('SocialBookmarking', 'public_items_show', array('view' => $this, 'item' => $item)); ?>
 
           <?php echo get_specific_plugin_hook_output('Commenting', 'public_items_show', array('view' => $this, 'item' => $item)); ?>
-          
+
         </div>
     </div>
 </section>
