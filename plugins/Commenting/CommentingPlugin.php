@@ -169,10 +169,20 @@ class CommentingPlugin extends Omeka_Plugin_AbstractPlugin
         echo "<div id='comments-container'>";
         ?>
         <button class="btn" type="button" data-toggle="collapse" data-target="#comment-main-container" aria-expanded="false" aria-controls="comment-main-container">
-            <?php echo __('Comments'); ?>
+            <?php echo __('Want to share something?'); ?>
         </button>
+        <script>
+          jQuery( document ).ready(function() {
+            if(window.location.hash) {
+                jQuery("#comment-main-container").addClass("show");
+            } else {
+                // No hash found
+            }
+          });
+        </script>
 
     <?php
+
         echo "<div id='comment-main-container' class='collapse'>";
         if( (get_option('commenting_allow_public') == 1)
                 || (get_option('commenting_allow_public_view') == 1)

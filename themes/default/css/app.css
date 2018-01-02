@@ -9435,6 +9435,10 @@ header {
   margin-bottom: 1.5rem;
 }
 
+.plugins #comments-container .comments {
+  padding: 2em;
+}
+
 .plugins #comments-container #comment-main-container {
   background: rgba(49, 57, 112, 0.05);
 }
@@ -9460,10 +9464,9 @@ header {
 }
 
 .plugins #comments-container .comment-body {
-  margin-left: 100px !important;
-  margin-top: 12px !important;
-  min-height: 60px;
-  padding: 6px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  background: rgba(49, 57, 112, 0.05);
 }
 
 .plugins #comment-form {
@@ -9521,6 +9524,7 @@ header {
 
 .plugins .commenting-field label[for="captcha"] {
   width: 100%;
+  max-width: 100%;
 }
 
 .plugins .commenting-field input[type="text"] {
@@ -9539,24 +9543,17 @@ header {
 }
 
 .plugins div.comment {
-  margin-left: 12px;
-  margin-top: 3px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   clear: both;
   min-height: 80px;
-  width: 60%;
-  min-width: 400px;
-}
-
-.plugins div.comment-author {
-  float: left;
-  margin: 0 6px;
-  width: 100px;
 }
 
 .plugins .comment-flag, .plugins .comment-unflag {
   float: left;
   cursor: pointer;
+  color: rgba(49, 57, 112, 0.8);
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
 }
 
 .plugins div.comment-flagged {
@@ -9564,16 +9561,21 @@ header {
 }
 
 .plugins div.comment-body p {
-  font-size: 1em;
+  font-size: 0.9rem;
 }
 
 .plugins .comment-reply {
   cursor: pointer;
   float: right;
+  color: rgba(49, 57, 112, 0.8);
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 .plugins p.comment-author-name {
   margin: 0;
+  font-size: 0.8rem;
 }
 
 .plugins div.success {

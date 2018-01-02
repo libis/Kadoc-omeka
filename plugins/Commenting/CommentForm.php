@@ -12,14 +12,14 @@ class Commenting_CommentForm extends Omeka_Form
         $user = current_user();
 
         $emailOptions = array(
-                'label'=>__('Email (required)'),
+                'label'=>__('Email (required)')."*",
                 'required'=>true,
                 'validators' => array(
                     array('validator' => 'EmailAddress'
                     )
                 )
             );
-        $nameOptions =  array('label'=> __('Your name'));
+        $nameOptions =  array('label'=> __('Name'));
 
         if($user) {
             $emailOptions['value'] = $user->email;
@@ -46,7 +46,7 @@ class Commenting_CommentForm extends Omeka_Form
         //assume registered users are trusted and don't make them play recaptcha
         if(!$user && get_option('recaptcha_public_key') && get_option('recaptcha_private_key')) {
             $this->addElement('captcha', 'captcha',  array(
-                'label' => __("Please verify you're a human"),
+                'label' => __("Verify you are not a computer."),
                 'captcha' => array(
                     'captcha' => 'ReCaptcha',
                     'pubkey' => get_option('recaptcha_public_key'),

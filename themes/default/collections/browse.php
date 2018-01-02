@@ -53,56 +53,6 @@
      </div>
    </div>
 
-
-    <!--
-    <?php if($show_featured):
-       if($feat_records = libis_get_featured('collection')):
-         foreach ($feat_records as $feat): ?>
-         <div class="row">
-           <div class="col-sm-12">
-             <div class="feat-row">
-               <div class="row">
-                 <div class="col-md-12 col-lg-5">
-                   <?php if ($collectionImage = record_image($feat,'fullsize')): ?>
-                       <?php echo link_to_collection($collectionImage, array('class' => 'image'),'show',$feat); ?>
-                   <?php else: ?>
-                         <div class="dummy"></div>
-                   <?php endif; ?>
-                 </div>
-                 <div class="col-md-12 col-lg-6">
-                   <div class="list-item">
-                     <h3><span><?php echo __('Featured');?></span></h3>
-                     <h2><?php echo link_to_collection(metadata($feat, array('Dublin Core', 'Title')),array(),'show',$feat); ?></h2>
-
-                     <?php if ($description = metadata($feat, array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
-                     <div class="item-description">
-                         <p><?php echo $description; ?></p>
-                     </div>
-                     <?php endif; ?>
-
-                     <?php if ($feat->hasContributor()): ?>
-                       <div class="collection-contributors">
-                           <p>
-                           <strong><?php echo __('Contributors'); ?>:</strong>
-                           <?php echo metadata($feat, array('Dublin Core', 'Contributor'), array('all'=>true, 'delimiter'=>', ')); ?>
-                           </p>
-                       </div>
-                     <?php endif; ?>
-
-                   </div>
-                   <div class="list-footer">
-                     <?php echo link_to_items_browse(__('View the items in %s', metadata($feat, array('Dublin Core', 'Title'))), array('collection' => metadata($feat, 'id'))); ?>
-                   </div>
-                 </div>
-               </div>
-             </div>
-         </div>
-       </div>
-       <?php endforeach;
-       endif;
-     endif;
-   ?>-->
-
    <?php echo pagination_links(); ?>
 
    <div class="row">

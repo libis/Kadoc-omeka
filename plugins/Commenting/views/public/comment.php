@@ -11,11 +11,6 @@
         }
     ?>
     <p class='comment-author-name'><?php echo $authorText?></p>
-    <?php
-        $hash = md5(strtolower(trim($comment->author_email)));
-        $url = "//www.gravatar.com/avatar/$hash";
-        echo "<img class='gravatar' src='$url' />";
-    ?>
 </div>
 <div class='comment-body <?php if($comment->flagged):?>comment-flagged<?php endif;?> '><?php echo $comment->body; ?></div>
 <?php if(is_allowed('Commenting_Comment', 'unflag')): ?>
