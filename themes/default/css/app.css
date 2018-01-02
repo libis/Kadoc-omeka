@@ -9257,6 +9257,12 @@ header {
   padding-bottom: 0.3rem;
 }
 
+.browse-section .side .side-nav ul ul,
+.exhibit-show-section .side .side-nav ul ul,
+.simple-page-section .side .side-nav ul ul {
+  margin: 10px 0px 10px 15px !important;
+}
+
 @media (max-width: 767px) {
   .browse-section .side .side-nav,
   .exhibit-show-section .side .side-nav,
