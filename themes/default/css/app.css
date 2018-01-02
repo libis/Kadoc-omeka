@@ -9120,10 +9120,12 @@ header {
   text-align: justify;
 }
 
-.browse-section .layout-file .full,
-.exhibit-show-section .layout-file .full,
-.simple-page-section .layout-file .full {
-  margin-bottom: 1.5rem;
+.browse-section .download-file,
+.exhibit-show-section .download-file,
+.simple-page-section .download-file {
+  background: rgba(49, 57, 112, 0.05);
+  margin-top: 1.5rem;
+  clear: both;
 }
 
 .browse-section #content,
