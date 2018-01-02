@@ -1,6 +1,19 @@
 <?php
 $title = __('Browse Exhibits');
 echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
+//only show featured records on featured page and with filter on
+$params = $_GET;
+$show_featured = false;
+
+if(!isset($params['page'])):
+  $params['page'] = "0";
+endif;
+
+if(isset($params['featured'])):
+  if($params['featured']=="1"):
+      $show_featured = true;
+  endif;
+endif;
 ?>
 <section class="exhibit-show-section">
   <div id="content" class='container' role="main" tabindex="-1">
@@ -12,6 +25,19 @@ echo head(array('title' => $title, 'bodyclass' => 'exhibits browse'));
     </div>
     <div class='top'>
        <h1><?php echo $title; ?></h1>
+       <div id="sort-links">
+          <span class="sort-label"><i class="material-icons">&#xE152;</i>
+              <?php echo __('Filter: '); ?></span>
+              <?php if($show_featured):?>
+                <a href="<?php echo url('exhibits/browse');?>">
+                  <?php echo __("All"); ?>
+                </a>
+              <?php else:?>
+                <a href="<?php echo url('exhibits/browse?featured=1');?>">
+                  <?php echo __("Featured"); ?>
+                </a>
+              <?php endif;?>
+       </div>
     </div>
 
     <?php if (count($exhibits) > 0): ?>
