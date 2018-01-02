@@ -9128,6 +9128,12 @@ header {
   clear: both;
 }
 
+.browse-section .layout-file-text .download-file,
+.exhibit-show-section .layout-file-text .download-file,
+.simple-page-section .layout-file-text .download-file {
+  margin-top: 0rem;
+}
+
 .browse-section #content,
 .exhibit-show-section #content,
 .simple-page-section #content {

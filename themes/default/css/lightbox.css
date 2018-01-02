@@ -172,8 +172,23 @@ html.lb-disable-scrolling {
   line-height: 1em;
 }
 
+.lb-caption p{
+  font-family: "Roboto", sans-serif;
+  font-size:13px;
+  margin-bottom:8px;
+  margin-top:3px;
+  font-style: italic;
+  font-weight: 500;
+}
+
 .lb-data .lb-caption a {
-  color: #4ae;
+  color:white;;
+}
+
+.lb-caption .exhibit-item-link{
+  margin-bottom:6px;
+  color:white;
+  text-decoration: underline;
 }
 
 .lb-data .lb-number {

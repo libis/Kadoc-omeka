@@ -79,7 +79,7 @@ $captionPosition = isset($options['captions-position'])
                   if (!isset($fileOptions['linkAttributes']['href'])) {
                       $fileOptions['linkAttributes']['href'] = file_display_url($file);
                   }
-                  $fileOptions['linkAttributes']['data-lightbox'] = file_display_url($file);
+                  $fileOptions['linkAttributes']['data-lightbox'] = metadata($item, array('Dublin Core', 'Title'));
                   $fileOptions['linkAttributes']['data-title'] = $caption;
                   $html = file_markup($file, $fileOptions, null);
 
