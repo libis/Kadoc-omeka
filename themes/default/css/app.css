@@ -8982,8 +8982,9 @@ header {
 .browse-section .featured h2,
 .exhibit-show-section .featured h2,
 .simple-page-section .featured h2 {
-  padding: 0.5rem 0 1.3rem 0 !important;
+  padding: 0.5rem 0 0.5rem 0 !important;
   font-weight: bold !important;
+  margin-bottom: 0 !important;
 }
 
 .browse-section .featured h2 a,
@@ -9008,7 +9009,7 @@ header {
 .browse-section .featured .list-item,
 .exhibit-show-section .featured .list-item,
 .simple-page-section .featured .list-item {
-  padding: 0 1rem;
+  padding: 0 1rem 1rem 1rem;
   color: white;
   position: relative;
 }
@@ -9038,6 +9039,12 @@ header {
 .exhibit-show-section .featured .list-item a,
 .simple-page-section .featured .list-item a {
   color: white;
+}
+
+.browse-section .featured .credits,
+.exhibit-show-section .featured .credits,
+.simple-page-section .featured .credits {
+  color: white !important;
 }
 
 .browse-section .pagination,
