@@ -9436,7 +9436,11 @@ header {
 }
 
 .plugins #comments-container .comments {
-  padding: 2em;
+  padding: 0 2em;
+}
+
+.plugins #comments-container .comments #comment-1 {
+  padding-top: 2rem;
 }
 
 .plugins #comments-container #comment-main-container {
