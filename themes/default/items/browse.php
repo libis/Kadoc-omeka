@@ -56,59 +56,6 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
      </div>
    </div>
 
-
-    <!--
-    <?php
-      if($show_featured):
-        if($feat_records = libis_get_featured('item')):
-          foreach ($feat_records as $feat): ?>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="feat-row">
-                <div class="row">
-                  <div class="col-md-12 col-lg-5">
-                    <?php if (metadata($feat, 'has files')): ?>
-                      <div class="item-img">
-                          <?php echo link_to_item(
-                              item_image('fullsize', array(), 0, $feat),
-                              array(),
-                              'show',
-                              $feat
-                          ); ?>
-                      </div>
-                    <?php endif; ?>
-                  </div>
-                  <div class="col-md-12 col-lg-6">
-                    <div class="list-item">
-                      <h3><span><?php echo __('Featured');?></span></h3>
-                      <h2><?php echo link_to_item(metadata($feat, array('Dublin Core', 'Title')), array('class'=>'permalink'),'show',$feat); ?></h2>
-
-                      <?php if ($description = metadata($feat, array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
-                      <div class="item-description">
-                          <p><?php echo $description; ?></p>
-                      </div>
-                      <?php endif; ?>
-
-                      <?php if (metadata($feat, 'has tags')): ?>
-                      <div class="tags"><p><strong><?php echo __('Tags'); ?>:</strong>
-                          <?php echo tag_string('items'); ?></p>
-                      </div>
-                      <?php endif; ?>
-
-                    </div>
-                    <div class="list-footer">
-                      <?php echo link_to_item("Bekijk item",array(),'show',$feat); ?>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-        <?php endforeach;
-        endif;
-      endif;
-    ?>-->
-
     <?php //echo item_search_filters(); ?>
     <?php echo pagination_links(); ?>
     <div class="row">
@@ -133,17 +80,11 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
                     <h3 class="star"><i class="material-icons">&#xE83A;</i><span><?php echo __('Featured');?></span></h3>
                     <h2><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h2>
 
-                    <!--<?php if ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>200))): ?>
-                    <div class="item-description">
-                        <p><?php echo $description; ?></p>
-                    </div>
-                  <?php endif; ?>-->
-
-                    <?php if (metadata('item', 'has tags')): ?>
+                    <!--<?php if (metadata('item', 'has tags')): ?>
                     <div class="tags"><p><strong><?php echo __('Tags'); ?>:</strong>
                         <?php echo tag_string('items'); ?></p>
                     </div>
-                    <?php endif; ?>
+                    <?php endif; ?>-->
 
                     <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
                   </div>
