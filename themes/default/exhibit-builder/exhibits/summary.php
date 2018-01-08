@@ -44,7 +44,7 @@ header {
           </div>
           <div class="plugins">
             <?php
-              $url = current_url();
+              $url = absolute_url();
               $title = strip_formatting(metadata($exhibit, 'title'));
               $description = strip_formatting(metadata($exhibit, 'description', array('no_escape' => true)));
               echo social_bookmarking_toolbar($url, $title, $description);
