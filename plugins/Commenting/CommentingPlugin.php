@@ -197,6 +197,7 @@ class CommentingPlugin extends Omeka_Plugin_AbstractPlugin
                 || is_allowed('Commenting_Comment', 'add') ) {
             echo $view->getCommentForm();
         }
+        echo "<p class='not-pub'>".__("* this information will not be published")."</p>";
         echo "</div></div></div></div>";
     }
 

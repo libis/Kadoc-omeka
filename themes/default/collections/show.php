@@ -60,8 +60,8 @@ $collectionTitle = metadata('collection', 'display_title');
       </div>
     </div>
     <div class="plugins">
-      <?php echo get_specific_plugin_hook_output('SocialBookmarking', 'public_items_show', array('view' => $this, 'collection' => $collection)); ?>
-      <?php echo get_specific_plugin_hook_output('Commenting', 'public_items_show', array('view' => $this, 'collection' => $collection)); ?>
+      <?php echo get_specific_plugin_hook_output('SocialBookmarking', 'public_collections_show', array('view' => $this, 'collection' => $collection)); ?>
+      <?php echo get_specific_plugin_hook_output('Commenting', 'public_collections_show', array('view' => $this, 'collection' => $collection)); ?>
     </div>
   </div>
 </section>

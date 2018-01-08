@@ -9476,7 +9476,7 @@ header {
 .plugins #comment-form {
   clear: both;
   background: rgba(49, 57, 112, 0.02);
-  padding: 2em;
+  padding: 2em 2rem 1rem 2rem;
 }
 
 .plugins #comment-form #submit {
@@ -9593,6 +9593,13 @@ header {
 
 .plugins a.mceButton {
   overflow: inherit;
+}
+
+.plugins .not-pub {
+  padding: 0rem 2rem 1rem 2rem;
+  background: rgba(49, 57, 112, 0.02);
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
 }
 
 footer {
