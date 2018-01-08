@@ -46,13 +46,7 @@ $collectionTitle = metadata('collection', 'display_title');
                    <div class="item-description">
                        <p><?php echo $description; ?></p>
                    </div>
-                 <?php endif; ?>-->
-
-                   <?php if (metadata('item', 'has tags')): ?>
-                   <div class="tags"><p><strong><?php echo __('Tags'); ?>:</strong>
-                       <?php echo tag_string('items'); ?></p>
-                   </div>
-                   <?php endif; ?>
+                   <?php endif; ?>-->
 
                    <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
                  </div>

@@ -91,10 +91,12 @@ class Commenting_CommentController extends Omeka_Controller_AbstractActionContro
 
         //proxy
         if($_SERVER['HTTP_HOST'] != 'vagrant'):
-          $PROXY_HOST = "icts-http-gw.cc.kuleuven.be:8080"; // Proxy server address
+          $PROXY_HOST = "icts-http-gw.cc.kuleuven.be"; // Proxy server address
           $config = array(
                          'adapter'    => 'Zend_Http_Client_Adapter_Proxy',
-                         'proxy_host' => $PROXY_HOST
+                         'proxy_host' => $PROXY_HOST,
+                         'proxy_port' => 8080,
+                         'timeout' => 30
                      );
           Zend_Http_Client('http://rest.akismet.com', $config);
         endif;
