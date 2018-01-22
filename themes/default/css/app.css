@@ -9059,6 +9059,49 @@ header {
   color: white !important;
 }
 
+.browse-section .exhibit-page-nav,
+.exhibit-show-section .exhibit-page-nav,
+.simple-page-section .exhibit-page-nav {
+  list-style: none;
+  padding-left: 0;
+  float: left;
+}
+
+.browse-section .exhibit-page-nav ul,
+.exhibit-show-section .exhibit-page-nav ul,
+.simple-page-section .exhibit-page-nav ul {
+  float: left;
+  list-style: none;
+  padding-left: 0;
+}
+
+.browse-section .exhibit-page-nav ul li::before,
+.exhibit-show-section .exhibit-page-nav ul li::before,
+.simple-page-section .exhibit-page-nav ul li::before {
+  content: "\203a";
+  font-size: 100%;
+  margin: 0 0.3rem;
+  color: #313970;
+}
+
+.browse-section .exhibit-page-nav ul li:first-of-type,
+.exhibit-show-section .exhibit-page-nav ul li:first-of-type,
+.simple-page-section .exhibit-page-nav ul li:first-of-type {
+  font-weight: normal;
+}
+
+.browse-section .exhibit-page-nav li,
+.exhibit-show-section .exhibit-page-nav li,
+.simple-page-section .exhibit-page-nav li {
+  float: left;
+}
+
+.browse-section .exhibit-page-nav li:first-of-type,
+.exhibit-show-section .exhibit-page-nav li:first-of-type,
+.simple-page-section .exhibit-page-nav li:first-of-type {
+  font-weight: bold;
+}
+
 .browse-section .pagination,
 .exhibit-show-section .pagination,
 .simple-page-section .pagination {

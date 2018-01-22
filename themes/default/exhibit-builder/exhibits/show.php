@@ -12,11 +12,14 @@ header {
 <section class="exhibit-show-section">
   <div id="content" class='container' role="main" tabindex="-1">
     <div class='breadcrumbs'>
-        <p id="simple-pages-breadcrumbs">
+        <?php echo exhibit_builder_page_nav();?>
+        <!--<p id="simple-pages-breadcrumbs">
            <?php echo exhibit_builder_link_to_exhibit($exhibit); ?>
            > <?php echo metadata('exhibit_page', 'title'); ?>
-         </p>
+         </p>-->
     </div>
+
+
 
     <div id="exhibit-blocks">
       <?php exhibit_builder_render_exhibit_page(); ?>
