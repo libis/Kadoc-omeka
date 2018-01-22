@@ -8685,6 +8685,7 @@ header {
   list-style: none;
   margin-right: 8px;
   color: white;
+  border-radius: 0.25rem;
 }
 
 .browse-section #item-filters ul li a,
