@@ -43,7 +43,7 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
            <span class="sort-label"><i class="material-icons">&#xE152;</i>
            <?php echo __('Filter:');?></span>
            <ul id="sort-links-list">
-             <li><a href="<?php echo url('items/browse');?>"><?php echo __("All");?></a></li>
+             <li><a href="<?php echo url('items/browse');?>"><?php echo __("Show all");?></a></li>
               <?php if(!$show_featured):?>
                 <li>
                   <a href="<?php echo url('items/browse?featured=1');?>">
