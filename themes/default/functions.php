@@ -61,6 +61,24 @@ function multi_language_nav()
   endif;
 }
 
+function get_language(){
+  //check default (from config)
+  $defaultCodes = Zend_Locale::getDefault();
+  $code = current(array_keys($defaultCodes));
+
+  //check session
+  $langNamespace = new Zend_Session_Namespace('lang');
+  if (isset($langNamespace->lang)):
+    $code = $langNamespace->lang;
+  endif;
+
+  if($code != "en_US"):
+    return 'nl';
+  else:
+    return 'en';
+  endif;
+}
+
 function libis_get_featured($type = 'item'){
   $records = get_records($type,array('featured'=>'1'));
   if($records):

@@ -8389,14 +8389,27 @@ header {
 }
 
 .metadata-section h1 {
-  font-weight: 100;
+  font-weight: 700;
   margin-bottom: 2rem;
   font-family: "Roboto", sans-serif;
   color: #313970;
+  font-size: 1.7rem;
 }
 
-.metadata-section h2 {
-  display: none;
+.metadata-section .element-set ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.metadata-section .element-set ul a {
+  text-decoration: underline;
+}
+
+.metadata-section .element-set ul li::before {
+  content: "\203a";
+  font-size: 130%;
+  margin-right: 0.3rem;
+  color: #313970;
 }
 
 .metadata-section .type-title {
@@ -8409,7 +8422,7 @@ header {
 }
 
 .metadata-section .element {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   clear: both;
 }
 
@@ -8418,7 +8431,6 @@ header {
   width: 200px;
   float: left;
   font-size: 1rem;
-  text-align: right;
   margin-right: 20px;
   line-height: 1.5;
   margin-bottom: 0;

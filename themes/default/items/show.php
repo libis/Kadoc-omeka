@@ -1,5 +1,6 @@
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'item show')); ?>
 <?php $type = metadata('item','item_type_name');?>
+<?php $lang = get_language();?>
 <?php if (metadata('item', 'has files') && $type != 'News'): ?>
   <section class="item-section">
       <div class="container">
@@ -46,26 +47,115 @@
             <?php if ($type != ''): ?>
               <!--<h3 class="type-title"><?php echo $type;?></h3>-->
             <?php endif; ?>
-            <h1 class="section-title projecten-title"><span><?php echo metadata('item', array('Dublin Core', 'Title')); ?></span></h1>
+
+            <?php if($lang == 'nl'):?>
+              <h1 class="section-title projecten-title"><span><?php echo metadata('item', array('Dublin Core', 'Title')); ?></span></h1>
+            <?php else:?>
+              <h1 class="section-title projecten-title"><span><?php echo metadata('item', array('Item Type Metadata', 'Title')); ?></span></h1>
+            <?php endif;?>
 
             <?php if ($type != 'News'): ?>
-                <?php echo all_element_texts('item'); ?>
+                <div class="element-set">
+                  <!-- creators -->
+                  <?php if($lang== "nl" && $text = metadata('item', array('Dublin Core','Creator'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Creator');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
 
-                <!-- If the item belongs to a collection, the following creates a link to that collection. -->
-                <?php if (metadata('item', 'Collection Name')): ?>
-                <div id="collection" class="element">
-                    <h3><?php echo __('Collection'); ?></h3>
-                    <div class="element-text"><p><?php echo link_to_collection_for_item(); ?></p></div>
-                </div>
-                <?php endif; ?>
+                  <!-- creators english -->
+                  <?php if($lang== "en" && $text = metadata('item', array('Item Type Metadata','Creator'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Creator');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
 
-                <!-- The following prints a list of all tags associated with the item -->
-                <?php if (metadata('item', 'has tags')): ?>
-                <div id="item-tags" class="element">
-                    <h3><?php echo __('Tags'); ?></h3>
-                    <div class="element-text"><?php echo tag_string('item'); ?></div>
+                  <!-- description -->
+                  <?php if($lang== "nl" && $text = metadata('item', array('Dublin Core','Description'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Description');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!-- description english -->
+                  <?php if($lang== "en" && $text = metadata('item', array('Item Type Metadata','Description'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Description');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!-- herkomst -->
+                  <?php if($lang== "nl" && $text = metadata('item', array('Item Type Metadata','Herkomst'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3>Herkomst</h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!-- Copyright -->
+                  <?php if($lang== "en" && $text = metadata('item', array('Item Type Metadata','Copyright'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3>Copyright</h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!-- jaar -->
+                  <?php if($text = metadata('item', array('Item Type Metadata','Jaar'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Date');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!-- signatuur -->
+                  <?php if($text = metadata('item', array('Item Type Metadata','Signatuur'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Identifier');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!-- If the item belongs to a collection, the following creates a link to that collection. -->
+                  <?php if (metadata('item', 'Collection Name')): ?>
+                  <div id="collection" class="element">
+                      <h3><?php echo __('Collection'); ?></h3>
+                      <div class="element-text"><?php echo link_to_collection_for_item(); ?></div>
+                  </div>
+                  <?php endif; ?>
+
+                  <!-- The following prints a list of all tags associated with the item -->
+                  <?php if (metadata('item', 'has tags')): ?>
+                  <div id="item-tags" class="element">
+                      <h3><?php echo __('Tags'); ?></h3>
+                      <div class="element-text"><?php echo tag_string('item'); ?></div>
+                  </div>
+                  <?php endif;?>
+
+                  <ul>
+                    <?php if ($text = metadata('item', array('Item Type Metadata','LIMO'))): ?>
+                    <li>
+                      <a href="<?php echo $text;?>"><?php echo __('Link naar LIMO');?></a>
+                    </li>
+                    <?php endif; ?>
+
+                    <?php if ($text = metadata('item', array('Item Type Metadata','Teneo'))): ?>
+                    <li>
+                      <a href="<?php echo $text;?>"><?php echo __('Link naar Teneo');?></a>
+                    </li>
+                    <?php endif; ?>
+
+                    <?php if ($text = metadata('item', array('Item Type Metadata','ScopeArchiv'))): ?>
+                    <li>
+                      <a href="<?php echo $text;?>"><?php echo __('Link naar ScopeArchiv');?></a>
+                    </li>
+                    <?php endif; ?>
+                  </ul>
                 </div>
-                <?php endif;?>
             <?php else:?>
                   <p class="date"><?php echo metadata('item', array('Dublin Core', 'Date')); ?></p>
                   <p class="description"><?php echo metadata('item', array('Dublin Core', 'Description')); ?></p>
