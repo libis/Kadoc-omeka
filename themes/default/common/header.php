@@ -77,7 +77,7 @@
                       <p class="type"><?php echo __('Exhibit'); ?></p>
                       <p><span><?php echo $title; ?></span></p>
                   <?php else:?>
-                      <p><span><?php echo __("Portal for<br>Religion, culture<br> and society"); ?></span></p>
+                      <p><?php echo __("Religion, culture and society<br><span>Heritage online</span>"); ?></p>
                   <?php endif; ?>
                 </div>
               </div>

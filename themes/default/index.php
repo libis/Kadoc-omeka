@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="co col-md-6 col-sm-6 col-lg-4">
-          <a class="block-link" href="<?php echo url("items");?>"><h2><?php echo __('Featured heritage item');?></h2></a>
+          <a class="block-link" href="<?php echo url("items");?>"><h2><?php echo __('Heritage in the spotlight');?></h2></a>
             <div class="col-content">
               <a class="block-link" href="<?php echo url("items");?>"><img src="<?php echo img('placeholder1.jpg');?>"></a>
               <div class="summary">

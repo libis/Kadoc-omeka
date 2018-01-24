@@ -7931,7 +7931,7 @@ a:hover {
 header {
   z-index: 1;
   background: white;
-  background: url("../images/banner_kadoc_4.jpg") no-repeat center center/cover;
+  background: url("../images/banner_kadoc.jpg") no-repeat center center/cover;
   margin-bottom: 2rem;
 }
 
@@ -8160,6 +8160,7 @@ header {
   text-transform: uppercase;
   background: rgba(49, 57, 112, 0.8);
   padding: 1.5rem;
+  font-weight: 100;
   margin-top: 10rem;
   line-height: 1.1;
   color: #fff;
@@ -8172,6 +8173,7 @@ header {
 }
 
 .jumbotron .slogan p {
+  font-family: "Roboto", sans-serif;
   margin-bottom: 0;
 }
 
@@ -8200,8 +8202,8 @@ header {
 }
 
 .jumbotron .slogan span {
-  font-family: "Roboto", sans-serif;
   font-weight: 700;
+  font-size: 2.5rem;
 }
 
 .jumbotron .slogan .about-button {
@@ -8226,6 +8228,15 @@ header {
   .jumbotron {
     margin-bottom: 0;
   }
+}
+
+#home .slogan p {
+  font-size: 2.8rem;
+}
+
+#home .slogan span {
+  font-size: 2.8rem;
+  font-weight: 700;
 }
 
 @media (max-width: 767px) {
