@@ -67,25 +67,27 @@ $captionPosition = isset($options['captions-position'])
 
               $caption = $this->exhibitAttachmentCaption($attachment);
 
-              if(!$caption):
-                $caption = '<div class="exhibit-item-caption">'.metadata($item, array('Dublin Core', 'Title')).'</div>';
-              endif;
+              if($item:)
+                if(!$caption):
+                  $caption = '<div class="exhibit-item-caption">'.metadata($item, array('Dublin Core', 'Title')).'</div>';
+                endif;
 
-              if ($file) {
-                  if (!isset($fileOptions['imgAttributes']['alt'])) {
-                      $fileOptions['imgAttributes']['alt'] = metadata($item, array('Dublin Core', 'Title'), array('no_escape' => true));
-                  }
+                if ($file) {
+                    if (!isset($fileOptions['imgAttributes']['alt'])) {
+                        $fileOptions['imgAttributes']['alt'] = metadata($item, array('Dublin Core', 'Title'), array('no_escape' => true));
+                    }
 
-                  if (!isset($fileOptions['linkAttributes']['href'])) {
-                      $fileOptions['linkAttributes']['href'] = file_display_url($file);
-                  }
-                  $fileOptions['linkAttributes']['data-lightbox'] = metadata($item, array('Dublin Core', 'Title'));
-                  $fileOptions['linkAttributes']['data-title'] = $caption;
-                  $html = file_markup($file, $fileOptions, null);
+                    if (!isset($fileOptions['linkAttributes']['href'])) {
+                        $fileOptions['linkAttributes']['href'] = file_display_url($file);
+                    }
+                    $fileOptions['linkAttributes']['data-lightbox'] = metadata($item, array('Dublin Core', 'Title'));
+                    $fileOptions['linkAttributes']['data-title'] = $caption;
+                    $html = file_markup($file, $fileOptions, null);
 
-              } else if($item) {
-                  $html = exhibit_builder_link_to_exhibit_item(null, array('class'=>'test','data-lightbox'=>'test',' data-title'=>'test'), $item);
-              }
+                } else {
+                    $html = exhibit_builder_link_to_exhibit_item(null, array('class'=>'test','data-lightbox'=>'test',' data-title'=>'test'), $item);
+                }
+              endif;  
               // Don't show a caption if we couldn't show the Item or File at all
               if (isset($html)) {
                   $html .= $caption;
