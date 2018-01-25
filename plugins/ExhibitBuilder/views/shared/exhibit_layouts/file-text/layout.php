@@ -67,7 +67,7 @@ $captionPosition = isset($options['captions-position'])
 
               $caption = $this->exhibitAttachmentCaption($attachment);
 
-              if($item:)
+              if($item):
                 if(!$caption):
                   $caption = '<div class="exhibit-item-caption">'.metadata($item, array('Dublin Core', 'Title')).'</div>';
                 endif;
@@ -87,7 +87,7 @@ $captionPosition = isset($options['captions-position'])
                 } else {
                     $html = exhibit_builder_link_to_exhibit_item(null, array('class'=>'test','data-lightbox'=>'test',' data-title'=>'test'), $item);
                 }
-              endif;  
+              endif;
               // Don't show a caption if we couldn't show the Item or File at all
               if (isset($html)) {
                   $html .= $caption;
