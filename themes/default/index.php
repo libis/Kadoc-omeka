@@ -6,7 +6,7 @@
         <div class="co col-md-6 col-sm-6 col-lg-4">
           <a class="block-link" href="<?php echo url("exhibits");?>"><h2><?php echo __('Exhibits');?></h2></a>
             <div class="col-content">
-              <a class="block-link" href="<?php echo url("exhibits");?>"><img src="<?php echo img('placeholder3.jpg');?>"></a>
+              <a class="block-link" href="<?php echo url("exhibits");?>"><img src="<?php echo img('placeholder1.jpg');?>"></a>
               <div class="summary">
                 <p>Donec laoreet vulputate ligula at sollicitudin. Vivamus ac lorem lobortis, aliquet erat eu, faucibus odio.</p>
               </div>
@@ -30,7 +30,7 @@
         <div class="co col-md-6 col-sm-6 col-lg-4">
           <a class="block-link" href="<?php echo url("items");?>"><h2><?php echo __('Heritage in the spotlight');?></h2></a>
             <div class="col-content">
-              <a class="block-link" href="<?php echo url("items");?>"><img src="<?php echo img('placeholder1.jpg');?>"></a>
+              <a class="block-link" href="<?php echo url("items");?>"><img src="<?php echo img('placeholder3.jpg');?>"></a>
               <div class="summary">
                 <p>Duis auctor, ante a luctus euismod, arcu ligula imperdiet sapien, tincidunt vehicula orci tellus sed ligula.</p>
               </div>
