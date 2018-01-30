@@ -8,7 +8,7 @@
                     <p><?php echo $copyright; ?></p>
                 <?php endif; ?>
                 <div class="logo-kadoc">
-                  <a href="https://kadoc.kuleuven.be/"><img src="<?php echo img("kadoc.jpg");?>"></a>
+                  <a href="https://kadoc.kuleuven.be/"><img src="<?php echo img("kadoc.PNG");?>"></a>
                 </div>
                 <div class="col-content">
                   <p>
