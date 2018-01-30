@@ -25,12 +25,12 @@ echo head(array('title'=>$pageTitle,'bodyclass' => 'items browse'));
       <div class="col-sm-12 col-xs-12">
         <p id="simple-pages-breadcrumbs">
           <span><a href="<?php echo url('/');?>">Home</a></span>
-           > <span>Objecten</a></span>
+           > <span><?php echo __("Heritage in the spotlight");?></a></span>
          </p>
      </div>
    </div>
 
-   <h1><?php echo $pageTitle;?></h1>
+   <h1><?php echo __("Heritage in the spotlight");?></h1>
 
    <?php if ($total_results > 0): ?>
        <?php
