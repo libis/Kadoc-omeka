@@ -8559,7 +8559,24 @@ header {
 .browse-section h2.items-title,
 .exhibit-show-section h2.items-title,
 .simple-page-section h2.items-title {
-  margin: 1rem 0 2rem;
+  margin: 1rem 0 1.5rem;
+  font-size: 1rem;
+}
+
+.browse-section h2.items-title i,
+.exhibit-show-section h2.items-title i,
+.simple-page-section h2.items-title i {
+  font-size: 0.9rem;
+  color: #313970;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.browse-section h2.items-title a,
+.exhibit-show-section h2.items-title a,
+.simple-page-section h2.items-title a {
+  color: #313970;
+  border-bottom: 2px solid #313970;
 }
 
 .browse-section h3,

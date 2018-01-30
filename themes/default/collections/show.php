@@ -27,7 +27,7 @@ $collectionTitle = metadata('collection', 'display_title');
    </div>
    <div class="row">
      <div class="col-sm-12">
-       <h2 class="items-title"><?php echo link_to_items_browse(__('Items in the %s Collection', $collectionTitle), array('collection' => metadata('collection', 'id'))); ?></h2>
+       <h2 class="items-title"><i class="material-icons">&#xE3B6;</i><?php echo link_to_items_browse(__('View all items in the collection'), array('collection' => metadata('collection', 'id'))); ?></h2>
        <?php if (metadata('collection', 'total_items') > 0): ?>
          <div class="card-columns">
            <?php foreach (loop('items') as $item): ?>
@@ -54,6 +54,8 @@ $collectionTitle = metadata('collection', 'display_title');
              </div>
            <?php endforeach; ?>
          </div>
+         <h2 class="items-title"><i class="material-icons">&#xE3B6;</i><?php echo link_to_items_browse(__('View all items in the collection'), array('collection' => metadata('collection', 'id'))); ?></h2>
+        
         <?php else: ?>
             <p><?php echo __("There are currently no items within this collection."); ?></p>
         <?php endif; ?>
