@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-content">
                   <p>
-                    Documentatie- en onderzoekscentrum voor religie, cultuur en samenleving<br>
+                    <?php echo __("Documentation and Research Center on Religion, Culture and Society");?><br>
                     Vlamingenstraat 39 | 3000 Leuven | +32 16 32 35 00<br>
                     postmaster@kadoc.kuleuven.be | <a href="http://kadoc.kuleuven.be">kadoc.kuleuven.be</a>
                   </p>
@@ -23,7 +23,7 @@
                 </div>
               </div>
               <div class="footer-row">
-                <div class="col-content">    
+                <div class="col-content">
                   <img src="<?php echo img("ErkendCultArch.jpg");?>">
                   <img src="<?php echo img("_erkendeerfbib.gif");?>">
                   <a href="http://www.ditisvlaanderen.be/"><img src="<?php echo img("vlaanderen.png");?>"></a>
