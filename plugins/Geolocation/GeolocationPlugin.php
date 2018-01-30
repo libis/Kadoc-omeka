@@ -249,10 +249,9 @@ class GeolocationPlugin extends Omeka_Plugin_AbstractPlugin
         if ($location) {
             $width = get_option('geolocation_item_map_width') ? get_option('geolocation_item_map_width') : '';
             $height = get_option('geolocation_item_map_height') ? get_option('geolocation_item_map_height') : '300px';
-            $html = "<div id='geolocation'>";
-            $html .= '<h2>'.__('Geolocation').'</h2>';
-            $html .= $view->itemGoogleMap($item, $width, $height);
-            $html .= "</div>";
+
+            $html = $view->itemGoogleMap($item, $width, $height);
+
             echo $html;
         }
     }
@@ -317,7 +316,7 @@ class GeolocationPlugin extends Omeka_Plugin_AbstractPlugin
                 $radius = $db->quote($radius, Zend_Db::FLOAT_TYPE);
                 $lat = $db->quote($lat, Zend_Db::FLOAT_TYPE);
                 $lng = $db->quote($lng, Zend_Db::FLOAT_TYPE);
-                $sqlMathExpression = 
+                $sqlMathExpression =
                     new Zend_Db_Expr(
                         "$earthRadius * ACOS(
                         COS(RADIANS($lat)) *
@@ -327,16 +326,16 @@ class GeolocationPlugin extends Omeka_Plugin_AbstractPlugin
                         SIN(RADIANS($lat)) *
                         SIN(RADIANS(locations.latitude))
                         ) AS distance");
-                
+
                 $select->columns($sqlMathExpression);
 
                 // WHERE the distance is within radius miles/kilometers of the specified lat & long
-                $locationWithinRadius = 
+                $locationWithinRadius =
                     new Zend_Db_Expr(
-                        "(locations.latitude BETWEEN $lat - $radius / $denominator 
+                        "(locations.latitude BETWEEN $lat - $radius / $denominator
                             AND $lat + $radius / $denominator)
                             AND
-                        (locations.longitude BETWEEN $lng - $radius / $denominator 
+                        (locations.longitude BETWEEN $lng - $radius / $denominator
                             AND $lng + $radius / $denominator)");
                 $select->where($locationWithinRadius);
 

@@ -9524,9 +9524,18 @@ header {
   }
 }
 
-.layout-geolocation-map .exhibit-geolocation-map {
+#content .geolocation-map {
+  height: 400px;
+  width: 100%;
+}
+
+#content .layout-geolocation-map .exhibit-geolocation-map {
   width: 100%;
   height: 500px;
+}
+
+#content #map_browse {
+  width: 100%;
 }
 
 .plugins {

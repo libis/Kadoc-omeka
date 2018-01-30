@@ -8,6 +8,9 @@
             <div class="col-12">
                 <p id="simple-pages-breadcrumbs">
                   <span><a href="<?php echo url('/');?>">Home</a></span>
+                  <?php if (metadata('item', 'Collection Name')): ?>
+                   > <span><a href="<?php echo url('items/browse');?>"><?php echo link_to_collection_for_item(); ?></a></span>
+                  <?php endif; ?>
                    > <span><a href="<?php echo url('items/browse');?>"><?php echo __('Items');?></a></span>
                    > <?php echo metadata('item', array('Dublin Core', 'Title')); ?>
                  </p>
@@ -42,7 +45,7 @@
               </div>
               <div class="col-sm-9 col-12">
             <?php else:?>
-              <div class="col-lg-10 col-12">
+              <div class="col-lg-8 col-md-12 col-12">
             <?php endif; ?>
             <?php if ($type != ''): ?>
               <!--<h3 class="type-title"><?php echo $type;?></h3>-->
@@ -139,19 +142,19 @@
                   <ul>
                     <?php if ($text = metadata('item', array('Item Type Metadata','LIMO'))): ?>
                     <li>
-                      <a href="<?php echo $text;?>"><?php echo __('Link naar LIMO');?></a>
+                      <a target="_blank" href="<?php echo $text;?>"><?php echo __('Link naar LIMO');?></a>
                     </li>
                     <?php endif; ?>
 
                     <?php if ($text = metadata('item', array('Item Type Metadata','Teneo'))): ?>
                     <li>
-                      <a href="<?php echo $text;?>"><?php echo __('Link naar Teneo');?></a>
+                      <a target="_blank" href="<?php echo $text;?>"><?php echo __('Link naar Teneo');?></a>
                     </li>
                     <?php endif; ?>
 
                     <?php if ($text = metadata('item', array('Item Type Metadata','ScopeArchiv'))): ?>
                     <li>
-                      <a href="<?php echo $text;?>"><?php echo __('Link naar ScopeArchiv');?></a>
+                      <a target="_blank" href="<?php echo $text;?>"><?php echo __('Link naar ScopeArchiv');?></a>
                     </li>
                     <?php endif; ?>
                   </ul>
@@ -160,6 +163,9 @@
                   <p class="date"><?php echo metadata('item', array('Dublin Core', 'Date')); ?></p>
                   <p class="description"><?php echo metadata('item', array('Dublin Core', 'Description')); ?></p>
             <?php endif; ?>
+          </div>
+          <div class="col-lg-4 col-md-12 col-12">
+            <?php echo get_specific_plugin_hook_output('Geolocation', 'public_items_show', array('view' => $this, 'item' => $item)); ?>
           </div>
         </div>
         <div class="row content">
