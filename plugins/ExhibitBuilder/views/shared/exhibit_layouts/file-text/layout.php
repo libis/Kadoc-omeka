@@ -18,84 +18,16 @@ $captionPosition = isset($options['captions-position'])
     </div>
     <div class="col-12 col-md-6">
       <div class="exhibit-items <?php echo $position; ?> <?php echo $size; ?> captions-<?php echo $captionPosition; ?>">
-          <?php foreach ($attachments as $attachment):
-              $item = $attachment->getItem();
-              $file = $attachment->getFile();
-              $fileOptions = array('imageSize' => $size);
-              $linkProps = array(); $forceImage = false;
-
-              $caption = $this->exhibitAttachmentCaption($attachment);
-
-              if(!$caption):
-                $caption = '<div class="exhibit-item-caption">'.metadata($item, array('Dublin Core', 'Title')).'</div>';
-              endif;
-
-              if ($file) {
-                  if (!isset($fileOptions['imgAttributes']['alt'])) {
-                      $fileOptions['imgAttributes']['alt'] = metadata($item, array('Dublin Core', 'Title'), array('no_escape' => true));
-                  }
-
-                  if (!isset($fileOptions['linkAttributes']['href'])) {
-                      $fileOptions['linkAttributes']['href'] = file_display_url($file);
-                  }
-                  $fileOptions['linkAttributes']['data-lightbox'] = file_display_url($file);
-                  $fileOptions['linkAttributes']['data-title'] = $caption;
-                  $html = file_markup($file, $fileOptions, null);
-
-              } else if($item) {
-                  $html = exhibit_builder_link_to_exhibit_item(null, array('class'=>'test','data-lightbox'=>'test',' data-title'=>'test'), $item);
-              }
-              // Don't show a caption if we couldn't show the Item or File at all
-              if (isset($html)) {
-                  $html .= $caption;
-                  echo $html;
-              } else {
-                  echo $html = '';
-              }
-              //echo $this->exhibitAttachment($attachment, array('imageSize' => $size)); ?>
-          <?php endforeach; ?>
+        <?php foreach ($attachments as $attachment):?>
+            <?php echo $this->exhibitAttachment($attachment, array('imageSize' => $size),array("target" => "_blank")); ?>
+        <?php endforeach; ?>
       </div>
     </div>
   <?php else: ?>
     <div class="col-12 col-md-6">
       <div class="exhibit-items <?php echo $position; ?> <?php echo $size; ?> captions-<?php echo $captionPosition; ?>">
-          <?php foreach ($attachments as $attachment):
-              $item = $attachment->getItem();
-              $file = $attachment->getFile();
-              $fileOptions = array('imageSize' => $size);
-              $linkProps = array(); $forceImage = false;
-
-              $caption = $this->exhibitAttachmentCaption($attachment);
-
-              if($item):
-                if(!$caption):
-                  $caption = '<div class="exhibit-item-caption">'.metadata($item, array('Dublin Core', 'Title')).'</div>';
-                endif;
-
-                if ($file) {
-                    if (!isset($fileOptions['imgAttributes']['alt'])) {
-                        $fileOptions['imgAttributes']['alt'] = metadata($item, array('Dublin Core', 'Title'), array('no_escape' => true));
-                    }
-
-                    if (!isset($fileOptions['linkAttributes']['href'])) {
-                        $fileOptions['linkAttributes']['href'] = file_display_url($file);
-                    }
-                    $fileOptions['linkAttributes']['data-lightbox'] = metadata($item, array('Dublin Core', 'Title'));
-                    $fileOptions['linkAttributes']['data-title'] = $caption;
-                    $html = file_markup($file, $fileOptions, null);
-
-                } else {
-                    $html = exhibit_builder_link_to_exhibit_item(null, array('class'=>'test','data-lightbox'=>'test',' data-title'=>'test'), $item);
-                }
-              endif;
-              // Don't show a caption if we couldn't show the Item or File at all
-              if (isset($html)) {
-                  $html .= $caption;
-                  echo $html;
-              } else {
-                  echo $html = '';
-              }
-              //echo $this->exhibitAttachment($attachment, array('imageSize' => $size)); ?>
+          <?php foreach ($attachments as $attachment):?>
+              <?php echo $this->exhibitAttachment($attachment, array('imageSize' => $size),array("target" => "_blank")); ?>
           <?php endforeach; ?>
       </div>
     </div>

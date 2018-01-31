@@ -23,7 +23,7 @@ $captionPosition = isset($options['captions-position'])
 <?php endif; ?>
 <div class="gallery <?php if ($showcaseFile || !empty($text)) echo "with-showcase $galleryPosition"; ?> captions-<?php echo $captionPosition; ?>">
   <div class="card-columns">
-    <?php echo $this->exhibitAttachmentGallery($attachments, array('imageSize' => $galleryFileSize)); ?>
+    <?php echo $this->exhibitAttachmentGallery($attachments, array('imageSize' => $galleryFileSize),array("target" => "_blank")); ?>
   </div>
 </div>
 <?php echo $text; ?>
