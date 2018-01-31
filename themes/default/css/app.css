@@ -8821,6 +8821,25 @@ header {
   margin-bottom: 1rem;
 }
 
+.browse-section .kijker,
+.exhibit-show-section .kijker,
+.simple-page-section .kijker {
+  margin-bottom: 2rem;
+}
+
+.browse-section .kijker .metadata-section,
+.exhibit-show-section .kijker .metadata-section,
+.simple-page-section .kijker .metadata-section {
+  background: rgba(49, 57, 112, 0.05);
+  padding: 2rem;
+}
+
+.browse-section .kijker h2,
+.exhibit-show-section .kijker h2,
+.simple-page-section .kijker h2 {
+  margin-bottom: 2rem;
+}
+
 .browse-section .list-row,
 .exhibit-show-section .list-row,
 .simple-page-section .list-row {

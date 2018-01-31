@@ -28,15 +28,15 @@
             </div>
         </div>
         <div class="co col-md-6 col-sm-6 col-lg-4">
-          <a class="block-link" href="<?php echo url("items");?>"><h2><?php echo __('Heritage in the spotlight');?></h2></a>
+          <a class="block-link" href="<?php echo url("items/browse?tags=Erfgoed+in+de+kijker");?>"><h2><?php echo __('Heritage in the spotlight');?></h2></a>
             <div class="col-content">
-              <a class="block-link" href="<?php echo url("items");?>"><img src="<?php echo img('placeholder3.jpg');?>"></a>
+              <a class="block-link" href="<?php echo url("items/browse?tags=Erfgoed+in+de+kijker");?>"><img src="<?php echo img('placeholder3.jpg');?>"></a>
               <div class="summary">
                 <p>Duis auctor, ante a luctus euismod, arcu ligula imperdiet sapien, tincidunt vehicula orci tellus sed ligula.</p>
               </div>
             </div>
             <div class="col-footer">
-              <a href="<?php echo url("items");?>"><?php echo __('Discover our heritage items');?></a>
+              <a href="<?php echo url("items/browse?tags=Erfgoed+in+de+kijker");?>"><?php echo __('Discover our heritage items');?></a>
             </div>
         </div>
       </div>

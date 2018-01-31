@@ -118,7 +118,7 @@
                   <!-- signatuur -->
                   <?php if($text = metadata('item', array('Item Type Metadata','Signatuur'),array("delimiter" => "; "))):?>
                     <div class="element">
-                        <h3><?php echo __('Identifier');?></h3>
+                        <h3><?php echo __('Call number');?></h3>
                         <div class="element-text"><?php echo $text;?></div>
                     </div>
                   <?php endif;?>
