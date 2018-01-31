@@ -37,15 +37,10 @@
           </div>
         <?php endif; ?>
         <div class="row content">
-            <?php if (metadata('item', 'has files') && $type == 'News'): ?>
-              <div class="col-sm-3 col-12">
-                <div id="itemfiles" class="element">
-                    <div class="element-text"><?php echo item_image_gallery(array('linkWrapper' => array('wrapper' => null,'class' => 'col-sm-2 col-xs-12 image')),'thumbnail'); ?></div>
-                </div>
-              </div>
-              <div class="col-sm-9 col-12">
+            <?php if ($verhaal = metadata('item', array('Item Type Metadata','Verhaal'))): ?>
+              <div class="col-lg-6 col-md-12 col-12">
             <?php else:?>
-              <div class="col-lg-8 col-md-12 col-12">
+              <div class="col-md-12 col-12">
             <?php endif; ?>
             <?php if ($type != ''): ?>
               <!--<h3 class="type-title"><?php echo $type;?></h3>-->
@@ -164,12 +159,22 @@
                   <p class="description"><?php echo metadata('item', array('Dublin Core', 'Description')); ?></p>
             <?php endif; ?>
           </div>
-          <div class="col-lg-4 col-md-12 col-12">
-            <?php echo get_specific_plugin_hook_output('Geolocation', 'public_items_show', array('view' => $this, 'item' => $item)); ?>
-          </div>
+
+          <?php if($verhaal):?>
+              <div class="col-md-6 col-12">
+                <?php if($lang == "nl" && $text = metadata('item', array('Item Type Metadata', 'Verhaal'))):?>
+                  <?php echo $text;?>
+                <?php endif;?>
+                <?php if($lang == "en" && $text = metadata('item', array('Item Type Metadata', 'Story'))):?>
+                  <?php echo $text;?>
+                <?php endif;?>
+              </div>
+          <?php endif; ?>
         </div>
         <div class="row content">
             <div class="col-12">
+                <?php echo get_specific_plugin_hook_output('Geolocation', 'public_items_show', array('view' => $this, 'item' => $item)); ?>
+            
               <ul class="item-pagination navigation">
                   <li id="previous-item" class="previous"><?php echo link_to_previous_item_show("&#8249; Previous"); ?></li>
                   <li id="next-item" class="next"><?php echo link_to_next_item_show('Next &#8250;'); ?></li>
