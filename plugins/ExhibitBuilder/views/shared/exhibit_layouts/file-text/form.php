@@ -17,7 +17,7 @@ $options = $block->getOptions();
         <h4><?php echo __('Layout Options'); ?></h4>
         <div class="drawer"></div>
     </div>
-    
+
     <div class="file-position">
         <?php echo $this->formLabel($formStem . '[options][file-position]', __('File position')); ?>
         <?php
@@ -26,7 +26,7 @@ $options = $block->getOptions();
             array('left' => __('Left'), 'right' => __('Right')));
         ?>
     </div>
-    
+
     <div class="file-size">
         <?php echo $this->formLabel($formStem . '[options][file-size]', __('File size')); ?>
         <?php
@@ -46,9 +46,9 @@ $options = $block->getOptions();
         echo $this->formSelect($formStem . '[options][captions-position]',
             @$options['captions-position'], array(),
             array(
-                'center' => __('Center'),
                 'left' => __('Left'),
-                'right' => __('Right')
+                'right' => __('Right'),
+                'center' => __('Center')
             ));
         ?>
     </div>

@@ -29,12 +29,14 @@ class ExhibitBuilder_View_Helper_ExhibitAttachment extends Zend_View_Helper_Abst
 
             if($attachment['caption']):
               $caption = $attachment['caption'];
+              $fileOptions['linkAttributes']['data-title'] = exhibit_builder_link_to_exhibit_item($caption, $linkProps, $item);
             else:
               $caption = "";
+              $fileOptions['linkAttributes']['data-title'] = exhibit_builder_link_to_exhibit_item( metadata($item, array('Dublin Core', 'Title')), $linkProps, $item);
+
             endif;
 
             $fileOptions['linkAttributes']['data-lightbox'] = "set";
-            $fileOptions['linkAttributes']['data-title'] = $caption." ". exhibit_builder_link_to_exhibit_item(null, $linkProps, $item);
             $fileOptions['linkAttributes']['href'] = file_display_url($file);
 
 

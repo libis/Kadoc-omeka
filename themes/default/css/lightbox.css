@@ -177,7 +177,6 @@ html.lb-disable-scrolling {
   font-size:13px;
   margin-bottom:8px;
   margin-top:3px;
-  font-style: italic;
   font-weight: 500;
 }
 
@@ -189,6 +188,10 @@ html.lb-disable-scrolling {
   margin-bottom:6px;
   color:white;
   text-decoration: underline;
+}
+
+.lb-caption .exhibit-item-link:hover{
+  color:white !important;
 }
 
 .lb-data .lb-number {
