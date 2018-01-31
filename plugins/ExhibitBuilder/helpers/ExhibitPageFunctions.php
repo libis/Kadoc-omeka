@@ -223,7 +223,7 @@ function exhibit_builder_page_trail($exhibitPage = null)
     foreach ($parents as $parent) {
         $text = metadata($parent, 'title');
         $html .= exhibit_builder_link_to_exhibit($exhibit, $text, array(), $parent);
-        $html .= '<br>';
+        $html .= ' &#8250; ';
         release_object($parent);
     }
 
