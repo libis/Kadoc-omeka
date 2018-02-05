@@ -9446,8 +9446,8 @@ header {
 .browse-section .side .side-nav #exhibit-pages ul li a,
 .exhibit-show-section .side .side-nav #exhibit-pages ul li a,
 .simple-page-section .side .side-nav #exhibit-pages ul li a {
-  border-bottom: 1px solid rgba(49, 57, 112, 0.7);
-  padding-bottom: 0.3rem;
+  border-bottom: none;
+  padding-bottom: 0;
   font-weight: bold;
 }
 
@@ -9455,12 +9455,6 @@ header {
 .exhibit-show-section .side .side-nav #exhibit-pages ul ul,
 .simple-page-section .side .side-nav #exhibit-pages ul ul {
   margin: 10px 0px 0px 15px !important;
-}
-
-.browse-section .side .side-nav #exhibit-pages ul ul li,
-.exhibit-show-section .side .side-nav #exhibit-pages ul ul li,
-.simple-page-section .side .side-nav #exhibit-pages ul ul li {
-  list-style: circle;
 }
 
 .browse-section .side .side-nav #exhibit-pages ul ul li a,
