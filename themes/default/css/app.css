@@ -8315,6 +8315,10 @@ header {
   color: #313970;
 }
 
+.co .summary {
+  min-height: 140px;
+}
+
 @media (max-width: 767px) {
   .co .summary {
     margin-bottom: 1rem;
@@ -8326,6 +8330,7 @@ header {
   overflow: auto;
   font-family: "Roboto", sans-serif;
   font-weight: 100;
+  font-size: 1rem;
 }
 
 .co .summary p:last-of-type {
