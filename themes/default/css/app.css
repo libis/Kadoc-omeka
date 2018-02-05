@@ -9428,6 +9428,55 @@ header {
   }
 }
 
+.browse-section .side .side-nav #exhibit-pages ul,
+.exhibit-show-section .side .side-nav #exhibit-pages ul,
+.simple-page-section .side .side-nav #exhibit-pages ul {
+  margin: 0 !important;
+  padding: 0rem;
+}
+
+.browse-section .side .side-nav #exhibit-pages ul li,
+.exhibit-show-section .side .side-nav #exhibit-pages ul li,
+.simple-page-section .side .side-nav #exhibit-pages ul li {
+  list-style: none;
+  padding: 0 0 0.5rem 0;
+  transition: all 0.5s ease;
+}
+
+.browse-section .side .side-nav #exhibit-pages ul li a,
+.exhibit-show-section .side .side-nav #exhibit-pages ul li a,
+.simple-page-section .side .side-nav #exhibit-pages ul li a {
+  border-bottom: 1px solid rgba(49, 57, 112, 0.7);
+  padding-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+.browse-section .side .side-nav #exhibit-pages ul ul,
+.exhibit-show-section .side .side-nav #exhibit-pages ul ul,
+.simple-page-section .side .side-nav #exhibit-pages ul ul {
+  margin: 10px 0px 0px 15px !important;
+}
+
+.browse-section .side .side-nav #exhibit-pages ul ul li,
+.exhibit-show-section .side .side-nav #exhibit-pages ul ul li,
+.simple-page-section .side .side-nav #exhibit-pages ul ul li {
+  list-style: circle;
+}
+
+.browse-section .side .side-nav #exhibit-pages ul ul li a,
+.exhibit-show-section .side .side-nav #exhibit-pages ul ul li a,
+.simple-page-section .side .side-nav #exhibit-pages ul ul li a {
+  border-bottom: none;
+  font-weight: normal;
+}
+
+.browse-section .side .side-nav #exhibit-pages ul ul li::before,
+.exhibit-show-section .side .side-nav #exhibit-pages ul ul li::before,
+.simple-page-section .side .side-nav #exhibit-pages ul ul li::before {
+  content: "-";
+  padding-right: 0.5rem;
+}
+
 .browse-section .search-results .search-row,
 .exhibit-show-section .search-results .search-row,
 .simple-page-section .search-results .search-row {
