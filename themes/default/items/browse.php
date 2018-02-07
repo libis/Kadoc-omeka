@@ -42,7 +42,7 @@
    <?php if($erfgoed):?>
      <h1><?php echo __("Heritage in the spotlight");?></h1>
    <?php else:?>
-     <h1><?php echo $pageTitle;?></h1>
+     <h1><?php echo __("Browse objects");?></h1>
    <?php endif;?>
 
    <?php if ($total_results > 0): ?>

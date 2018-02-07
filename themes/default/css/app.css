@@ -9289,7 +9289,7 @@ header {
 .simple-page-section #abs-exhibit-nav-next {
   line-height: 1;
   position: absolute;
-  top: 20%;
+  top: 10rem;
   background: rgba(49, 57, 112, 0.05);
 }
 
