@@ -8,7 +8,7 @@
             <div class="col-content">
               <a class="block-link" href="<?php echo url("exhibits");?>"><img src="<?php echo img('placeholder1.jpg');?>"></a>
               <div class="summary">
-                <p><?php echo __("Religie, cultuur en samenleving haken voortdurend en op de meest diverse wijze op elkaar in. Deze tentoonstellingen gaan in op enkele bijzondere aspecten van die kruisbestuiving.");?></p>
+                <p><?php echo __("Religion, culture and society interconnect constantly and in many different ways. These exhibitions illuminate a few exceptional aspects of cross-fertilization.");?></p>
               </div>
             </div>
             <div class="col-footer">
@@ -20,7 +20,7 @@
             <div class="col-content">
               <a class="block-link" href="<?php echo url("collections");?>"><img src="<?php echo img('placeholder2.jpg');?>"></a>
               <div class="summary">
-                <p><?php echo __("Het erfgoed dat KADOC bewaart, is zeer rijk en divers. Hier presenteren we enkele opmerkelijke collecties.");?></p>
+                <p><?php echo __("The heritage preserved by KADOC is extremely rich and varied. Here we present a few remarkable collections.");?></p>
               </div>
             </div>
             <div class="col-footer">
@@ -32,7 +32,7 @@
             <div class="col-content">
               <a class="block-link" href="<?php echo url("items/browse?tags=Erfgoed+in+de+kijker");?>"><img src="<?php echo img('placeholder3.jpg');?>"></a>
               <div class="summary">
-                <p><?php echo __("Hier stellen we verrassende ‘objecten’ voor uit het omvangrijke en – zowel naar vorm als naar inhoud – diverse erfgoed van KADOC. Zo krijgt u inzicht in een ongekend of vergeten facet van de rijke geschiedenis van Vlaanderen.");?></p>
+                <p><?php echo __("Here we present surprising ‘objects’ of heritage held in KADOC's capacious collections, which are as varied in form as in content . They provide glimpses of neglected or forgotten facets of the rich history of Flanders.");?></p>
               </div>
             </div>
             <div class="col-footer">
