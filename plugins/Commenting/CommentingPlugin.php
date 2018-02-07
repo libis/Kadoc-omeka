@@ -164,12 +164,19 @@ class CommentingPlugin extends Omeka_Plugin_AbstractPlugin
     public static function showComments($args = array())
     {
         $view = get_view();
+        $url =  $_SERVER['REQUEST_URI'];
+        $button_text = "Your comments about this object?";
+
+        if (strpos($url, 'exhibits') !== false) {
+            $button_text = 'Your comments about this exhibit?';
+        }
+
         echo "<div class='row'>";
         echo "<div class='col-lg-8'>";
         echo "<div id='comments-container'>";
         ?>
         <button class="btn" type="button" data-toggle="collapse" data-target="#comment-main-container" aria-expanded="false" aria-controls="comment-main-container">
-            <?php echo __('Want to share something?'); ?>
+            <?php echo __($button_text); ?>
         </button>
         <script>
           jQuery( document ).ready(function() {
