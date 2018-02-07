@@ -33,7 +33,7 @@
           <?php if($erfgoed):?>
            > <span><?php echo __("Heritage in the spotlight");?></span>
           <?php else:?>
-           > <span><?php echo __("Objecten");?></span>
+           > <span><?php echo __("Objects");?></span>
           <?php endif;?>
          </p>
      </div>

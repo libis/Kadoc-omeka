@@ -8161,7 +8161,7 @@ header {
   background: rgba(49, 57, 112, 0.8);
   padding: 1.5rem;
   font-weight: 100;
-  margin-top: 10rem;
+  margin-top: 8rem;
   line-height: 1.1;
   color: #fff;
 }
@@ -8201,9 +8201,9 @@ header {
   }
 }
 
-.jumbotron .slogan span {
-  font-weight: 700;
-  font-size: 2.5rem;
+.jumbotron .slogan .exhibit-title {
+  font-size: 2.1rem;
+  font-weight: 500;
 }
 
 .jumbotron .slogan .about-button {
@@ -8230,12 +8230,7 @@ header {
   }
 }
 
-#home .slogan p {
-  font-size: 2.5rem;
-}
-
 #home .slogan span {
-  font-size: 2.8rem;
   font-weight: 700;
 }
 
@@ -8388,7 +8383,7 @@ header {
   margin-top: 1.5rem;
   overflow: hidden;
   padding: 2rem;
-  background: rgba(52, 58, 64, 0.05);
+  background: rgba(49, 57, 112, 0.05);
 }
 
 .item-section .item-files img {
@@ -9239,7 +9234,7 @@ header {
 .browse-section .exhibit-block h1,
 .exhibit-show-section .exhibit-block h1,
 .simple-page-section .exhibit-block h1 {
-  font-weight: 500;
+  font-weight: 700;
   font-size: 1.8rem;
   text-transform: uppercase;
   line-height: 1.2;
@@ -9259,6 +9254,12 @@ header {
 .exhibit-show-section .exhibit-block p,
 .simple-page-section .exhibit-block p {
   text-align: justify;
+}
+
+.browse-section .exhibit-block p:last-of-type,
+.exhibit-show-section .exhibit-block p:last-of-type,
+.simple-page-section .exhibit-block p:last-of-type {
+  margin-bottom: 0;
 }
 
 .browse-section .download-file,
@@ -9288,7 +9289,7 @@ header {
 .simple-page-section #abs-exhibit-nav-next {
   line-height: 1;
   position: absolute;
-  top: 40%;
+  top: 20%;
   background: rgba(49, 57, 112, 0.05);
 }
 

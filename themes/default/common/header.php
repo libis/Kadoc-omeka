@@ -71,11 +71,9 @@
                 <div class="slogan">
                   <?php if ( $bodyclass == 'exhibits'): ?>
                       <?php $title_exhibit = explode(' &middot; ', $title);?>
-                      <p class="type"><?php echo __('Exhibit'); ?></p>
-                      <p><span><?php echo $title_exhibit[1]; ?></span></p>
+                      <p><span class="exhibit-title"><?php echo $title_exhibit[1]; ?></span></p>
                   <?php elseif ( $bodyclass == 'exhibits summary'): ?>
-                      <p class="type"><?php echo __('Exhibit'); ?></p>
-                      <p><span><?php echo $title; ?></span></p>
+                      <p><span class="exhibit-title"><?php echo $title; ?></span></p>
                   <?php else:?>
                       <p><?php echo __("Religion, culture and society<br><span>Heritage online</span>"); ?></p>
                   <?php endif; ?>
