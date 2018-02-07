@@ -36,7 +36,7 @@
               </div>
             </div>
             <div class="col-footer">
-              <a href="<?php echo url("items/browse?tags=Erfgoed+in+de+kijker");?>"><?php echo __('Discover our heritage items');?></a>
+              <a href="<?php echo url("items/browse?tags=Erfgoed+in+de+kijker");?>"><?php echo __('Discover our heritage objects');?></a>
             </div>
         </div>
       </div>

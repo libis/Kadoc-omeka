@@ -8172,6 +8172,10 @@ header {
   font-family: "Roboto", sans-serif;
 }
 
+.jumbotron .slogan span {
+  font-weight: 700;
+}
+
 .jumbotron .slogan p {
   font-family: "Roboto", sans-serif;
   margin-bottom: 0;
@@ -8228,10 +8232,6 @@ header {
   .jumbotron {
     margin-bottom: 0;
   }
-}
-
-#home .slogan span {
-  font-weight: 700;
 }
 
 @media (max-width: 767px) {
