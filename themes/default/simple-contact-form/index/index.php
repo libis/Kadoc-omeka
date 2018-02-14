@@ -20,7 +20,7 @@ echo head(array('bodyclass' => 'contact'));
 					<div class='row content'>
 						<div class="col-sm-12 col-xs-12">
 										<div id="form-instructions">
-											<?php echo __(get_option('simple_contact_form_contact_page_instructions')); // HTML ?>
+											<?php echo __("Do you wish to contact KADOC about the content of this website, you can use this contact form. We will contact you as soon as possible."); ?>
 										</div>
 										<?php echo flash(); ?>
 										<form name="contact_form" id="contact-form"  method="post" enctype="multipart/form-data" accept-charset="utf-8">
