@@ -8603,6 +8603,12 @@ header {
   padding: 0.5rem 2rem 0.5rem 0;
 }
 
+.browse-section #form-instructions,
+.exhibit-show-section #form-instructions,
+.simple-page-section #form-instructions {
+  margin-bottom: 1.5rem;
+}
+
 .browse-section .field,
 .exhibit-show-section .field,
 .simple-page-section .field {
