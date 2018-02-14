@@ -8382,8 +8382,17 @@ header {
 .item-section .item-files {
   margin-top: 1.5rem;
   overflow: hidden;
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
   background: rgba(49, 57, 112, 0.05);
+}
+
+.item-section .item-files .item-file {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.item-section .item-files .image {
+  margin-bottom: 2rem;
 }
 
 .item-section .item-files img {

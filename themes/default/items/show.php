@@ -18,7 +18,25 @@
         </div>
         <!-- The following returns all of the files associated with an item. -->
         <div class="item-files">
-          <?php echo item_image_gallery(array('wrapper'=> array('class' => 'row'),'linkWrapper' => array('wrapper' => 'null','class' => 'col-sm-6 col-md-3 col-12 image'),'link'=>array('data-lightbox'=>'lightbox')),'thumbnail'); ?>
+          <div class="row">
+            <?php
+              $files = $item->getFiles();
+              foreach($files as $file):
+                if($file->hasFullsize()):?>
+                  <div class="col-sm-6 col-md-3 col-12">
+                    <div class="item-file">
+                      <a data-lightbox="lightbox" href="<?php echo $file->getWebPath("fullsize");?>">
+                        <img src="<?php echo $file->getWebPath("thumbnail");?>">
+                      </a>
+                    </div>
+                  </div>
+                <?php else:?>
+                  <div class="col-sm-6 col-12">
+                    <?php echo file_markup($file, array('imageSize' => 'thumbnail',"width" => "100%","height"=>"auto"));?>
+                  </div>
+                <?php endif;?>
+              <?php endforeach;?>
+          </div>
         </div>
       </div>
   </section>
