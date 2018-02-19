@@ -11,9 +11,8 @@ echo head(array('bodyclass' => 'contact'));
 						<div class="col-sm-12 col-xs-12">
 							<p id="simple-pages-breadcrumbs">
 								<span>
-									<a href="http://libis.be/"><?php echo __("Home");?></a>
+									<a href="<?php echo url("/");?>"><?php echo __("Home");?></a>
 									> Contact
-									</p>
 								</span></p>
 						</div>
 					</div>
