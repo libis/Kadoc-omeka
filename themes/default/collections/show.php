@@ -20,7 +20,12 @@ $collectionTitle = metadata('collection', 'display_title');
        <h1><?php echo $collectionTitle; ?></h1>
        <?php if (metadata('collection', array('Dublin Core', 'Description'))): ?>
          <div class="collection-description">
-             <?php echo text_to_paragraphs(metadata('collection', array('Dublin Core', 'Description'), array('snippet'=>150))); ?>
+             <?php echo text_to_paragraphs(metadata('collection', array('Dublin Core', 'Description'))); ?>
+         </div>
+       <?php endif; ?>
+       <?php if (metadata('collection', array('Dublin Core', 'Subject'))): ?>
+         <div class="collection-description">
+             <?php echo text_to_paragraphs("[".metadata('collection', array('Dublin Core', 'Subject'), array('delimiter'=>", "))."]"); ?>
          </div>
        <?php endif; ?>
      </div>

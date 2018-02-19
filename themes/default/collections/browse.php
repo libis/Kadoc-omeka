@@ -73,6 +73,7 @@
             <div class="list-item">
               <h3 class="star"><span><?php echo __('Featured');?></span></h3>
               <h2><i class="material-icons">&#xE3B6;</i><?php echo link_to_collection(); ?></h2>
+              <?php echo metadata($collection, array('Dublin Core', 'Description'), array('snippet'=>80));?>
             </div>
           </div>
         </div>
