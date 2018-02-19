@@ -9,7 +9,7 @@ $collectionTitle = metadata('collection', 'display_title');
     <div class='row breadcrumbs'>
       <div class="col-sm-12 col-12">
         <p id="simple-pages-breadcrumbs">
-          <span><a href="<?php echo url('/');?>">Home</a></span>
+          <span><a href="<?php echo url('/');?>"><?php echo __("Home");?></a></span>
            > <span><a href="<?php echo url('/collections/browse');?>"><?php echo __('Collections');?></a></span>
            > <span><?php echo $collectionTitle; ?></span>
          </p>
