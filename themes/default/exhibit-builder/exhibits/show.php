@@ -1,6 +1,11 @@
 <?php
+if(metadata('exhibit', 'subtitle')):
+  $title = "<span>".metadata('exhibit', 'title')."</span><br>".metadata('exhibit', 'subtitle');
+else:
+  $title = metadata('exhibit', 'title');
+endif;
 echo head(array(
-    'title' => metadata('exhibit_page', 'title').' &middot; '.metadata('exhibit', 'title'),
+    'title' => metadata('exhibit_page', 'title').' &middot; '.$title,
     'bodyclass' => 'exhibits', ));
 $last_page = false;
 ?>

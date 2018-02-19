@@ -12,6 +12,14 @@
         </div>
         <div class="field">
             <div class="two columns alpha">
+                <?php echo $this->formLabel('subtitle', __('Subtitle')); ?>
+            </div>
+            <div class="five columns omega inputs">
+                <?php echo $this->formText('subtitle', $exhibit->subtitle); ?>
+            </div>
+        </div>
+        <div class="field">
+            <div class="two columns alpha">
                 <?php echo $this->formLabel('slug', __('Slug')); ?>
             </div>
             <div class="five columns omega inputs">
@@ -102,11 +110,11 @@
             <?php endif; ?>
             <div id="public-featured">
                 <div class="public">
-                    <label for="public"><?php echo __('Public'); ?>:</label> 
+                    <label for="public"><?php echo __('Public'); ?>:</label>
                     <?php echo $this->formCheckbox('public', $exhibit->public, array(), array('1', '0')); ?>
                 </div>
                 <div class="featured">
-                    <label for="featured"><?php echo __('Featured'); ?>:</label> 
+                    <label for="featured"><?php echo __('Featured'); ?>:</label>
                     <?php echo $this->formCheckbox('featured', $exhibit->featured, array(), array('1', '0')); ?>
                 </div>
             </div>

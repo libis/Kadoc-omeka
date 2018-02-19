@@ -1,4 +1,10 @@
-<?php echo head(array('title' => metadata('exhibit', 'title'), 'bodyclass'=>'exhibits summary')); ?>
+<?php
+if(metadata('exhibit', 'subtitle')):
+  $title = "<span>".metadata('exhibit', 'title')."</span><br>".metadata('exhibit', 'subtitle');
+else:
+  $title = metadata('exhibit', 'title');
+endif;
+echo head(array('title' => $title, 'bodyclass'=>'exhibits summary')); ?>
 <style>
 header {
     background: #F4F5F8 url("<?php echo WEB_PUBLIC_THEME.'/default/images/exhibits/banner_'.metadata('exhibit', 'slug').'.jpg';?>") no-repeat center center/cover;

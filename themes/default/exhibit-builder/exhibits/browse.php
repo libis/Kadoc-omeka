@@ -41,9 +41,11 @@ endif;
     </div>
 
     <?php if (count($exhibits) > 0): ?>
-      <?php echo pagination_links(); ?>
+      <?php
+        echo pagination_links();?>
 
       <?php $exhibitCount = 0; $exhibit = $exhibits[0]; array_shift($exhibits);?>
+
       <div class="feat-row exhibits-feat">
         <div class="row">
           <div class="col-md-12 col-lg-3">
@@ -54,7 +56,11 @@ endif;
           <div class="col-md-12 col-lg-8">
             <div class="list-item">
               <h3><span><?php echo __('Featured');?></span></h3>
-              <h2><?php echo exhibit_builder_link_to_exhibit($exhibit,metadata($exhibit,'title')); ?></h2>
+              <h2><?php echo exhibit_builder_link_to_exhibit($exhibit,metadata($exhibit, 'title')); ?>
+                <?php if(metadata($exhibit, 'subtitle')):?>
+                <br><span class="subtitle"><?php echo metadata($exhibit, 'subtitle')?></span>
+                <?php endif;?>
+              </h2>
               <?php if ($exhibitCredits = metadata($exhibit, 'credits')): ?>
               <div class="credits"><p><?php echo $exhibitCredits; ?></p></div>
               <?php endif; ?>
@@ -87,7 +93,7 @@ endif;
               <?php endif; ?>
               <div class="list-item">
                   <h3 class="star"><span><?php echo __('Featured');?></span></h3>
-                  <h2><?php echo exhibit_builder_link_to_exhibit($exhibit,metadata($exhibit,'title')); ?></h2>
+                  <h2><?php echo exhibit_builder_link_to_exhibit($exhibit,metadata($exhibit, 'title')); ?></h2>
                   <?php if ($exhibitCredits = metadata($exhibit, 'credits')): ?>
                   <div class="credits"><p><?php echo $exhibitCredits; ?></p></div>
                   <?php endif; ?>

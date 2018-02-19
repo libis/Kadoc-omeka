@@ -4,7 +4,7 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.txt
  * @package ExhibitBuilder
  */
- 
+
 /**
  * Exhibit model.
  *
@@ -18,6 +18,7 @@ class Exhibit extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_I
      * @var string
      */
     public $title;
+    public $subtitle;
 
     /**
      * Exhibit description (in HTML).
@@ -32,7 +33,7 @@ class Exhibit extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_I
      * @var string
      */
     public $credits;
-    
+
     /**
      * Whether the exhibit is featured.
      *
@@ -46,7 +47,7 @@ class Exhibit extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_I
      * @var integer
      */
     public $public = 0;
-    
+
     /**
      * Public theme to use for this exhibit.
      *
@@ -60,14 +61,14 @@ class Exhibit extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_I
      * @var string
      */
     public $theme_options;
-    
+
     /**
      * URL slug for the exhibit.
      *
      * @var string
      */
     public $slug;
-    
+
     /**
      * Date the exhibit was created, as a MySQL-formatted date string.
      *
@@ -191,7 +192,7 @@ class Exhibit extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_I
         $this->setSearchTextTitle($this->title);
         $this->addSearchText($this->title);
         $this->addSearchText($this->description);
-        
+
         if ($args['post']) {
             //Add the tags after the form has been saved
             $post = $args['post'];
@@ -226,13 +227,13 @@ class Exhibit extends Omeka_Record_AbstractRecord implements Zend_Acl_Resource_I
             if ($parentId == 'null') {
                 $pageData[$pageId] = null;
             }
-            
+
             if (!isset($ordersByParent[$parentId])) {
                 $order = $ordersByParent[$parentId] = 0;
             } else {
                 $order = ++$ordersByParent[$parentId];
             }
-            
+
             $orders[$pageId] = $order;
         }
 
