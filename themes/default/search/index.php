@@ -34,14 +34,11 @@ $lang = get_language();
                     <h3><a href="<?php echo record_url($record, 'show'); ?>">
                       <?php
                         if($searchRecordTypes[$recordType] == "Item" && $lang == "nl"):
-                          echo metadata($record, array('Dublin Core', 'Title'));
+                          $searchText['title'] = metadata($record, array('Dublin Core', 'Title'));
                         elseif($searchRecordTypes[$recordType] == "Item" && $lang == "en"):
-                          echo metadata($record, array('Item Type Metadata', 'Title'));
-                        else:
-                          echo $searchText['title'];
+                          $searchText['title'] = metadata($record, array('Item Type Metadata', 'Title'));
                         endif;
-                      ?>
-                      <?php echo $searchText['title'] ? $searchText['title'] : '[Unknown]'; ?>
+                        echo $searchText['title'] ? $searchText['title'] : '[Unknown]'; ?>
                     </a></h3>
                   </div>
                   <div class="col-12 col-md-2">
