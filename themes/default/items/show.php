@@ -7,7 +7,7 @@
         <div class='row breadcrumbs'>
             <div class="col-12">
                 <p id="simple-pages-breadcrumbs">
-                  <span><a href="<?php echo url('/');?>">Home</a></span>
+                  <span><a href="<?php echo url('/');?>"><?php echo __("Home");?></a></span>
                   <?php if (metadata('item', 'Collection Name')): ?>
                    > <span><a href="<?php echo url('items/browse');?>"><?php echo link_to_collection_for_item(); ?></a></span>
                   <?php endif; ?>

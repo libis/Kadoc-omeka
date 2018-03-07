@@ -19,7 +19,7 @@ endif;
   <div id="content" class='container' role="main" tabindex="-1">
     <div class='breadcrumbs'>
         <p id="simple-pages-breadcrumbs">
-          <span><a href="<?php echo url('/');?>">Home</a></span>
+          <span><a href="<?php echo url('/');?>"><?php echo __("Home");?></a></span>
            > <span><?php echo __("Exhibits");?></span>
         </p>
     </div>

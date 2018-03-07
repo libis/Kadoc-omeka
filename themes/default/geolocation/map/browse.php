@@ -10,7 +10,7 @@ echo head(array('title' => $title, 'bodyclass' => 'map browse'));
     <div class='row breadcrumbs'>
       <div class="col-sm-12 col-xs-12">
         <p id="simple-pages-breadcrumbs">
-          <span><a href="<?php echo url('/');?>">Home</a></span>
+          <span><a href="<?php echo url('/');?>"><?php echo __("Home");?></a></span>
            > <span><?php echo $title; ?></span>
          </p>
        </div>
