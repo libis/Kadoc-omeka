@@ -2,6 +2,7 @@
 $pageTitle = __('Search') . ' ' . __('(%s)', $total_results);
 echo head(array('title' => $pageTitle, 'bodyclass' => 'search'));
 $searchRecordTypes = get_search_record_types();
+$lang = get_language();
 ?>
 <section class="browse-section">
   <div class="container">
@@ -30,11 +31,30 @@ $searchRecordTypes = get_search_record_types();
                     </div>
                   </div>
                   <div class="col-12 col-md-6">
-                    <h3><a href="<?php echo record_url($record, 'show'); ?>"><?php echo $searchText['title'] ? $searchText['title'] : '[Unknown]'; ?></a></h3>
+                    <h3><a href="<?php echo record_url($record, 'show'); ?>">
+                      <?php
+                        if($searchRecordTypes[$recordType] == "Item" && $lang == "nl"):
+                          echo metadata($record, array('Dublin Core', 'Title'));
+                        elseif($searchRecordTypes[$recordType] == "Item" && $lang == "en"):
+                          echo metadata($record, array('Item Type Metadata', 'Title'));
+                        else:
+                          echo $searchText['title'];
+                        endif;
+                      ?>
+                      <?php echo $searchText['title'] ? $searchText['title'] : '[Unknown]'; ?>
+                    </a></h3>
                   </div>
                   <div class="col-12 col-md-2">
                     <div class="type">
-                    <?php echo $searchRecordTypes[$recordType]; ?>
+                    <?php
+                      if($searchRecordTypes[$recordType] == "Item"):
+                        echo "Object";
+                      elseif($searchRecordTypes[$recordType] == "Simple Page"):
+                        echo "";
+                      else:
+                        echo $searchRecordTypes[$recordType];
+                      endif;
+                    ?>
                     </div>
                   </div>
                 </div>
