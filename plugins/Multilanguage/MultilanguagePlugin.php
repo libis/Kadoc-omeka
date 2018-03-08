@@ -69,7 +69,6 @@ class MultilanguagePlugin extends Omeka_Plugin_AbstractPlugin
 
     public function filterLocale($locale)
     {
-
         //setdefault
         $defaultCodes = "nl_BE";
         $this->locale_code = "nl_BE";
@@ -80,10 +79,12 @@ class MultilanguagePlugin extends Omeka_Plugin_AbstractPlugin
           $this->locale_code = $langNamespace->lang;
         endif;
 
-        //if exhibit is english change language (in case of a direct link)
+        //if exhibit change language (in case of a direct link)
         $url = explode("/",$_SERVER['REQUEST_URI']);
         if(in_array("exhibits",$url) && in_array("show",$url)):
-          $slug = $url[4];
+          //slug comes after show
+          $key = array_search ("show",$url);
+          $slug = $url[$key+1];
           $db = get_db();
           $exhibit = $db->getTable('Exhibit')->findBySlug($slug);
           $lang = MultilanguageContentLanguage::lang("Exhibit",$exhibit->id);
@@ -106,24 +107,6 @@ class MultilanguagePlugin extends Omeka_Plugin_AbstractPlugin
             $langNamespace->lang = "en_US";
         endif;
 
-
-
-        //weird to be adding filters here, but translations weren't happening consistently when it was in setUp
-        //@TODO: check if this oddity is due to setting the priority high
-        $translatableElements = unserialize(get_option('multilanguage_elements'));
-
-        if(is_array($translatableElements)) {
-            foreach($translatableElements as $elementSet=>$elements) {
-                foreach($elements as $element) {
-                    add_filter(array('Display', 'Item', $elementSet, $element), array($this, 'translate'), 1000);
-                    add_filter(array('ElementInput', 'Item', $elementSet, $element), array($this, 'translateField'), 1);
-                    add_filter(array('Display', 'Collection', $elementSet, $element), array($this, 'translate'), 1);
-                    add_filter(array('ElementInput', 'Collection', $elementSet, $element), array($this, 'translateField'), 1);
-                    add_filter(array('Display', 'File', $elementSet, $element), array($this, 'translate'), 1);
-                    add_filter(array('ElementInput', 'File', $elementSet, $element), array($this, 'translateField'), 1);
-                }
-            }
-        }
         return $this->locale_code;
     }
 
