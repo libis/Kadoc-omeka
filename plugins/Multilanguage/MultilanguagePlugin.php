@@ -69,15 +69,8 @@ class MultilanguagePlugin extends Omeka_Plugin_AbstractPlugin
 
     public function filterLocale($locale)
     {
-        $defaultCodes = Zend_Locale::getDefault();
-        $defaultCode = current(array_keys($defaultCodes));
-        if (empty($locale)) {
-            $this->locale_code = $defaultCode;
-        } else {
-            $this->locale_code = $locale;
-        }
 
-        //check default (from config)
+        //setdefault
         $defaultCodes = "nl_BE";
         $this->locale_code = "nl_BE";
 
@@ -85,6 +78,17 @@ class MultilanguagePlugin extends Omeka_Plugin_AbstractPlugin
         $langNamespace = new Zend_Session_Namespace('lang');
         if (isset($langNamespace->lang)):
           $this->locale_code = $langNamespace->lang;
+        endif;
+
+        //if exhibit is english change language (in case of a direct link)
+        $url = explode("/",$_SERVER['REQUEST_URI']);
+        if(in_array("exhibits",$url) && in_array("show",$url)):
+          $slug = $url[4];
+          $db = get_db();
+          $exhibit = $db->getTable('Exhibit')->findBySlug($slug);
+          $lang = MultilanguageContentLanguage::lang("Exhibit",$exhibit->id);
+          $this->locale_code = $lang;
+          $langNamespace->lang = $lang;
         endif;
 
         //check url
@@ -103,52 +107,7 @@ class MultilanguagePlugin extends Omeka_Plugin_AbstractPlugin
         endif;
 
 
-        /*$this->_translationTable = $this->_db->getTable('MultilanguageTranslation');
-        $user = current_user();
-        $userPrefLanguageCode = false;
-        $userPrefLanguage = false;
-        if ($user) {
-            $prefLanguages = $this->_db->getTable('MultilanguageUserLanguage')->findBy(array('user_id' => $user->id));
-            if ( ! empty($prefLanguages)) {
-                $userPrefLanguage = $prefLanguages[0];
-                $userPrefLanguageCode = $userPrefLanguage->lang;
-                $this->locale_code = $userPrefLanguageCode;
-            }
-        }
-        if (! $userPrefLanguageCode) {
-            $codes = unserialize( get_option('multilanguage_language_codes') );
-            //dump the site's default code to the end as a fallback
-            $codes[] = $defaultCode;
-            $browserCodes = array_keys(Zend_Locale::getBrowser());
-            $match = false;
-            foreach ($browserCodes as $browserCode) {
-                if (in_array($browserCode, $codes)) {
-                    $this->locale_code = $browserCode;
-                    $match = true;
-                    break;
-                }
-            }
-            if (! $match) {
-                // Failed to find browserCode in our language codes.
-                // Try to match a two character code and set it to
-                // the closest equivalent if available.
-                $shortcodes = array();
-                foreach ($codes as $c) {
-                    $shortcodes[] = substr($c, 0, 2);
-                }
-                foreach ($browserCodes as $bcode) {
-                    if (in_array($bcode, $shortcodes)) {
-                        $lenCodes = count($codes);
-                        for ($i = 0; $i < $lenCodes; $i++) {
-                            if (strcmp($bcode, $shortcodes[$i]) == 0) {
-                                $this->locale_code = $codes[$i];
-                                break 2;
-                            }
-                        }
-                    }
-                }
-            }
-        }*/
+
         //weird to be adding filters here, but translations weren't happening consistently when it was in setUp
         //@TODO: check if this oddity is due to setting the priority high
         $translatableElements = unserialize(get_option('multilanguage_elements'));
@@ -170,10 +129,6 @@ class MultilanguagePlugin extends Omeka_Plugin_AbstractPlugin
 
     public function hookAdminFooter()
     {
-        echo "<div id='multilanguage-modal'>
-        <textarea id='multilanguage-translation'></textarea>
-        </div>";
-
         echo "<script type='text/javascript'>
         var baseUrl = '" . WEB_ROOT . "';
         </script>
