@@ -11,7 +11,6 @@
                   <?php if (metadata('item', 'Collection Name')): ?>
                    > <span><a href="<?php echo url('items/browse');?>"><?php echo link_to_collection_for_item(); ?></a></span>
                   <?php endif; ?>
-                   > <span><a href="<?php echo url('items/browse');?>"><?php echo __('Items');?></a></span>
                    > <?php echo metadata('item', array('Dublin Core', 'Title')); ?>
                  </p>
              </div>
@@ -151,6 +150,8 @@
                       <div class="element-text"><?php echo tag_string('item'); ?></div>
                   </div>
                   <?php endif;?>
+
+                  <?php echo libis_link_to_related_exhibits($item);?>
 
                   <ul>
                     <?php if ($text = metadata('item', array('Item Type Metadata','LIMO'))): ?>

@@ -27,6 +27,7 @@
                   <img src="<?php echo img("ErkendCultArch.jpg");?>">
                   <img src="<?php echo img("_erkendeerfbib.gif");?>">
                   <a href="http://www.ditisvlaanderen.be/"><img src="<?php echo img("vlaanderen.png");?>"></a>
+                  <a href="http://libis.be/"><img src="<?php echo img("libis_gray.png");?>"></a>
                   <div class="copyright">© KADOC</div>
                 </div>
               </div>

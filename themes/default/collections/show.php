@@ -32,35 +32,49 @@ $collectionTitle = metadata('collection', 'display_title');
    </div>
    <div class="row">
      <div class="col-sm-12">
-       <h2 class="items-title"><i class="material-icons">&#xE3B6;</i><?php echo link_to_items_browse(__('View all objects in this collection'), array('collection' => metadata('collection', 'id'))); ?></h2>
+       <?php echo pagination_links(); ?>
        <?php if (metadata('collection', 'total_items') > 0): ?>
          <div class="card-columns">
-           <?php foreach (loop('items') as $item): ?>
-             <div class="card">
-               <?php if (metadata('item', 'has files')): ?>
-                 <div class="item-img">
-                     <?php echo link_to_item(item_image('thumbnail')); ?>
-                 </div>
-               <?php endif; ?>
-               <hr>
-               <div class="card-block">
-                 <div class="list-item">
-                   <h2><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h2>
-
-                   <!--<?php if ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>200))): ?>
-                   <div class="item-description">
-                       <p><?php echo $description; ?></p>
+            <?php foreach (loop('items') as $item): ?>
+               <?php
+                 $class = "";
+                 if($item->featured):
+                   $class = 'featured';
+                 endif;
+               ?>
+               <div class="card <?php echo $class;?>">
+                 <?php if (metadata('item', 'has files')): ?>
+                   <div class="item-img">
+                       <?php echo link_to_item(item_image('thumbnail')); ?>
                    </div>
-                   <?php endif; ?>-->
+                 <?php endif; ?>
+                 <hr>
+                 <div class="card-block">
+                   <div class="list-item">
+                     <h3 class="star"><span><?php echo __('Featured');?></span></h3>
+                     <!--<h3 class="star"><i class="material-icons">&#xE83A;</i><span><?php echo __('Featured');?></span></h3>-->
+                     <?php if(metadata('item', array('Item Type Metadata', 'Verhaal titel')) && $lang == "nl"):?>
+                       <h2><?php echo link_to_item(metadata('item', array('Item Type Metadata', 'Verhaal titel')), array('class'=>'permalink')); ?></h2>
+                       <h3><?php echo metadata('item', array('Item Type Metadata', 'Verhaal ondertitel'));?></h3>
+                     <?php elseif(metadata('item', array('Item Type Metadata', 'Story title')) && $lang == "en"): ?>
+                       <h2><?php echo link_to_item(metadata('item', array('Item Type Metadata', 'Story title')), array('class'=>'permalink')); ?></h2>
+                       <h3><?php echo metadata('item', array('Item Type Metadata', 'Story subtitle'));?></h3>
+                     <?php else: ?>
+                       <h2><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h2>
+                     <?php endif; ?>
 
-                   <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
+                     <!--<?php if (metadata('item', 'has tags')): ?>
+                       <div class="tags"></strong>
+                           <?php echo tag_string('items'); ?>
+                       </div>
+                     <?php endif; ?>-->
+
+                     <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
+                   </div>
                  </div>
                </div>
-             </div>
            <?php endforeach; ?>
          </div>
-         <h2 class="items-title"><i class="material-icons">&#xE3B6;</i><?php echo link_to_items_browse(__('View all objects in this collection'), array('collection' => metadata('collection', 'id'))); ?></h2>
-
         <?php else: ?>
             <p><?php echo __("There are currently no items within this collection."); ?></p>
         <?php endif; ?>

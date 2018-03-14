@@ -31,12 +31,7 @@
      <div class="col-sm-12 col-xs-12">
         <h1><?php echo $pageTitle; ?></h1>
          <?php if ($total_results > 0): ?>
-             <?php
-             $sortLinks[__('Title')] = 'Dublin Core,Title';
-             $sortLinks[__('Date Added')] = 'added';
-             ?>
-             <div id="sort-links">
-                 <span class="sort-label"><i class="material-icons">&#xE164;</i> <?php echo __('Sort by: '); ?></span><?php echo browse_sort_links($sortLinks); ?>
+           <div id="sort-links">
                  <span class="sort-label"><i class="material-icons">&#xE152;</i>
                     <?php echo __('Filter: '); ?></span>
                     <?php if($show_featured):?>

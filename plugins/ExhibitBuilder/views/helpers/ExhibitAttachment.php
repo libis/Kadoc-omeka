@@ -29,10 +29,10 @@ class ExhibitBuilder_View_Helper_ExhibitAttachment extends Zend_View_Helper_Abst
 
             if($attachment['caption']):
               $caption = $attachment['caption'];
-              $fileOptions['linkAttributes']['data-title'] = exhibit_builder_link_to_exhibit_item($caption, $linkProps, $item);
+              $fileOptions['linkAttributes']['data-title'] = link_to_item($caption,$linkProps,'show',$item);// exhibit_builder_link_to_exhibit_item($caption, $linkProps, $item);
             else:
               $caption = "";
-              $fileOptions['linkAttributes']['data-title'] = exhibit_builder_link_to_exhibit_item( metadata($item, array('Dublin Core', 'Title')), $linkProps, $item);
+              $fileOptions['linkAttributes']['data-title'] = link_to_item(metadata($item, array('Dublin Core', 'Title')),$linkProps,'show',$item);
 
             endif;
 

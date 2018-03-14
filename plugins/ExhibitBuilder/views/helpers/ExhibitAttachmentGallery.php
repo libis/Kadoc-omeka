@@ -22,12 +22,13 @@ class ExhibitBuilder_View_Helper_ExhibitAttachmentGallery extends Zend_View_Help
             $fileOptions['imageSize'] = 'square_thumbnail';
         }
 
-        $html = '';
+        $html = '<div class="card-columns">';
         foreach  ($attachments as $attachment) {
             $html .= '<div class="exhibit-item exhibit-gallery-item card">';
             $html .= $this->view->exhibitAttachment($attachment, $fileOptions, $linkProps, true);
             $html .= '</div>';
         }
+        $html .= '</div>';
 
         return apply_filters('exhibit_attachment_gallery_markup', $html,
             compact('attachments', 'fileOptions', 'linkProps'));
