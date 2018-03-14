@@ -88,14 +88,16 @@
                 <div class="list-item">
                   <h3 class="star"><span><?php echo __('Featured');?></span></h3>
                   <!--<h3 class="star"><i class="material-icons">&#xE83A;</i><span><?php echo __('Featured');?></span></h3>-->
-                  <?php if($erfgoed && $lang == "nl"):?>
+                  <?php if($erfgoed && $lang == "nl" && metadata('item', array('Item Type Metadata', 'Verhaal titel'))):?>
                     <h2><?php echo link_to_item(metadata('item', array('Item Type Metadata', 'Verhaal titel')), array('class'=>'permalink')); ?></h2>
                     <h3><?php echo metadata('item', array('Item Type Metadata', 'Verhaal ondertitel'));?></h3>
-                  <?php elseif($erfgoed && $lang == "en"): ?>
+                  <?php elseif($erfgoed && $lang == "en" && metadata('item', array('Item Type Metadata', 'Story title'))): ?>
                     <h2><?php echo link_to_item(metadata('item', array('Item Type Metadata', 'Story title')), array('class'=>'permalink')); ?></h2>
                     <h3><?php echo metadata('item', array('Item Type Metadata', 'Story subtitle'));?></h3>
-                  <?php else: ?>
-                    <h2><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h2>
+                  <?php elseif($lang == "en"): ?>
+                    <h3><?php echo link_to_item(metadata('item', array('Item Type Metadata', 'Title')), array('class'=>'permalink')); ?></h3>
+                  <?php else:?>
+                    <h3><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h3>
                   <?php endif; ?>
 
                   <!--<?php if (metadata('item', 'has tags')): ?>
