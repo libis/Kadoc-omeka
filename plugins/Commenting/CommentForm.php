@@ -48,7 +48,7 @@ class Commenting_CommentForm extends Omeka_Form
             $this->addElement('captcha', 'captcha',  array(
                 'label' => __("Verify you are not a computer."),
                 'captcha' => array(
-                    'captcha' => 'ReCaptcha',
+                    'captcha' => 'ReCaptcha2',
                     'pubkey' => get_option('recaptcha_public_key'),
                     'privkey' => get_option('recaptcha_private_key'),
                     'ssl' => true //make the connection secure so IE8 doesn't complain. if works, should branch around http: vs https:
