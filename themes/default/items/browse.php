@@ -94,7 +94,7 @@
                   <?php elseif($erfgoed && $lang == "en" && metadata('item', array('Item Type Metadata', 'Story title'))): ?>
                     <h2><?php echo link_to_item(metadata('item', array('Item Type Metadata', 'Story title')), array('class'=>'permalink')); ?></h2>
                     <h3><?php echo metadata('item', array('Item Type Metadata', 'Story subtitle'));?></h3>
-                  <?php elseif($lang == "en"): ?>
+                  <?php elseif(metadata('item', array('Item Type Metadata', 'Title')) && $lang == "en"): ?>
                     <h3><?php echo link_to_item(metadata('item', array('Item Type Metadata', 'Title')), array('class'=>'permalink')); ?></h3>
                   <?php else:?>
                     <h3><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h3>

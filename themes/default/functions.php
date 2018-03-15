@@ -91,6 +91,7 @@ function libis_get_featured($type = 'item'){
 function libis_link_to_related_exhibits($item) {
 
     $db = get_db();
+    $html="";
 
     $select = "
     SELECT e.* FROM {$db->prefix}exhibits AS e
@@ -101,11 +102,21 @@ function libis_link_to_related_exhibits($item) {
 
     $exhibits = $db->getTable("Exhibit")->fetchObjects($select,array($item->id));
 
+    $lang = get_language();
+
     if(!empty($exhibits)) {
-        echo '<div class="element in-exhibit"><h3>In '.__("Exhibit").'</h3><div class="element-text">';
         foreach($exhibits as $exhibit) {
-            echo '<a href="'.exhibit_builder_exhibit_uri($exhibit).'">'.$exhibit->title.'</a><br>';
+            $lang_ex = MultilanguageContentLanguage::lang('Exhibit',$exhibit->id);
+            if (strpos($lang_ex, $lang) !== false) {
+                $html .= '<a href="'.exhibit_builder_exhibit_uri($exhibit).'">'.$exhibit->title.'</a><br>';
+            }
         }
-        echo "</div></div>";
+
+        if($html):
+          $html = '<div class="element in-exhibit"><h3>In '.__("Exhibit").'</h3><div class="element-text">'.$html;
+          $html .= "</div></div>";
+        endif;
+
+        return $html;
     }
 }
