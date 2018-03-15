@@ -9061,6 +9061,7 @@ header {
 .simple-page-section .card-columns .card h3 {
   font-size: 1rem;
   font-weight: 500;
+  padding-top: 0.1rem;
 }
 
 .browse-section .card-columns .card hr,
@@ -9116,6 +9117,12 @@ header {
 .browse-section .featured h3,
 .exhibit-show-section .featured h3,
 .simple-page-section .featured h3 {
+  color: white !important;
+}
+
+.browse-section .featured h3 a:hover,
+.exhibit-show-section .featured h3 a:hover,
+.simple-page-section .featured h3 a:hover {
   color: white !important;
 }
 
