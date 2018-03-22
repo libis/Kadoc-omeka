@@ -8,9 +8,7 @@
             <div class="col-12">
                 <p id="simple-pages-breadcrumbs">
                   <span><a href="<?php echo url('/');?>"><?php echo __("Home");?></a></span>
-                  <?php if (metadata('item', 'Collection Name')): ?>
-                   > <span><a href="<?php echo url('items/browse');?>"><?php echo link_to_collection_for_item(); ?></a></span>
-                  <?php endif; ?>
+                   > <span><a href="<?php echo url('items/browse?tags=erfgoed+in+de+kijker');?>"><?php echo __("Heritage in the spotlight");?></a></span>
                    > <?php echo metadata('item', array('Dublin Core', 'Title')); ?>
                  </p>
              </div>

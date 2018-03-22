@@ -12,7 +12,7 @@
   endif;
 
   if(isset($params['tags'])):
-    if($params['tags']=="Erfgoed in de kijker"):
+    if($params['tags']=="erfgoed in de kijker"):
         $erfgoed = true;
     endif;
   endif;
@@ -51,10 +51,10 @@
          <span class="sort-label"><i class="material-icons">&#xE152;</i>
            <?php echo __('Filter:');?></span>
            <ul id="sort-links-list">
-             <li><a href="<?php echo url('items/browse?tags=Erfgoed+in+de+kijker');?>"><?php echo __("Show all");?></a></li>
+             <li><a href="<?php echo url('items/browse?tags=erfgoed+in+de+kijker');?>"><?php echo __("Show all");?></a></li>
               <?php if(!$show_featured):?>
                 <li>
-                  <a href="<?php echo url('items/browse?tags=Erfgoed+in+de+kijker&featured=1');?>">
+                  <a href="<?php echo url('items/browse?tags=erfgoed+in+de+kijker&featured=1');?>">
                     <?php echo __("Featured"); ?>
                   </a>
                 </li>
