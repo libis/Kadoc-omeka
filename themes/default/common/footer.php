@@ -1,34 +1,22 @@
     <footer role="contentinfo">
+      <?php
+        $lang = get_language();
+        if($lang == "nl"):
+          $english = "";
+        else:
+          $english = "english";
+        endif;
+      ?>
       <section class="home">
         <div class="container footer-container">
             <div id="footer-text">
               <div class="footer-row">
-                <?php echo get_theme_option('Footer Text'); ?>
-                <?php if ((get_theme_option('Display Footer Copyright') == 1) && $copyright = option('copyright')): ?>
-                    <p><?php echo $copyright; ?></p>
-                <?php endif; ?>
-                <div class="logo-kadoc">
-                  <a href="https://kadoc.kuleuven.be/"><img src="<?php echo img("kadoc.PNG");?>"></a>
-                </div>
                 <div class="col-content">
-                  <p>
-                    <?php echo __("Documentation and Research Center on Religion, Culture and Society");?><br>
-                    Vlamingenstraat 39 | 3000 Leuven | +32 16 32 35 00<br>
-                    postmaster@kadoc.kuleuven.be | <a href="http://kadoc.kuleuven.be">kadoc.kuleuven.be</a>
-                  </p>
-                  <!--<ul>
-                    <li><a href="<?php echo url("route");?>">Routebeschrijving</a></li>
-                    <li><a href="<?php echo url("contact");?>">Contact</a></li>
-                  </ul>-->
-                </div>
-              </div>
-              <div class="footer-row">
-                <div class="col-content">
+                  <a href="https://kadoc.kuleuven.be/<?php echo $english;?>"><img src="<?php echo img("kadoc.PNG");?>"></a>
                   <img src="<?php echo img("ErkendCultArch.jpg");?>">
                   <img src="<?php echo img("_erkendeerfbib.gif");?>">
                   <a href="http://www.ditisvlaanderen.be/"><img src="<?php echo img("vlaanderen.png");?>"></a>
                   <a href="http://libis.be/"><img src="<?php echo img("libis_gray.png");?>"></a>
-                  <div class="copyright">© KADOC</div>
                 </div>
               </div>
             </div>
@@ -38,7 +26,6 @@
     </footer><!-- end footer -->
 
     <script>
-
       jQuery('.navbar-toggler').click(function(e) {
         e.preventDefault();
         jQuery('.navbar-toggler').toggleClass('toggled');
@@ -61,7 +48,6 @@
                 $(this).removeClass('open');
             }
         });
-
     });
 
     </script>
