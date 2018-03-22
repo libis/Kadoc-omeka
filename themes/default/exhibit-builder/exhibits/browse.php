@@ -30,7 +30,7 @@ endif;
               <?php echo __('Filter: '); ?></span>
               <?php if($show_featured):?>
                 <a href="<?php echo url('exhibits/browse');?>">
-                  <?php echo __("All"); ?>
+                  <?php echo __("Show all"); ?>
                 </a>
               <?php else:?>
                 <a href="<?php echo url('exhibits/browse?featured=1');?>">

@@ -36,7 +36,7 @@
                     <?php echo __('Filter: '); ?></span>
                     <?php if($show_featured):?>
                       <a href="<?php echo url('collections/browse');?>">
-                        <?php echo __("All"); ?>
+                        <?php echo __("Show all"); ?>
                       </a>
                     <?php else:?>
                       <a href="<?php echo url('collections/browse?featured=1');?>">
