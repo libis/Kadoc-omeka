@@ -40,46 +40,55 @@ endif;
        </div>
     </div>
 
+    <?php
+      $featured_exhibits = array(); $normal_exhibits = array();
+      foreach($exhibits as $exhibit):
+        if($exhibit->featured):
+          $featured_exhibits[] = $exhibit;
+        else:
+          $normal_exhibits[] = $exhibit;
+        endif;
+      endforeach;
+    ?>
+
     <?php if (count($exhibits) > 0): ?>
-      <?php
-        echo pagination_links();?>
-
-      <?php $exhibitCount = 0; $exhibit = $exhibits[0]; array_shift($exhibits);?>
-
-      <div class="feat-row exhibits-feat">
-        <div class="row">
-          <div class="col-md-12 col-lg-3">
-            <?php if ($exhibitImage = record_image($exhibit, 'thumbnail')): ?>
-                <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'image')); ?>
-            <?php endif; ?>
-          </div>
-          <div class="col-md-12 col-lg-8">
-            <div class="list-item">
-              <h3><span><?php echo __('Featured');?></span></h3>
-              <h2><?php echo exhibit_builder_link_to_exhibit($exhibit,metadata($exhibit, 'title')); ?>
-                <?php if(metadata($exhibit, 'subtitle')):?>
-                <br><span class="subtitle"><?php echo metadata($exhibit, 'subtitle')?></span>
-                <?php endif;?>
-              </h2>
-              <?php if ($exhibitCredits = metadata($exhibit, 'credits')): ?>
-              <div class="credits"><p><?php echo $exhibitCredits; ?></p></div>
-              <?php endif; ?>
-              <?php if ($exhibitDescription = metadata($exhibit, 'description', array('no_escape' => true,'snippet'=>'300'))): ?>
-              <div class="description"><p><?php echo $exhibitDescription; ?></p></div>
-              <?php endif; ?>
-              <?php if ($exhibitTags = tag_string($exhibit, 'exhibits')): ?>
-              <p class="tags"><?php echo $exhibitTags; ?></p>
+      <?php echo pagination_links();?>
+      <?php foreach($featured_exhibits as $exhibit):?>
+        <div class="feat-row exhibits-feat">
+          <div class="row">
+            <div class="col-md-12 col-lg-3">
+              <?php if ($exhibitImage = record_image($exhibit, 'thumbnail')): ?>
+                  <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'image')); ?>
               <?php endif; ?>
             </div>
-            <div class="list-footer">
-              <?php echo exhibit_builder_link_to_exhibit($exhibit, __("Start exhibit")); ?>
+            <div class="col-md-12 col-lg-8">
+              <div class="list-item">
+                <h3><span><?php echo __('Featured');?></span></h3>
+                <h2><?php echo exhibit_builder_link_to_exhibit($exhibit,metadata($exhibit, 'title')); ?>
+                  <?php if(metadata($exhibit, 'subtitle')):?>
+                  <br><span class="subtitle"><?php echo metadata($exhibit, 'subtitle')?></span>
+                  <?php endif;?>
+                </h2>
+                <?php if ($exhibitCredits = metadata($exhibit, 'credits')): ?>
+                <div class="credits"><p><?php echo $exhibitCredits; ?></p></div>
+                <?php endif; ?>
+                <?php if ($exhibitDescription = metadata($exhibit, 'description', array('no_escape' => true,'snippet'=>'300'))): ?>
+                <div class="description"><p><?php echo $exhibitDescription; ?></p></div>
+                <?php endif; ?>
+                <?php if ($exhibitTags = tag_string($exhibit, 'exhibits')): ?>
+                <p class="tags"><?php echo $exhibitTags; ?></p>
+                <?php endif; ?>
+              </div>
+              <div class="list-footer">
+                <?php echo exhibit_builder_link_to_exhibit($exhibit, __("Start exhibit")); ?>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <?php endforeach;?>
+
       <div class="row">
-        <?php foreach ($exhibits as $exhibit): ?>
-          <?php $exhibitCount++; ?>
+        <?php foreach ($normal_exhibits as $exhibit): ?>
           <?php
             $class = "";
             if($exhibit->featured):
@@ -87,7 +96,7 @@ endif;
             endif;
           ?>
           <div class="col-md-3">
-            <div class="list-row featured">
+            <div class="list-row <?php echo $class;?>">
               <?php if ($exhibitImage = record_image($exhibit, 'square_thumbnail')): ?>
                   <?php echo exhibit_builder_link_to_exhibit($exhibit, $exhibitImage, array('class' => 'image')); ?>
               <?php endif; ?>
