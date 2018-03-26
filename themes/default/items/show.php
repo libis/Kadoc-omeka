@@ -88,6 +88,13 @@
                     </div>
                   <?php endif;?>
 
+                  <?php if($lang== "en" && $text = metadata('item', array('Item Type Metadata','Origin'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3>Origin</h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
                   <!-- herkomst -->
                   <?php if($lang== "nl" && $text = metadata('item', array('Item Type Metadata','Herkomst'),array("delimiter" => "; "))):?>
                     <div class="element">
@@ -115,7 +122,7 @@
                   <!-- signatuur -->
                   <?php if($text = metadata('item', array('Item Type Metadata','Signatuur'),array("delimiter" => "; "))):?>
                     <div class="element">
-                        <h3><?php echo __('Call number');?></h3>
+                        <h3><?php echo __('Reference code');?></h3>
                         <div class="element-text"><?php echo $text;?></div>
                     </div>
                   <?php endif;?>
