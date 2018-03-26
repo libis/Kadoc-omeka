@@ -113,7 +113,7 @@ function libis_link_to_related_exhibits($item) {
         }
 
         if($html):
-          $html = '<div class="element in-exhibit"><h3>In '.__("Exhibit").'</h3><div class="element-text">'.$html;
+          $html = '<div class="element in-exhibit"><h3>In <span class="lowercase">'.__("Exhibit").'</span></h3><div class="element-text">'.$html;
           $html .= "</div></div>";
         endif;
 

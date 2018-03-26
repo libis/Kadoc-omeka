@@ -7928,6 +7928,10 @@ a:hover {
   cursor: pointer;
 }
 
+.lowercase {
+  text-transform: lowercase;
+}
+
 header {
   z-index: 1;
   background: white;
