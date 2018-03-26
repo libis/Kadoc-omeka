@@ -8379,26 +8379,6 @@ header {
   padding-top: 0;
 }
 
-.item-section .item-files {
-  margin-top: 1.5rem;
-  overflow: hidden;
-  padding: 0 2rem 2rem 2rem;
-  background: rgba(49, 57, 112, 0.05);
-}
-
-.item-section .item-files .item-file {
-  width: 100%;
-  margin-top: 2rem;
-}
-
-.item-section .item-files .image {
-  margin-bottom: 2rem;
-}
-
-.item-section .item-files img {
-  width: 100%;
-}
-
 .metadata-section {
   position: relative;
 }
@@ -8406,6 +8386,34 @@ header {
 .metadata-section .content {
   background: #fff;
   padding: 2rem 0 0 0;
+}
+
+.metadata-section .content .item-files {
+  overflow: hidden;
+  padding: 0 1rem 1rem 1rem;
+  margin-bottom: 1.5rem;
+  background: rgba(49, 57, 112, 0.05);
+}
+
+.metadata-section .content .item-files .file-row {
+  margin: 0 -0.5rem;
+}
+
+.metadata-section .content .item-files .file-row .file-col {
+  padding: 0 0.5rem;
+}
+
+.metadata-section .content .item-files .item-file {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.metadata-section .content .item-files .image {
+  margin-bottom: 2rem;
+}
+
+.metadata-section .content .item-files img {
+  width: 100%;
 }
 
 .metadata-section h1 {

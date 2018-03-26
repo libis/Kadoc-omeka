@@ -1,7 +1,7 @@
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'item show')); ?>
 <?php $type = metadata('item','item_type_name');?>
 <?php $lang = get_language();?>
-<?php if (metadata('item', 'has files') && $type != 'News'): ?>
+<?php if (metadata('item', 'has files')): ?>
   <section class="item-section">
       <div class="container">
         <div class='row breadcrumbs'>
@@ -13,61 +13,48 @@
                  </p>
              </div>
         </div>
-        <!-- The following returns all of the files associated with an item. -->
-        <div class="item-files">
-          <div class="row">
-            <?php
-              $files = $item->getFiles();
-              foreach($files as $file):
-                if($file->hasFullsize()):?>
-                  <div class="col-sm-6 col-md-3 col-12">
-                    <div class="item-file">
-                      <a data-lightbox="lightbox" href="<?php echo $file->getWebPath("fullsize");?>">
-                        <img src="<?php echo $file->getWebPath("thumbnail");?>">
-                      </a>
-                    </div>
-                  </div>
-                <?php else:?>
-                  <div class="col-sm-6 col-12">
-                    <?php echo file_markup($file, array('imageSize' => 'thumbnail',"width" => "100%","height"=>"auto"));?>
-                  </div>
-                <?php endif;?>
-              <?php endforeach;?>
-          </div>
-        </div>
+
       </div>
   </section>
 <?php endif; ?>
 <section class="metadata-section">
     <div id="content" class='container' role="main" tabindex="-1">
-        <?php if ($type == 'News'): ?>
-          <div class='row breadcrumbs'>
-            <div class="col-12">
-                <p id="simple-pages-breadcrumbs">
-                  <span><a href="<?php echo url('/');?>">Home</a></span>
-                   > <span><a href="<?php echo $type;?>"><?php __("Objects");?></a></span>
-                   > <?php echo metadata('item', array('Dublin Core', 'Title')); ?>
-                 </p>
-             </div>
-          </div>
-        <?php endif; ?>
         <div class="row content">
-            <?php if ($verhaal = metadata('item', array('Item Type Metadata','Verhaal'))): ?>
+            <!-- The following returns all of the files associated with an item. -->
+            <?php if(metadata($item,'has_files')):?>
               <div class="col-lg-6 col-md-12 col-12">
-            <?php else:?>
-              <div class="col-md-12 col-12">
-            <?php endif; ?>
-            <?php if ($type != ''): ?>
-              <!--<h3 class="type-title"><?php echo $type;?></h3>-->
-            <?php endif; ?>
-
-            <?php if($lang == 'nl'):?>
-              <h1 class="section-title projecten-title"><span><?php echo metadata('item', array('Dublin Core', 'Title')); ?></span></h1>
-            <?php else:?>
-              <h1 class="section-title projecten-title"><span><?php echo metadata('item', array('Item Type Metadata', 'Title')); ?></span></h1>
+                <div class="item-files">
+                  <div class="row file-row">
+                    <?php
+                      $files = $item->getFiles();
+                      foreach($files as $file):
+                        if($file->hasFullsize()):?>
+                          <div class="col-12 file-col">
+                            <div class="item-file">
+                              <a data-lightbox="lightbox" href="<?php echo $file->getWebPath("fullsize");?>">
+                                <img src="<?php echo $file->getWebPath("thumbnail");?>">
+                              </a>
+                            </div>
+                          </div>
+                        <?php else:?>
+                          <div class="col-12 file-col">
+                            <?php echo file_markup($file, array('imageSize' => 'thumbnail',"width" => "100%","height"=>"auto"));?>
+                          </div>
+                        <?php endif;?>
+                      <?php endforeach;?>
+                  </div>
+                </div>
             <?php endif;?>
+            <?php if(!metadata('item', array('Item Type Metadata','Verhaal'))):?>
+                </div>
+                <div class="col-md-6 col-12">
+            <?php endif; ?>
+                <?php if($lang == 'nl'):?>
+                  <h1 class="section-title projecten-title"><span><?php echo metadata('item', array('Dublin Core', 'Title')); ?></span></h1>
+                <?php else:?>
+                  <h1 class="section-title projecten-title"><span><?php echo metadata('item', array('Item Type Metadata', 'Title')); ?></span></h1>
+                <?php endif;?>
 
-            <?php if ($type != 'News'): ?>
                 <div class="element-set">
                   <!-- creators -->
                   <?php if($lang== "nl" && $text = metadata('item', array('Dublin Core','Creator'),array("delimiter" => "; "))):?>
@@ -171,22 +158,17 @@
                     <?php endif; ?>
                   </ul>
                 </div>
-            <?php else:?>
-                  <p class="date"><?php echo metadata('item', array('Dublin Core', 'Date')); ?></p>
-                  <p class="description"><?php echo metadata('item', array('Dublin Core', 'Description')); ?></p>
-            <?php endif; ?>
-          </div>
-
-          <?php if($verhaal):?>
-              <div class="col-md-6 col-12">
-                <?php if($lang == "nl" && $text = metadata('item', array('Item Type Metadata', 'Verhaal'))):?>
-                  <?php echo $text;?>
-                <?php endif;?>
-                <?php if($lang == "en" && $text = metadata('item', array('Item Type Metadata', 'Story'))):?>
-                  <?php echo $text;?>
-                <?php endif;?>
               </div>
-          <?php endif; ?>
+              <?php if($verhaal = metadata('item', array('Item Type Metadata','Verhaal'))):?>
+                  <div class="col-md-6 col-12">
+                    <?php if($lang == "nl" && $text = metadata('item', array('Item Type Metadata', 'Verhaal'))):?>
+                      <?php echo $text;?>
+                    <?php endif;?>
+                    <?php if($lang == "en" && $text = metadata('item', array('Item Type Metadata', 'Story'))):?>
+                      <?php echo $text;?>
+                    <?php endif;?>
+                  </div>
+              <?php endif; ?>
         </div>
         <div class="row content">
             <div class="col-12">
