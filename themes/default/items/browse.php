@@ -66,11 +66,28 @@
     <?php if(!$erfgoed):?>
       <?php echo item_search_filters(); ?>
     <?php endif; ?>
-    <?php //echo item_search_filters(); ?>
+
+    <?php
+      $featured_items = array(); $normal_items = array();
+      foreach($items as $item):
+        if($item->featured):
+          $featured_items[] = $item;
+        else:
+          $normal_items[] = $item;
+        endif;
+      endforeach;
+      //stick to back
+      foreach($normal_items as $item):
+        $featured_items[] = $item;
+      endforeach;
+      $items = $featured_items;
+    ?>
+
     <?php echo pagination_links(); ?>
 
       <div class="card-columns">
-        <?php foreach (loop('items') as $item): ?>
+
+        <?php foreach (loop('items',$items) as $item): ?>
             <?php
               $class = "";
               if($item->featured):

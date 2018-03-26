@@ -8,7 +8,7 @@
             <div class="col-12">
                 <p id="simple-pages-breadcrumbs">
                   <span><a href="<?php echo url('/');?>"><?php echo __("Home");?></a></span>
-                   > <span><a href="<?php echo url('items/browse?tags=erfgoed+in+de+kijker');?>"><?php echo __("Heritage in the spotlight");?></a></span>
+                   > <span><a href="<?php echo url('items/browse?tags=erfgoed+in+de+kijker&sort_field=Item+Type+Metadata%2CVerhaal_titel');?>"><?php echo __("Heritage in the spotlight");?></a></span>
                    > <?php echo metadata('item', array('Dublin Core', 'Title')); ?>
                  </p>
              </div>
