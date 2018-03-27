@@ -7,9 +7,22 @@
         <div class='row breadcrumbs'>
             <div class="col-12">
                 <p id="simple-pages-breadcrumbs">
-                  <span><a href="<?php echo url('/');?>"><?php echo __("Home");?></a></span>
+                   <span><a href="<?php echo url('/');?>"><?php echo __("Home");?></a></span>
+                   <?php if (metadata('item', array('Item Type Metadata','Verhaal'))): ?>
                    > <span><a href="<?php echo url('items/browse?tags=erfgoed+in+de+kijker&sort_field=Item+Type+Metadata%2CVerhaal%20titel');?>"><?php echo __("Heritage in the spotlight");?></a></span>
+                   <?php elseif(metadata('item', 'Collection Name')):?>
+                   > <span><a href="<?php echo url('items/browse');?>"><?php echo link_to_collection_for_item(); ?></a></span>
+                   <?php endif; ?>
+
+                   <?php if($lang="nl" && metadata('item', array('Item Type Metadata','Verhaal'))):?>
+                   > <?php echo metadata('item', array('Item Type Metadata', 'Verhaal titel')); ?>
+                   <?php elseif($lang="en" && metadata('item', array('Item Type Metadata','Story title'))):?>
+                   > <?php echo metadata('item', array('Item Type Metadata', 'Story title')); ?>
+                   <?php elseif($lang="en" && metadata('item', array('Item Type Metadata','Title'))):?>
+                   > <?php echo metadata('item', array('Item Type Metadata', 'Title')); ?>
+                   <?php else:?>
                    > <?php echo metadata('item', array('Dublin Core', 'Title')); ?>
+                   <?php endif;?>
                  </p>
              </div>
         </div>
