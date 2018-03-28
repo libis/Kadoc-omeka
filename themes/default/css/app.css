@@ -8428,6 +8428,18 @@ header {
   font-size: 1.7rem;
 }
 
+.metadata-section .verhaal h1 {
+  margin-bottom: 1rem;
+}
+
+.metadata-section h2 {
+  font-weight: 100;
+  margin-bottom: 2rem;
+  font-family: "Roboto", sans-serif;
+  color: #313970;
+  font-size: 1.4rem;
+}
+
 .metadata-section .element-set ul {
   padding-left: 0;
   list-style: none;

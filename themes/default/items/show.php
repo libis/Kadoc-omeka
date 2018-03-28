@@ -14,11 +14,11 @@
                    > <span><a href="<?php echo url('items/browse');?>"><?php echo link_to_collection_for_item(); ?></a></span>
                    <?php endif; ?>
 
-                   <?php if($lang="nl" && metadata('item', array('Item Type Metadata','Verhaal'))):?>
+                   <?php if($lang=="nl" && metadata('item', array('Item Type Metadata','Verhaal'))):?>
                    > <?php echo metadata('item', array('Item Type Metadata', 'Verhaal titel')); ?>
-                   <?php elseif($lang="en" && metadata('item', array('Item Type Metadata','Story title'))):?>
+                 <?php elseif($lang=="en" && metadata('item', array('Item Type Metadata','Story title'))):?>
                    > <?php echo metadata('item', array('Item Type Metadata', 'Story title')); ?>
-                   <?php elseif($lang="en" && metadata('item', array('Item Type Metadata','Title'))):?>
+                 <?php elseif($lang=="en" && metadata('item', array('Item Type Metadata','Title'))):?>
                    > <?php echo metadata('item', array('Item Type Metadata', 'Title')); ?>
                    <?php else:?>
                    > <?php echo metadata('item', array('Dublin Core', 'Title')); ?>
@@ -60,13 +60,12 @@
             <?php if(!metadata('item', array('Item Type Metadata','Verhaal'))):?>
                 </div>
                 <div class="col-md-6 col-12">
-            <?php endif; ?>
                 <?php if($lang == 'nl'):?>
-                  <h1 class="section-title projecten-title"><span><?php echo metadata('item', array('Dublin Core', 'Title')); ?></span></h1>
+                  <h1 class="section-title projecten-title"><span><?php echo metadata($item, array('Dublin Core', 'Title')); ?></span></h1>
                 <?php else:?>
-                  <h1 class="section-title projecten-title"><span><?php echo metadata('item', array('Item Type Metadata', 'Title')); ?></span></h1>
+                  <h1 class="section-title projecten-title"><span><?php echo metadata($item, array('Item Type Metadata', 'Title')); ?></span></h1>
                 <?php endif;?>
-
+            <?php endif; ?>
                 <div class="element-set">
                   <!-- creators -->
                   <?php if($lang== "nl" && $text = metadata('item', array('Dublin Core','Creator'),array("delimiter" => "; "))):?>
@@ -179,7 +178,14 @@
                 </div>
               </div>
               <?php if($verhaal = metadata('item', array('Item Type Metadata','Verhaal'))):?>
-                  <div class="col-md-6 col-12">
+                  <div class="col-md-6 col-12 verhaal">
+                    <?php if($lang == "nl" && metadata('item', array('Item Type Metadata', 'Verhaal titel'))):?>
+                      <h1><?php echo metadata('item', array('Item Type Metadata', 'Verhaal titel')); ?></h2>
+                      <h2><?php echo metadata('item', array('Item Type Metadata', 'Verhaal ondertitel'));?></h3>
+                    <?php elseif($lang == "en" && metadata('item', array('Item Type Metadata', 'Story title'))): ?>
+                      <h1><?php echo metadata('item', array('Item Type Metadata', 'Story title')); ?></h2>
+                      <h2><?php echo metadata('item', array('Item Type Metadata', 'Story subtitle'));?></h3>
+                    <?php endif; ?>
                     <?php if($lang == "nl" && $text = metadata('item', array('Item Type Metadata', 'Verhaal'))):?>
                       <?php echo $text;?>
                     <?php endif;?>
