@@ -9457,28 +9457,6 @@ header {
   cursor: pointer;
 }
 
-.browse-section .side h4::after,
-.exhibit-show-section .side h4::after,
-.simple-page-section .side h4::after {
-  font-family: 'Material icons';
-  content: '\e316';
-  vertical-align: bottom;
-}
-
-.browse-section .side h4.collapsed,
-.exhibit-show-section .side h4.collapsed,
-.simple-page-section .side h4.collapsed {
-  margin-bottom: 0;
-}
-
-.browse-section .side h4.collapsed::after,
-.exhibit-show-section .side h4.collapsed::after,
-.simple-page-section .side h4.collapsed::after {
-  font-family: 'Material icons';
-  content: '\e313';
-  vertical-align: bottom;
-}
-
 .browse-section .side .side-nav,
 .exhibit-show-section .side .side-nav,
 .simple-page-section .side .side-nav {
@@ -9558,6 +9536,22 @@ header {
   border-bottom: none;
   padding-bottom: 0;
   font-weight: bold;
+}
+
+.browse-section .side .side-nav #exhibit-pages ul li a.collapsable::after,
+.exhibit-show-section .side .side-nav #exhibit-pages ul li a.collapsable::after,
+.simple-page-section .side .side-nav #exhibit-pages ul li a.collapsable::after {
+  font-family: 'Material icons';
+  content: '\e316';
+  vertical-align: bottom;
+}
+
+.browse-section .side .side-nav #exhibit-pages ul li a.collapsed::after,
+.exhibit-show-section .side .side-nav #exhibit-pages ul li a.collapsed::after,
+.simple-page-section .side .side-nav #exhibit-pages ul li a.collapsed::after {
+  font-family: 'Material icons';
+  content: '\e313';
+  vertical-align: bottom;
 }
 
 .browse-section .side .side-nav #exhibit-pages ul ul,

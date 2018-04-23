@@ -2,7 +2,7 @@
 
 /**
  * View helper for a unordered list "tree" of pages in an exhibit.
- * 
+ *
  * @package ExhibitBuilder\View\Helper
  */
 class ExhibitBuilder_View_Helper_ExhibitPageTree extends Zend_View_Helper_Abstract
@@ -11,14 +11,14 @@ class ExhibitBuilder_View_Helper_ExhibitPageTree extends Zend_View_Helper_Abstra
      * @var Exhibit
      */
     protected $_exhibit;
-    
+
     /**
      * Pages, indexed by parent ID, for current exhibit
-     * 
+     *
      * @var array
      */
     protected $_pages;
-    
+
     /**
      * Return the tree of pages.
      *
@@ -64,15 +64,21 @@ class ExhibitBuilder_View_Helper_ExhibitPageTree extends Zend_View_Helper_Abstra
         } else {
             $html = '<li>';
         }
-        
-        $html .= '<a href="' . exhibit_builder_exhibit_uri($this->_exhibit, $page) . '">'
-              . metadata($page, 'title') .'</a>';
+
+
+
         if (isset($this->_pages[$page->id])) {
-            $html .= '<ul>';
+            $html .= '<a href="' . exhibit_builder_exhibit_uri($this->_exhibit, $page) . '">'
+                . metadata($page, 'title') .'</a>
+                <a class="collapsable collapsed" data-toggle="collapse" href="#list-'.$page->id.'" aria-expanded="false" aria-controls="list-'.$page->id.'"></a>';
+            $html .= '<ul class="collapse" id="list-'.$page->id.'">';
             foreach ($this->_pages[$page->id] as $childPage) {
                 $html .= $this->_renderPageBranch($childPage, $currentPage, $ancestorIds);
             }
             $html .= '</ul>';
+        }else{
+          $html .= '<a href="' . exhibit_builder_exhibit_uri($this->_exhibit, $page) . '">'
+                . metadata($page, 'title') .'</a>';
         }
         $html .= '</li>';
         return $html;
