@@ -35,13 +35,14 @@ header {
         <div class='col-md-5 col-12'>
           <div class="side">
             <div class="side-nav">
-              <h4><?php echo __("Table of contents");?></h4>
+              <h4 class="collapsed" data-toggle="collapse" href="#exhibit-pages" aria-controls="exhibit-pages"><?php echo __("Table of contents");?></h4>
+
               <?php echo exhibit_builder_page_nav(); ?>
               <?php
               $pageTree = exhibit_builder_page_tree();
               if ($pageTree):
               ?>
-              <nav id="exhibit-pages">
+              <nav class="collapse" id="exhibit-pages">
                   <?php echo $pageTree; ?>
               </nav>
             <?php endif; ?>

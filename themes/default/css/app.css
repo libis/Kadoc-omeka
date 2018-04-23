@@ -8472,7 +8472,7 @@ header {
 
 .metadata-section .element h3 {
   font-family: "Roboto", sans-serif;
-  width: 200px;
+  width: 140px;
   float: left;
   font-size: 1rem;
   margin-right: 20px;
@@ -9454,6 +9454,29 @@ header {
 .simple-page-section .side h4 {
   color: #313970;
   font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.browse-section .side h4::after,
+.exhibit-show-section .side h4::after,
+.simple-page-section .side h4::after {
+  font-family: 'Material icons';
+  content: '\e316';
+  vertical-align: bottom;
+}
+
+.browse-section .side h4.collapsed,
+.exhibit-show-section .side h4.collapsed,
+.simple-page-section .side h4.collapsed {
+  margin-bottom: 0;
+}
+
+.browse-section .side h4.collapsed::after,
+.exhibit-show-section .side h4.collapsed::after,
+.simple-page-section .side h4.collapsed::after {
+  font-family: 'Material icons';
+  content: '\e313';
+  vertical-align: bottom;
 }
 
 .browse-section .side .side-nav,
