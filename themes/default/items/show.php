@@ -65,8 +65,25 @@
                 <?php else:?>
                   <h1 class="section-title projecten-title"><span><?php echo metadata($item, array('Item Type Metadata', 'Title')); ?></span></h1>
                 <?php endif;?>
-            <?php endif; ?>
                 <div class="element-set">
+            <?php else:?>
+                <div class="element-set">
+                  <!-- title -->
+                  <?php if($lang== "nl" && $text = metadata('item', array('Dublin Core','Title'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Title');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!-- title english -->
+                  <?php if($lang== "en" && $text = metadata('item', array('Item Type Metadata','Title'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Title');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>        
+            <?php endif; ?>          
                   <!-- creators -->
                   <?php if($lang== "nl" && $text = metadata('item', array('Dublin Core','Creator'),array("delimiter" => "; "))):?>
                     <div class="element">
