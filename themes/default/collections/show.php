@@ -1,5 +1,6 @@
 <?php
 $collectionTitle = metadata('collection', 'display_title');
+$lang = get_language();
 ?>
 
 <?php echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show')); ?>

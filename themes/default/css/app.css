@@ -8545,6 +8545,7 @@ header {
 .exhibit-show-section .image .cover-container img,
 .simple-page-section .image .cover-container img {
   max-width: 100%;
+  width: 100%;
 }
 
 .browse-section h1,
@@ -9423,6 +9424,7 @@ header {
 .exhibit-show-section img,
 .simple-page-section img {
   max-width: 100%;
+  width: 100%;
 }
 
 .browse-section .content .item-file,
