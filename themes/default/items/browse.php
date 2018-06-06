@@ -51,13 +51,15 @@
          <span class="sort-label"><i class="material-icons">&#xE152;</i>
            <?php echo __('Filter:');?></span>
            <ul id="sort-links-list">
-             <li><a href="<?php echo url('items/browse?tags=erfgoed+in+de+kijker');?>"><?php echo __("Show all");?></a></li>
-              <?php if(!$show_featured):?>
+               <?php if(!$show_featured):?>
                 <li>
-                  <a href="<?php echo url('items/browse?tags=erfgoed+in+de+kijker&featured=1');?>">
+                  <a href="<?php echo url('items/browse?tags=erfgoed+in+de+kijker&featured=1&sort_field=Item+Type+Metadata%2CVerhaal titel');?>">
                     <?php echo __("Featured"); ?>
                   </a>
                 </li>
+              <?php else:?>
+                <li><a href="<?php echo url('items/browse?tags=erfgoed+in+de+kijker&sort_field=Item+Type+Metadata%2CVerhaal titel');?>"><?php echo __("Show all");?></a></li>
+
               <?php endif;?>
             </ul>
        </div>
