@@ -44,7 +44,7 @@
                           <div class="col-12 file-col">
                             <div class="item-file">
                               <a data-lightbox="lightbox" href="<?php echo $file->getWebPath("fullsize");?>">
-                                <img src="<?php echo $file->getWebPath("thumbnail");?>">
+                                <img src="<?php echo $file->getWebPath("fullsize");?>">
                               </a>
                             </div>
                           </div>
