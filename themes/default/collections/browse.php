@@ -5,6 +5,7 @@
   //only show featured records on featured page and with filter on
   $params = $_GET;
   $show_featured = false;
+  $lang = get_language();
 
   if(!isset($params['page'])):
     $params['page'] = "0";
@@ -15,6 +16,8 @@
         $show_featured = true;
     endif;
   endif;
+
+
  ?>
 
 <section class="browse-section">
@@ -52,6 +55,17 @@
 
    <div class="row">
      <?php foreach (loop('collections') as $collection): ?>
+       <?php
+         if($lang == 'en'):
+           $title = metadata($collection, array('Dublin Core', 'Alternative Title'));
+           $subject = metadata($collection, array('Dublin Core', 'Source'), array('delimiter'=>", "));
+           $description = metadata($collection, array('Dublin Core', 'Abstract'), array('snippet'=>80));
+         else:
+           $title = metadata($collection, array('Dublin Core', 'Title'));
+           $subject = metadata($collection, array('Dublin Core', 'Subject'), array('delimiter'=>", "));
+           $description = metadata($collection, array('Dublin Core', 'Description'),array('snippet'=>80));
+         endif;
+       ?>
        <div class="col-sm-3">
           <?php
              $class = "";
@@ -67,8 +81,8 @@
             <?php endif; ?>
             <div class="list-item">
               <h3 class="star"><span><?php echo __('Featured');?></span></h3>
-              <h2><i class="material-icons">&#xE3B6;</i><?php echo link_to_collection(); ?></h2>
-              <?php echo metadata($collection, array('Dublin Core', 'Description'), array('snippet'=>80));?>
+              <h2><i class="material-icons">&#xE3B6;</i><?php echo link_to_collection($title); ?></h2>
+              <?php echo $description;?>
             </div>
           </div>
         </div>

@@ -171,6 +171,10 @@ class CommentingPlugin extends Omeka_Plugin_AbstractPlugin
             $button_text = 'Your comments about this exhibit?';
         }
 
+        if (strpos($url, 'collections') !== false) {
+            $button_text = 'Your comments about this collection?';
+        }
+
         echo "<div class='row'>";
         echo "<div class='col-lg-8'>";
         echo "<div id='comments-container'>";

@@ -1,9 +1,19 @@
 <?php
 $collectionTitle = metadata('collection', 'display_title');
 $lang = get_language();
+
+if($lang == 'en'):
+  $title = metadata('collection', array('Dublin Core', 'Alternative Title'));
+  $subject = metadata('collection', array('Dublin Core', 'Source'), array('delimiter'=>", "));
+  $description = metadata('collection', array('Dublin Core', 'Abstract'), array('delimiter'=>", "));
+else:
+  $title = metadata('collection', array('Dublin Core', 'Title'));
+  $subject = metadata('collection', array('Dublin Core', 'Subject'), array('delimiter'=>", "));
+  $description = metadata('collection', array('Dublin Core', 'Description'), array('delimiter'=>", "));
+endif;
 ?>
 
-<?php echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show')); ?>
+<?php echo head(array('title'=> $title, 'bodyclass' => 'collections show')); ?>
 
 <section class="browse-section">
   <div id="content" class='container' role="main" tabindex="-1">
@@ -12,21 +22,21 @@ $lang = get_language();
         <p id="simple-pages-breadcrumbs">
           <span><a href="<?php echo url('/');?>"><?php echo __("Home");?></a></span>
            > <span><a href="<?php echo url('/collections/browse');?>"><?php echo __('Collections');?></a></span>
-           > <span><?php echo $collectionTitle; ?></span>
+           > <span><?php echo $title; ?></span>
          </p>
        </div>
     </div>
    <div class='row top'>
      <div class="col-md-10 col-12">
-       <h1><?php echo $collectionTitle; ?></h1>
-       <?php if (metadata('collection', array('Dublin Core', 'Description'))): ?>
+       <h1><?php echo $title; ?></h1>
+       <?php if ($description): ?>
          <div class="collection-description">
-             <?php echo text_to_paragraphs(metadata('collection', array('Dublin Core', 'Description'))); ?>
+             <?php echo text_to_paragraphs($description); ?>
          </div>
        <?php endif; ?>
-       <?php if (metadata('collection', array('Dublin Core', 'Subject'))): ?>
+       <?php if ($subject): ?>
          <div class="collection-description">
-             <?php echo text_to_paragraphs("[".metadata('collection', array('Dublin Core', 'Subject'), array('delimiter'=>", "))."]"); ?>
+             <?php echo text_to_paragraphs("[".$subject."]"); ?>
          </div>
        <?php endif; ?>
      </div>
