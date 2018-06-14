@@ -39,6 +39,11 @@ endif;
              <?php echo text_to_paragraphs("[".$subject."]"); ?>
          </div>
        <?php endif; ?>
+       <div class="collection-description">
+         <a href="<?php echo url("/geolocation/map/browse?collection=".$collection->id);?>"><i style="font-size:1rem;vertical-align:sub" class="material-icons">
+map
+</i><?php echo __("View the collection on the map");?></a>
+       </div><br>
      </div>
    </div>
    <div class="row">
