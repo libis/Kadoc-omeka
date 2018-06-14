@@ -12,9 +12,17 @@
   endif;
 
   if(isset($params['tags'])):
-    if($params['tags']=="erfgoed in de kijker"):
+    if($params['tags']=="erfgoed in de kijker" || $params['tags']=="heritage in the spotlight"):
         $erfgoed = true;
     endif;
+  endif;
+
+  if($lang == "en"):
+    $tag = "heritage+in+the+spotlight";
+    $sort = "Story title";
+  else:
+    $tag = "erfgoed+in+de+kijker";
+    $sort = "Verhaal titel";
   endif;
 
   if(isset($params['featured'])):
@@ -53,12 +61,12 @@
            <ul id="sort-links-list">
                <?php if(!$show_featured):?>
                 <li>
-                  <a href="<?php echo url('items/browse?tags=erfgoed+in+de+kijker&featured=1&sort_field=Item+Type+Metadata%2CVerhaal titel');?>">
+                  <a href="<?php echo url('items/browse?tags='.$tag.'&featured=1&sort_field=Item+Type+Metadata%2C'.$sort);?>">
                     <?php echo __("Featured"); ?>
                   </a>
                 </li>
               <?php else:?>
-                <li><a href="<?php echo url('items/browse?tags=erfgoed+in+de+kijker&sort_field=Item+Type+Metadata%2CVerhaal titel');?>"><?php echo __("Show all");?></a></li>
+                <li><a href="<?php echo url('items/browse?tags='.$tag.'&sort_field=Item+Type+Metadata%2C'.$sort);?>"><?php echo __("Show all");?></a></li>
 
               <?php endif;?>
             </ul>
