@@ -1,7 +1,7 @@
 <?php
 queue_css_file('geolocation-items-map');
 
-$title = __('Browse objects on the Map') . ' ' . __('(%s total)', $totalItems);
+$title = __('Browse objects on the map') . ' ' . __('(%s total)', $totalItems);
 echo head(array('title' => $title, 'bodyclass' => 'map browse'));
 ?>
 
