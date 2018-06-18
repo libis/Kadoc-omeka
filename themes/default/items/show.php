@@ -216,10 +216,10 @@
             <div class="col-12">
                 <?php echo get_specific_plugin_hook_output('Geolocation', 'public_items_show', array('view' => $this, 'item' => $item)); ?>
 
-              <ul class="item-pagination navigation">
+              <!--<ul class="item-pagination navigation">
                   <li id="previous-item" class="previous"><?php echo link_to_previous_item_show("&#8249; ".__("Previous")); ?></li>
                   <li id="next-item" class="next"><?php echo link_to_next_item_show(__("Next")." &#8250;"); ?></li>
-              </ul>
+              </ul>-->
             </div>
         </div>
         <div class="plugins">

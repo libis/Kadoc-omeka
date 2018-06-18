@@ -16,8 +16,6 @@
         $show_featured = true;
     endif;
   endif;
-
-
  ?>
 
 <section class="browse-section">
@@ -56,36 +54,55 @@
    <div class="row">
      <?php foreach (loop('collections') as $collection): ?>
        <?php
-         if($lang == 'en'):
-           $title = metadata($collection, array('Dublin Core', 'Alternative Title'));
-           $subject = metadata($collection, array('Dublin Core', 'Source'), array('delimiter'=>", "));
-           $description = metadata($collection, array('Dublin Core', 'Abstract'), array('snippet'=>80));
-         else:
-           $title = metadata($collection, array('Dublin Core', 'Title'));
-           $subject = metadata($collection, array('Dublin Core', 'Subject'), array('delimiter'=>", "));
-           $description = metadata($collection, array('Dublin Core', 'Description'),array('snippet'=>80));
-         endif;
-       ?>
-       <div class="col-sm-3">
-          <?php
-             $class = "";
-             if($collection->featured):
-               $class = 'featured';
-             endif;
-          ?>
-          <div class="list-row <?php echo $class;?>">
-            <?php if ($collectionImage = record_image('collection','square_thumbnail')): ?>
-                <?php echo link_to_collection($collectionImage, array('class' => 'image')); ?>
-            <?php else: ?>
-                  <div class="dummy-box"><div class="dummy"></div></div>
-            <?php endif; ?>
-            <div class="list-item">
-              <h3 class="star"><span><?php echo __('Featured');?></span></h3>
-              <h2><i class="material-icons">&#xE3B6;</i><?php echo link_to_collection($title); ?></h2>
-              <?php echo $description;?>
+         $title_en = metadata($collection, array('Dublin Core', 'Alternative Title'));
+         $description_en = metadata($collection, array('Dublin Core', 'Abstract'), array('snippet'=>80));
+
+         $title_nl = metadata($collection, array('Dublin Core', 'Title'));
+         $description_nl = metadata($collection, array('Dublin Core', 'Description'),array('snippet'=>80));
+
+         if($lang == 'en' && $title_en):?>
+           <div class="col-sm-3">
+              <?php
+                 $class = "";
+                 if($collection->featured):
+                   $class = 'featured';
+                 endif;
+              ?>
+              <div class="list-row <?php echo $class;?>">
+                <?php if ($collectionImage = record_image('collection','square_thumbnail')): ?>
+                    <?php echo link_to_collection($collectionImage, array('class' => 'image')); ?>
+                <?php else: ?>
+                      <div class="dummy-box"><div class="dummy"></div></div>
+                <?php endif; ?>
+                <div class="list-item">
+                  <h3 class="star"><span><?php echo __('Featured');?></span></h3>
+                  <h2><i class="material-icons">&#xE3B6;</i><?php echo link_to_collection($title_en); ?></h2>
+                  <?php echo $description_en;?>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+         <?php elseif($lang == 'nl' && $title_nl):?>
+           <div class="col-sm-3">
+              <?php
+                 $class = "";
+                 if($collection->featured):
+                   $class = 'featured';
+                 endif;
+              ?>
+              <div class="list-row <?php echo $class;?>">
+                <?php if ($collectionImage = record_image('collection','square_thumbnail')): ?>
+                    <?php echo link_to_collection($collectionImage, array('class' => 'image')); ?>
+                <?php else: ?>
+                      <div class="dummy-box"><div class="dummy"></div></div>
+                <?php endif; ?>
+                <div class="list-item">
+                  <h3 class="star"><span><?php echo __('Featured');?></span></h3>
+                  <h2><i class="material-icons">&#xE3B6;</i><?php echo link_to_collection($title_nl); ?></h2>
+                  <?php echo $description_nl;?>
+                </div>
+              </div>
+            </div>
+         <?php endif;?>
       <?php endforeach; ?>
     </div>
 
