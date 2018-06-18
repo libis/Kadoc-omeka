@@ -34,7 +34,7 @@
         <div class="row content">
             <!-- The following returns all of the files associated with an item. -->
             <?php if(metadata($item,'has_files')):?>
-              <div class="col-lg-7 col-md-12 col-12">
+              <div class="col-lg-6 col-md-12 col-12">
                 <div class="item-files">
                   <div class="row file-row">
                     <?php
@@ -195,7 +195,7 @@
                 </div>
               </div>
               <?php if($verhaal = metadata('item', array('Item Type Metadata','Verhaal'))):?>
-                  <div class="col-lg-5 col-md-12 col-12 verhaal">
+                  <div class="col-lg-6 col-md-12 col-12 verhaal">
                     <?php if($lang == "nl" && metadata('item', array('Item Type Metadata', 'Verhaal titel'))):?>
                       <h1><?php echo metadata('item', array('Item Type Metadata', 'Verhaal titel')); ?></h2>
                       <h2><?php echo metadata('item', array('Item Type Metadata', 'Verhaal ondertitel'));?></h3>
