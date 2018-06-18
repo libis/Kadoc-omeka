@@ -9431,6 +9431,14 @@ header {
   width: 100%;
 }
 
+.browse-section .omeka-media,
+.exhibit-show-section .omeka-media,
+.simple-page-section .omeka-media {
+  max-width: 100%;
+  width: 100%;
+  height: auto !important;
+}
+
 .browse-section .content .item-file,
 .exhibit-show-section .content .item-file,
 .simple-page-section .content .item-file {
