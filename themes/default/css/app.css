@@ -8412,6 +8412,10 @@ header {
   margin-top: 1rem;
 }
 
+.metadata-section .content .item-files .item-file .omeka-media {
+  width: 100%;
+}
+
 .metadata-section .content .item-files .image {
   margin-bottom: 2rem;
 }
