@@ -24,7 +24,7 @@ class ExhibitBuilder_View_Helper_ExhibitAttachment extends Zend_View_Helper_Abst
 
         if ($file) {
             if (!isset($fileOptions['imgAttributes']['alt'])) {
-                $fileOptions['imgAttributes']['alt'] = metadata($item, array('Dublin Core', 'Title'), array('no_escape' => true));
+              //  $fileOptions['imgAttributes']['alt'] = metadata($item, array('Dublin Core', 'Title'), array('no_escape' => true));
             }
 
             if($attachment['caption']):
@@ -65,12 +65,14 @@ class ExhibitBuilder_View_Helper_ExhibitAttachment extends Zend_View_Helper_Abst
      */
     protected function _caption($attachment)
     {
+        $item = $attachment->getItem();
+
         if (!is_string($attachment['caption']) || $attachment['caption'] == '') {
             return '';
         }
 
         $html = '<div class="exhibit-item-caption">'
-              . $attachment['caption']
+              . link_to_item($attachment['caption'],'','show',$item);
               . '</div>';
 
         return apply_filters('exhibit_attachment_caption', $html, array(

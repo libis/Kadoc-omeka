@@ -120,7 +120,7 @@
 
                   <?php if($lang== "en" && $text = metadata('item', array('Item Type Metadata','Origin'),array("delimiter" => "; "))):?>
                     <div class="element">
-                        <h3>Origin</h3>
+                        <h3>Provenance</h3>
                         <div class="element-text"><?php echo $text;?></div>
                     </div>
                   <?php endif;?>
