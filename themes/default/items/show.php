@@ -8,9 +8,9 @@
             <div class="col-12">
                 <p id="simple-pages-breadcrumbs">
                    <span><a href="<?php echo url('/');?>"><?php echo __("Home");?></a></span>
-                   <?php if (metadata('item', array('Item Type Metadata','Verhaal')) && $lang == 'en_US'): ?>
+                   <?php if (metadata('item', array('Item Type Metadata','Verhaal')) && $lang == 'en'): ?>
                    > <span><a href="<?php echo url('items/browse?tags=heritage+in+the+spotlight&sort_field=Item+Type+Metadata%2CVerhaal%20titel');?>"><?php echo __("Heritage in the spotlight");?></a></span>
-                   <?php elseif (metadata('item', array('Item Type Metadata','Verhaal')) && $lang == 'nl_BE'): ?>
+                   <?php elseif (metadata('item', array('Item Type Metadata','Verhaal')) && $lang == 'nl'): ?>
                    > <span><a href="<?php echo url('items/browse?tags=erfgoed+in+de+kijker&sort_field=Item+Type+Metadata%2CVerhaal%20titel');?>"><?php echo __("Heritage in the spotlight");?></a></span>
                    <?php elseif(metadata('item', 'Collection Name')):?>
                    > <span><a href="<?php echo url('items/browse');?>"><?php echo link_to_collection_for_item(); ?></a></span>
