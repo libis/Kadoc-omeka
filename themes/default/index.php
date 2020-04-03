@@ -14,7 +14,9 @@ endif;
       <?php if($text = libis_get_simple_page_content('intro-'.$lang)):?>
         <div class="row">
           <div class="co col-md-8 col-sm-12 col-lg-8">
-            <p><?php echo $text;?></p>
+            <div class="summary">              
+              <p><?php echo $text;?></p>
+            </div>
           </div>
         </div>
       <?php endif;?>
