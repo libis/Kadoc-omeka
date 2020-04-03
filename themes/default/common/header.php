@@ -7,6 +7,7 @@
     <meta name="description" content="<?php echo $description; ?>" />
     <?php endif; ?>
     <?php
+    $lang = get_language();
     if (isset($title)) {
         $titleParts[] = strip_formatting($title);
     }
@@ -75,7 +76,11 @@
                   <?php elseif ( $bodyclass == 'exhibits summary'): ?>
                       <p><span class="exhibit-title"><?php echo $title; ?></span></p>
                   <?php else:?>
+                    <?php if($text = libis_get_simple_page_content('banner-'.$lang)):?>
+                      <p><?php echo $text;?></p>
+                    <?php else:?>
                       <p><?php echo __("Religion, culture and society<br><span>Heritage online</span>"); ?></p>
+                    <?php endif;?>
                   <?php endif; ?>
                 </div>
               </div>

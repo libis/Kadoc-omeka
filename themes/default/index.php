@@ -11,6 +11,13 @@ endif;
 
 <section class="home">
     <div id="content" class='container' role="main" tabindex="-1">
+      <?php if($text = libis_get_simple_page_content('intro-'.$lang)):?>
+        <div class="row">
+          <div class="co col-md-8 col-sm-12 col-lg-8">
+            <p><?php echo $text;?></p>
+          </div>
+        </div>
+      <?php endif;?>
       <div class="row">
         <div class="co col-md-6 col-sm-6 col-lg-4">
           <a class="block-link" href="<?php echo url("exhibits");?>"><h2><?php echo __('Exhibits');?></h2></a>
