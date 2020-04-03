@@ -36,7 +36,7 @@ function simple_nav(){
 function libis_get_simple_page_content($title) {
     $page = get_record('SimplePagesPage', array('title' => $title));
     if($page):
-        return $page->html;
+        return $page->text;
     else:
         return false;
     endif;
