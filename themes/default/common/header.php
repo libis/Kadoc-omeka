@@ -22,7 +22,8 @@
 
     <!-- Stylesheets -->
     <?php
-      queue_css_file(array('iconfonts', 'app','lightbox'));echo head_css();
+      queue_css_file(array('iconfonts', 'app','lightbox'));
+      echo head_css();
       echo theme_header_background();
     ?>
     <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i|Roboto:300,300i,400,400i,700,700i" rel="stylesheet">

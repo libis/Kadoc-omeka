@@ -92,6 +92,11 @@ class MultilanguagePlugin extends Omeka_Plugin_AbstractPlugin
           $langNamespace->lang = $lang;
         endif;
 
+        if($_SERVER['HTTP_HOST'] == 'kadocheritage.be'):
+          $this->locale_code = "en_US";
+          $langNamespace->lang = "en_US";
+        endif;
+
         //check url
         if(isset($_GET['lang'])):
           $lang = $_GET['lang'];

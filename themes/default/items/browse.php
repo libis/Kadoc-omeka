@@ -107,7 +107,7 @@
             <div class="card <?php echo $class;?>">
               <?php if (metadata('item', 'has files')): ?>
                 <div class="item-img">
-                    <?php echo link_to_item(item_image('thumbnail')); ?>
+                    <?php echo link_to_item(item_image('thumbnail',array('alt' => ''))); ?>
                 </div>
               <?php endif; ?>
               <hr>

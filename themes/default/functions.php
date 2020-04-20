@@ -55,9 +55,9 @@ function multi_language_nav()
   endif;
 
   if($code != "en_US"):
-    return 'NL | <a href="'.url("/?lang=en_US").'">EN</a>';
+    return 'NL | <a href="//kadocheritage.be">EN</a>';
   else:
-    return '<a href="'.url("/?lang=nl").'">NL</a> | EN';
+    return '<a href="//kadocerfgoed.be">NL</a> | EN';
   endif;
 }
 

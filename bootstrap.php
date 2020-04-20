@@ -1,7 +1,7 @@
 <?php
 /**
  * Omeka
- * 
+ *
  * @copyright Copyright 2007-2012 Roy Rosenzweig Center for History and New Media
  * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU GPLv3
  * @package Omeka
@@ -52,7 +52,7 @@ if ((isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS']
 ) {
     $base_root = 'https';
 } else {
-    $base_root = 'http';
+    $base_root = 'https';
 }
 
 // Set the domain.
@@ -85,7 +85,7 @@ if (defined('ADMIN')) {
     $dir = rtrim($dir, '/');
 }
 
-// WEB_ROOT is always the root of the site, whereas WEB_DIR depends on the 
+// WEB_ROOT is always the root of the site, whereas WEB_DIR depends on the
 // bootstrap used (public/admin)
 define('WEB_ROOT', $base_root . (!empty($dir) ? '/' . $dir : '') );
 define('WEB_DIR', $base_url);
@@ -125,7 +125,7 @@ define('PUBLIC_BASE_URL', $publicPath);
 define('INSTALL_BASE_URL', $installPath);
 define('CURRENT_BASE_URL', $currentPath);
 
-// If date.timezone is not set, this will query the OS for the timezone and set 
+// If date.timezone is not set, this will query the OS for the timezone and set
 // that as the default. Workaround for PHP 5.3 behavior for timezones.
 date_default_timezone_set(@date_default_timezone_get());
 
