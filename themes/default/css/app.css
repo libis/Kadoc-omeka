@@ -9098,6 +9098,12 @@ header {
   border-bottom: 2px solid #313970;
 }
 
+.browse-section .card-columns .card .item-img,
+.exhibit-show-section .card-columns .card .item-img,
+.simple-page-section .card-columns .card .item-img {
+  text-align: center;
+}
+
 .browse-section .card-columns .card h3,
 .exhibit-show-section .card-columns .card h3,
 .simple-page-section .card-columns .card h3 {
@@ -9441,7 +9447,6 @@ header {
 .exhibit-show-section img,
 .simple-page-section img {
   max-width: 100%;
-  width: 100%;
 }
 
 .browse-section .omeka-media,
