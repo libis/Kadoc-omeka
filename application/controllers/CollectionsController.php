@@ -1,7 +1,7 @@
 <?php
 /**
  * Omeka
- *
+ * 
  * @copyright Copyright 2007-2012 Roy Rosenzweig Center for History and New Media
  * @license http://www.gnu.org/licenses/gpl-3.0.txt GNU GPLv3
  */
@@ -13,7 +13,7 @@ class CollectionsController extends Omeka_Controller_AbstractActionController
 {
     protected $_autoCsrfProtection = true;
 
-    public $contexts = array('show' => array('omeka-xml', 'omeka-json'));
+    public $contexts = array('show' => array('omeka-xml'));
 
     protected $_browseRecordsPerPage = self::RECORDS_PER_PAGE_SETTING;
 
@@ -23,50 +23,17 @@ class CollectionsController extends Omeka_Controller_AbstractActionController
     }
 
     /**
-     * The browse collections action.
-     *
-     */
-    public function browseAction()
-    {
-        if (!$this->_getParam('sort_field')) {
-            $this->_setParam('sort_field', 'added');
-            $this->_setParam('sort_dir', 'd');
-        }
-
-        parent::browseAction();
-    }
-
-    /**
      * The show collection action
-     *
      */
     public function showAction()
     {
         parent::showAction();
-        //$this->view->items = $this->_helper->db->getTable('Item')->findBy(
-          //  array('collection' => $this->view->collection->id), $this->_getBrowseRecordsPerPage());
-
-        $currentPage = $this->getParam('page', 1);
-        $recordsPerPage = $this->_getBrowseRecordsPerPage('items');
-        $itemTable = $this->_helper->db->getTable('Item');
-        $params = array('collection' => $this->view->collection->id);
-        $items = $itemTable->findBy($params, $recordsPerPage, $currentPage);
-        $totalRecords = $itemTable->count($params);
-
-        if ($recordsPerPage) {
-            Zend_Registry::set('pagination', array(
-                'page' => $currentPage,
-                'per_page' => $recordsPerPage,
-                'total_results' => $totalRecords,
-            ));
-        }
-
-        $this->view->items = $items;
+        $this->view->items = $this->_helper->db->getTable('Item')->findBy(
+            array('collection' => $this->view->collection->id), $this->_getBrowseRecordsPerPage());
     }
 
     /**
      * The add collection action
-     *
      */
     public function addAction()
     {
@@ -77,7 +44,6 @@ class CollectionsController extends Omeka_Controller_AbstractActionController
 
     /**
      * The edit collection action
-     *
      */
     public function editAction()
     {
@@ -138,11 +104,16 @@ class CollectionsController extends Omeka_Controller_AbstractActionController
 
     /**
      * Gets the element sets for the 'Collection' record type.
-     *
+     * 
      * @return array The element sets for the 'Collection' record type
      */
     protected function _getCollectionElementSets()
     {
         return $this->_helper->db->getTable('ElementSet')->findByRecordType('Collection');
+    }
+    
+    protected function _getBrowseDefaultSort()
+    {
+        return array('added', 'd');
     }
 }
