@@ -93,6 +93,11 @@ map
                </div>
            <?php endforeach; ?>
          </div>
+         <div style="text-align:right;font-weight:bold;text-transform:uppercase;">
+          <?php $totalItems = metadata('collection', 'total_items');?>
+          <?php echo link_to_items_browse(__('View all objects in this collection'), array('collection' =>
+          metadata('collection', 'id')), array('class' => 'view-items-link')); ?>
+         </div>
         <?php else: ?>
             <p><?php echo __("There are currently no items within this collection."); ?></p>
         <?php endif; ?>
