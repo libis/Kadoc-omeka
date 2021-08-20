@@ -93,52 +93,65 @@
       $items = $featured_items;
     ?>
 
+    <?php $facets = false;?>  
     <?php echo pagination_links(); ?>
+    <div class='row breadcrumbs'>
+      <?php if(isset($_GET['collection'])):?>
+        <?php if($_GET['collection'] == '26'):?> 
+          <?php $facets = true;?>
+          <div class="col-sm-4 col-xs-12">
+            <?php echo get_specific_plugin_hook_output('Facets', 'public_facets', array('view' => $this)); ?>
+          </div>
+          <div class="col-sm-8 col-xs-12">
+        <?php endif;?>
+      <?php endif;?>
+      <?php if(!$facets):?> 
+        <div class="col-sm-12 col-xs-12">
+      <?php endif;?>  
+        <div class="card-columns">
+          <?php foreach (loop('items',$items) as $item): ?>
+              <?php
+                $class = "";
+                if($item->featured):
+                  $class = 'featured';
+                endif;
+              ?>
+              <div class="card <?php echo $class;?>">
+                <?php if (metadata('item', 'has files')): ?>
+                  <div class="item-img">
+                      <?php echo link_to_item(item_image('thumbnail',array('alt' => ''))); ?>
+                  </div>
+                <?php endif; ?>
+                <hr>
+                <div class="card-block">
+                  <div class="list-item">
+                    <h3 class="star"><span><?php echo __('Featured');?></span></h3>
+                    <!--<h3 class="star"><i class="material-icons">&#xE83A;</i><span><?php echo __('Featured');?></span></h3>-->
+                    <?php if($erfgoed && $lang == "nl" && metadata('item', array('Item Type Metadata', 'Verhaal titel'))):?>
+                      <h2><?php echo link_to_item(metadata('item', array('Item Type Metadata', 'Verhaal titel')), array('class'=>'permalink')); ?></h2>
+                      <h3><?php echo metadata('item', array('Item Type Metadata', 'Verhaal ondertitel'));?></h3>
+                    <?php elseif($erfgoed && $lang == "en" && metadata('item', array('Item Type Metadata', 'Story title'))): ?>
+                      <h2><?php echo link_to_item(metadata('item', array('Item Type Metadata', 'Story title')), array('class'=>'permalink')); ?></h2>
+                      <h3><?php echo metadata('item', array('Item Type Metadata', 'Story subtitle'));?></h3>
+                    <?php elseif(metadata('item', array('Item Type Metadata', 'Title')) && $lang == "en"): ?>
+                      <h3><?php echo link_to_item(metadata('item', array('Item Type Metadata', 'Title')), array('class'=>'permalink')); ?></h3>
+                    <?php else:?>
+                      <h3><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h3>
+                    <?php endif; ?>
 
-      <div class="card-columns">
+                    <!--<?php if (metadata('item', 'has tags')): ?>
+                      <div class="tags"></strong>
+                          <?php echo tag_string('items'); ?>
+                      </div>
+                    <?php endif; ?>-->
 
-        <?php foreach (loop('items',$items) as $item): ?>
-            <?php
-              $class = "";
-              if($item->featured):
-                $class = 'featured';
-              endif;
-            ?>
-            <div class="card <?php echo $class;?>">
-              <?php if (metadata('item', 'has files')): ?>
-                <div class="item-img">
-                    <?php echo link_to_item(item_image('thumbnail',array('alt' => ''))); ?>
-                </div>
-              <?php endif; ?>
-              <hr>
-              <div class="card-block">
-                <div class="list-item">
-                  <h3 class="star"><span><?php echo __('Featured');?></span></h3>
-                  <!--<h3 class="star"><i class="material-icons">&#xE83A;</i><span><?php echo __('Featured');?></span></h3>-->
-                  <?php if($erfgoed && $lang == "nl" && metadata('item', array('Item Type Metadata', 'Verhaal titel'))):?>
-                    <h2><?php echo link_to_item(metadata('item', array('Item Type Metadata', 'Verhaal titel')), array('class'=>'permalink')); ?></h2>
-                    <h3><?php echo metadata('item', array('Item Type Metadata', 'Verhaal ondertitel'));?></h3>
-                  <?php elseif($erfgoed && $lang == "en" && metadata('item', array('Item Type Metadata', 'Story title'))): ?>
-                    <h2><?php echo link_to_item(metadata('item', array('Item Type Metadata', 'Story title')), array('class'=>'permalink')); ?></h2>
-                    <h3><?php echo metadata('item', array('Item Type Metadata', 'Story subtitle'));?></h3>
-                  <?php elseif(metadata('item', array('Item Type Metadata', 'Title')) && $lang == "en"): ?>
-                    <h3><?php echo link_to_item(metadata('item', array('Item Type Metadata', 'Title')), array('class'=>'permalink')); ?></h3>
-                  <?php else:?>
-                    <h3><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title')), array('class'=>'permalink')); ?></h3>
-                  <?php endif; ?>
-
-                  <!--<?php if (metadata('item', 'has tags')): ?>
-                    <div class="tags"></strong>
-                        <?php echo tag_string('items'); ?>
-                    </div>
-                  <?php endif; ?>-->
-
-                  <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
+                    <?php fire_plugin_hook('public_items_browse_each', array('view' => $this, 'item' =>$item)); ?>
+                  </div>
                 </div>
               </div>
-            </div>
-        <?php endforeach; ?>
-      </div>
+          <?php endforeach; ?>
+        </div>
+      </div>  
   </div>
 </div>
 

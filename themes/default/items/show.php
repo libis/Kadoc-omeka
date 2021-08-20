@@ -60,8 +60,9 @@
                 </div>
             <?php endif;?>
             <?php if(!metadata('item', array('Item Type Metadata','Verhaal'))):?>
-                </div>
-                <div class="col-lg-5 col-md-12 col-12">
+                
+                
+                <div class="col-lg-6 col-md-12 col-12">
                 <?php if($lang == 'nl'):?>
                   <h1 class="section-title projecten-title"><span><?php echo metadata($item, array('Dublin Core', 'Title')); ?></span></h1>
                 <?php else:?>
@@ -157,6 +158,140 @@
                     </div>
                   <?php endif;?>
 
+                  <!-- missionaris -->                  
+                  <?php if($text = metadata('item', array('Item Type Metadata','Missionaris'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Missionary');?></h3>
+                        <?php
+                        $missies = explode(';',$text);
+                        foreach($missies as $missie):
+                          $items = get_records('Item', array('advanced' =>
+                              array(
+                                  array(
+                                      'element_id' => 50,
+                                      'type' => 'is exactly',
+                                      'terms' => $missie
+                                  )
+                              )
+                          ));
+                          if($items):?>
+                            <div class="element-text"><?php echo link_to($items[0], null, $missie);?></div>
+                          <?php else:?>
+                            <div class="element-text"><?php echo $missie;?></div>
+                          <?php endif;?>
+                        <?php endforeach;?>                        
+                    </div>
+                  <?php endif;?>
+
+                   <!-- beschrijving -->
+                   <?php if($text = metadata('item', array('Item Type Metadata','Beschrijving'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Description');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                   <!-- Gemeente -->
+                   <?php if($text = metadata('item', array('Item Type Metadata','Gemeente'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Location');?></h3>
+                        <div class="element-text">
+                          <?php echo $text;?>
+                          <?php if($text = metadata('item', array('Item Type Metadata','Land'),array("delimiter" => "; "))):?>
+                              <?php echo ", ".$text;?>
+                          <?php endif;?>
+                        </div>
+                    </div>
+                  <?php endif;?>
+
+                  <!-- oprichting -->
+                  <?php if($text = metadata('item', array('Item Type Metadata','Oprichtingsjaar'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Foundation year');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!-- kunstenaar -->
+                  <?php if($text = metadata('item', array('Item Type Metadata','Kunstenaar'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Artist');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!-- kunstenaar -->
+                  <?php if($text = metadata('item', array('Item Type Metadata','Draagvorm (detail)'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Carrier');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!-- klooster -->
+                  <?php if($text = metadata('item', array('Item Type Metadata','Kloosternaam'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Convent');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!--Geboorteplaats -->
+                  <?php if($text = metadata('item', array('Item Type Metadata','Geboorteplaats'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Place of birth');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!--Geboortedatum -->
+                  <?php if($text = metadata('item', array('Item Type Metadata','Geboortedatum'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Date of birth');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!--Geboorteplaats -->
+                  <?php if($text = metadata('item', array('Item Type Metadata','Overlijdensplaats'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Place of death');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!--Geboortedatum -->
+                  <?php if($text = metadata('item', array('Item Type Metadata','Overlijdensdatum'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Date of death');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!--Geboortedatum -->
+                  <?php if($text = metadata('item', array('Item Type Metadata','Profiel'),array("delimiter" => "; "))):?>
+                    <div class="element">
+                        <h3><?php echo __('Profile');?></h3>
+                        <div class="element-text"><?php echo $text;?></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!-- kunstenaar -->
+                  <?php if($text = metadata('item', array('Item Type Metadata','Website'))):?>
+                    <div class="element">
+                        <h3><?php echo __('Website');?></h3>
+                        <div class="element-text"><a target="_blank" href="<?php echo $text;?>"><?php echo $text;?></a></div>
+                    </div>
+                  <?php endif;?>
+
+                  <!-- odis -->
+                  <?php if($text = metadata('item', array('Item Type Metadata','Odis'))):?>
+                    <div class="element">
+                        <h3><?php echo __('Odis');?></h3>
+                        <div class="element-text"><a target="_blank" href="<?php echo $text;?>"><?php echo $text;?></a></div>
+                    </div>
+                  <?php endif;?>
+
                   <!-- If the item belongs to a collection, the following creates a link to that collection. -->
                   <?php if (metadata('item', 'Collection Name')): ?>
                   <div id="collection" class="element">
@@ -164,6 +299,8 @@
                       <div class="element-text"><?php echo link_to_collection_for_item(); ?></div>
                   </div>
                   <?php endif; ?>
+
+                  
 
                   <!-- The following prints a list of all tags associated with the item -->
                   <?php if (metadata('item', 'has tags')): ?>
