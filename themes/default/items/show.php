@@ -1,7 +1,7 @@
 <?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'item show')); ?>
 <?php $type = metadata('item','item_type_name');?>
 <?php $lang = get_language();?>
-<?php if (metadata('item', 'has files')): ?>
+<?php if (metadata('item', 'has files') || $type == 'Persoon'): ?>
   <section class="item-section">
       <div class="container">
         <div class='row breadcrumbs'>
@@ -18,9 +18,9 @@
 
                    <?php if($lang=="nl" && metadata('item', array('Item Type Metadata','Verhaal'))):?>
                    > <?php echo metadata('item', array('Item Type Metadata', 'Verhaal titel')); ?>
-                 <?php elseif($lang=="en" && metadata('item', array('Item Type Metadata','Story title'))):?>
+                   <?php elseif($lang=="en" && metadata('item', array('Item Type Metadata','Story title'))):?>
                    > <?php echo metadata('item', array('Item Type Metadata', 'Story title')); ?>
-                 <?php elseif($lang=="en" && metadata('item', array('Item Type Metadata','Title'))):?>
+                   <?php elseif($lang=="en" && metadata('item', array('Item Type Metadata','Title'))):?>
                    > <?php echo metadata('item', array('Item Type Metadata', 'Title')); ?>
                    <?php else:?>
                    > <?php echo metadata('item', array('Dublin Core', 'Title')); ?>
@@ -33,32 +33,32 @@
 <?php endif; ?>
 <section class="metadata-section">
     <div id="content" class='container' role="main" tabindex="-1">
-        <div class="row content">
-            <!-- The following returns all of the files associated with an item. -->
+        <div class="row content">            
             <?php if(metadata($item,'has_files')):?>
               <div class="col-lg-6 col-md-12 col-12">
                 <div class="item-files">
                   <div class="row file-row">
                     <?php
-                      $files = $item->getFiles();
-                      foreach($files as $file):
-                        if($file->hasFullsize()):?>
-                          <div class="col-12 file-col">
+                      $files = $item->getFiles();?>
+                      <div class="col-12 file-col">
+                        <div class="slider-for">
+                          <?php foreach($files as $file):?>                       
                             <div class="item-file">
-                              <a data-lightbox="lightbox" href="<?php echo $file->getWebPath("fullsize");?>">
-                                <img src="<?php echo $file->getWebPath("fullsize");?>">
-                              </a>
+                              <img src="<?php echo $file->getWebPath("fullsize");?>">
                             </div>
-                          </div>
-                        <?php else:?>
-                          <div class="col-12 file-col">
-                            <?php echo file_markup($file, array('imageSize' => 'thumbnail',"width" => "100%","height"=>"auto"));?>
-                          </div>
-                        <?php endif;?>
-                      <?php endforeach;?>
+                          <?php endforeach;?>
+                        </div>
+                        <div class="slider-nav" role="toolbar" style="height:3.5rem;">
+                          <?php foreach($files as $file):?>
+                            <div class="beeld-nav" style="padding:0.5rem;">                                 
+                                  <img src="<?php echo $file->getWebPath("square_thumbnail");?>">                                 
+                            </div>
+                          <?php endforeach;?>
+                        </div>
+                      </div>
                   </div>
                 </div>
-              </div>
+              </div>  
             <?php endif;?>
             <?php if($verhaal = metadata('item', array('Item Type Metadata','Verhaal'))):?>
                   <div class="col-lg-6 col-md-12 col-12 verhaal">
@@ -175,27 +175,34 @@
                   <?php endif;?>
 
                   <!-- missionaris -->                  
-                  <?php if($text = metadata('item', array('Item Type Metadata','Missionaris'),array("delimiter" => "; "))):?>
+                  <?php if($text = metadata('item', array('Item Type Metadata','Missionaris'),array("delimiter" => ";"))):?>
+                    <?php $text = strip_tags($text);?>
                     <div class="element">
                         <h3><?php echo __('Missionary');?></h3>
-                        <?php
-                        $missies = explode(';',$text);
-                        foreach($missies as $missie):
-                          $items = get_records('Item', array('advanced' =>
-                              array(
-                                  array(
-                                      'element_id' => 50,
-                                      'type' => 'is exactly',
-                                      'terms' => $missie
-                                  )
-                              )
-                          ));
-                          if($items):?>
-                            <div class="element-text"><?php echo link_to($items[0], null, $missie);?></div>
-                          <?php else:?>
-                            <div class="element-text"><?php echo $missie;?></div>
-                          <?php endif;?>
-                        <?php endforeach;?>                        
+                        <div class="element-text">
+                          <?php
+                          $missies = explode(';',$text);
+                          
+                          $missies_after = array();
+                          foreach($missies as $missie):
+                            $results = get_records('Item', array('advanced' =>
+                                array(
+                                    array(
+                                        'element_id' => 50,
+                                        'type' => 'is exactly',
+                                        'terms' => $missie
+                                    )
+                                )
+                            ),9999);
+                            
+                            if($results):?>
+                              <?php $missies_after[] = link_to($results[0], null, $missie);?>
+                            <?php else:?>
+                              <?php $missies_after[] = $missie;?>
+                            <?php endif;?>
+                          <?php endforeach;?>        
+                          <?php echo implode('<br>',$missies_after);?>
+                        </div>                
                     </div>
                   <?php endif;?>
 
@@ -247,47 +254,37 @@
                   <!-- klooster -->
                   <?php if($text = metadata('item', array('Item Type Metadata','Kloosternaam'),array("delimiter" => "; "))):?>
                     <div class="element">
-                        <h3><?php echo __('Convent');?></h3>
                         <div class="element-text"><?php echo $text;?></div>
                     </div>
                   <?php endif;?>
 
                   <!--Geboorteplaats -->
+                  <div class="element">
+                  <div class="element-text">
                   <?php if($text = metadata('item', array('Item Type Metadata','Geboorteplaats'),array("delimiter" => "; "))):?>
-                    <div class="element">
-                        <h3><?php echo __('Place of birth');?></h3>
-                        <div class="element-text"><?php echo $text;?></div>
-                    </div>
+                    <?php echo $text.', ';?>
                   <?php endif;?>
 
                   <!--Geboortedatum -->
                   <?php if($text = metadata('item', array('Item Type Metadata','Geboortedatum'),array("delimiter" => "; "))):?>
-                    <div class="element">
-                        <h3><?php echo __('Date of birth');?></h3>
-                        <div class="element-text"><?php echo $text;?></div>
-                    </div>
+                    °<?php echo $text;?>                    
                   <?php endif;?>
 
                   <!--Geboorteplaats -->
                   <?php if($text = metadata('item', array('Item Type Metadata','Overlijdensplaats'),array("delimiter" => "; "))):?>
-                    <div class="element">
-                        <h3><?php echo __('Place of death');?></h3>
-                        <div class="element-text"><?php echo $text;?></div>
-                    </div>
+                      <?php echo ' - '.$text.', ';?> 
                   <?php endif;?>
 
                   <!--Geboortedatum -->
                   <?php if($text = metadata('item', array('Item Type Metadata','Overlijdensdatum'),array("delimiter" => "; "))):?>
-                    <div class="element">
-                        <h3><?php echo __('Date of death');?></h3>
-                        <div class="element-text"><?php echo $text;?></div>
-                    </div>
+                    &#8224;<?php echo $text;?></div>
                   <?php endif;?>
+                  </div>
+                  </div>
 
                   <!--Geboortedatum -->
                   <?php if($text = metadata('item', array('Item Type Metadata','Profiel'),array("delimiter" => "; "))):?>
-                    <div class="element">
-                        <h3><?php echo __('Profile');?></h3>
+                    <div class="element">                        
                         <div class="element-text"><?php echo $text;?></div>
                     </div>
                   <?php endif;?>
@@ -295,17 +292,43 @@
                   <!-- kunstenaar -->
                   <?php if($text = metadata('item', array('Item Type Metadata','Website'))):?>
                     <div class="element">
-                        <h3><?php echo __('Website');?></h3>
-                        <div class="element-text"><a target="_blank" href="<?php echo $text;?>"><?php echo $text;?></a></div>
+                        <h3><?php echo __('Links');?></h3>
+                        <div class="element-text">
+                          <a target="_blank" href="<?php echo $text;?>"><?php echo $text;?></a>
+                          <?php if($text = metadata('item', array('Item Type Metadata','Odis'))):?>                    
+                            <br><a target="_blank" href="<?php echo $text;?>"><?php echo __('More information in ODIS-database');?></a>
+                          <?php endif;?>  
+                        </div>  
                     </div>
-                  <?php endif;?>
-
-                  <!-- odis -->
-                  <?php if($text = metadata('item', array('Item Type Metadata','Odis'))):?>
-                    <div class="element">
-                        <h3><?php echo __('Odis');?></h3>
-                        <div class="element-text"><a target="_blank" href="<?php echo $text;?>"><?php echo $text;?></a></div>
-                    </div>
+                  <?php endif;?>                  
+                            
+                  <?php if($type == 'Persoon'):?>
+                    
+                    <?php                 
+                      $title = metadata('item', array('Dublin Core','Title'));         
+                      $objects = array();
+                      $results = get_records('Item', array('advanced' =>
+                          array(
+                              array(
+                                  'element_id' => 245,
+                                  'type' => 'is exactly',
+                                  'terms' => $title
+                              )
+                          )
+                      ),9999);
+                    ?>
+                    <?php if($results):?>
+                      
+                      <div class="element">
+                          <h3><?php echo __('Related objects');?></h3>
+                          <div class="element-text">                            
+                            <?php                         
+                              foreach($results as $result):?>
+                                <?php echo link_to($result, null, metadata($result, array('Dublin Core','Title'))).'<br>';?>
+                              <?php endforeach;?>     
+                          </div>                
+                      </div>
+                    <?php endif;?>
                   <?php endif;?>
 
                   <!-- If the item belongs to a collection, the following creates a link to that collection. -->
@@ -314,9 +337,7 @@
                       <h3><?php echo __('Collection'); ?></h3>
                       <div class="element-text"><?php echo link_to_collection_for_item(); ?></div>
                   </div>
-                  <?php endif; ?>
-
-                  
+                  <?php endif; ?>                  
 
                   <!-- The following prints a list of all tags associated with the item -->
                   <?php if (metadata('item', 'has tags')): ?>
@@ -362,10 +383,29 @@
         </div>
         <div class="plugins">
           <?php echo get_specific_plugin_hook_output('SocialBookmarking', 'public_items_show', array('view' => $this, 'item' => $item)); ?>
-
-          <?php echo get_specific_plugin_hook_output('Commenting', 'public_items_show', array('view' => $this, 'item' => $item)); ?>
-
+          <?php if($type != 'Persoon'):?>              
+            <?php echo get_specific_plugin_hook_output('Commenting', 'public_items_show', array('view' => $this, 'item' => $item)); ?>
+          <?php endif;?>  
         </div>
     </div>
 </section>
+<script>
+ jQuery('.slider-for').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: true,
+  centerMode: true,
+  asNavFor: '.slider-nav'
+});
+jQuery('.slider-nav').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.slider-for',
+  focusOnSelect: true
+});
+	
+</script>
+
+	
 <?php echo foot(); ?>
