@@ -53,6 +53,7 @@
 
    <div class="row">
      <?php foreach (loop('collections') as $collection): ?>
+      <?php if ($collectionImage = record_image('collection','square_thumbnail')): ?>
        <?php
          $title_en = metadata($collection, array('Dublin Core', 'Alternative Title'));
          $description_en = metadata($collection, array('Dublin Core', 'Abstract'), array('snippet'=>80));
@@ -103,6 +104,7 @@
               </div>
             </div>
          <?php endif;?>
+        <?php endif;?> 
       <?php endforeach; ?>
     </div>
 

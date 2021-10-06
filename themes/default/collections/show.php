@@ -39,17 +39,28 @@ endif;
              <?php echo text_to_paragraphs("[".$subject."]"); ?>
          </div>
        <?php endif; ?>
+       <?php if($collection->id != '25'):?>
        <div class="collection-description">
          <a href="<?php echo url("/geolocation/map/browse?collection=".$collection->id);?>"><i style="font-size:1rem;vertical-align:sub" class="material-icons">
 map
 </i><?php echo __("View the collection on the map");?></a>
-       </div><br>
+       </div>
+       <?php endif;?>
+       <br>
      </div>
    </div>
    <div class="row">
      <div class="col-sm-12">
        <?php echo pagination_links(); ?>
        <?php if (metadata('collection', 'total_items') > 0): ?>
+        <?php if($collection->id != '25'):?>
+         <div style="text-align:right;font-weight:bold;text-transform:uppercase;margin-bottom:1rem;">
+          <?php $totalItems = metadata('collection', 'total_items');?>
+          <?php echo link_to_items_browse(__('View all objects in this collection'), array('collection' =>
+          metadata('collection', 'id')), array('class' => 'view-items-link')); ?>
+         </div>
+         <hr>
+         <?php endif;?>
          <div class="card-columns">
             <?php foreach (loop('items') as $item): ?>
                <?php
@@ -93,20 +104,24 @@ map
                </div>
            <?php endforeach; ?>
          </div>
+         <?php if($collection->id != '25'):?>
          <div style="text-align:right;font-weight:bold;text-transform:uppercase;">
           <?php $totalItems = metadata('collection', 'total_items');?>
           <?php echo link_to_items_browse(__('View all objects in this collection'), array('collection' =>
           metadata('collection', 'id')), array('class' => 'view-items-link')); ?>
          </div>
+         <?php endif;?>
         <?php else: ?>
             <p><?php echo __("There are currently no items within this collection."); ?></p>
         <?php endif; ?>
       </div>
     </div>
+    <?php if($collection->id != '25'):?>
     <div class="plugins">
       <?php echo get_specific_plugin_hook_output('SocialBookmarking', 'public_collections_show', array('view' => $this, 'collection' => $collection)); ?>
       <?php echo get_specific_plugin_hook_output('Commenting', 'public_collections_show', array('view' => $this, 'collection' => $collection)); ?>
     </div>
+    <?php endif;?>
   </div>
 </section>
 

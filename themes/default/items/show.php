@@ -175,13 +175,13 @@
                   <?php endif;?>
 
                   <!-- missionaris -->                  
-                  <?php if($text = metadata('item', array('Item Type Metadata','Missionaris'),array("delimiter" => ";"))):?>
+                  <?php if($text = metadata('item', array('Item Type Metadata','Missionaris'),array("delimiter" => "|"))):?>
                     <?php $text = strip_tags($text);?>
                     <div class="element">
                         <h3><?php echo __('Missionary');?></h3>
                         <div class="element-text">
                           <?php
-                          $missies = explode(';',$text);
+                          $missies = explode('|',$text);
                           
                           $missies_after = array();
                           foreach($missies as $missie):
@@ -215,7 +215,7 @@
                   <?php endif;?>
 
                    <!-- Gemeente -->
-                   <?php if($text = metadata('item', array('Item Type Metadata','Gemeente'),array("delimiter" => "; "))):?>
+                   <?php if($text = metadata('item', array('Dublin Core','Coverage'),array("delimiter" => "; "))):?>
                     <div class="element">
                         <h3><?php echo __('Location');?></h3>
                         <div class="element-text">
@@ -251,16 +251,12 @@
                     </div>
                   <?php endif;?>
 
-                  <!-- klooster -->
-                  <?php if($text = metadata('item', array('Item Type Metadata','Kloosternaam'),array("delimiter" => "; "))):?>
-                    <div class="element">
-                        <div class="element-text"><?php echo $text;?></div>
-                    </div>
-                  <?php endif;?>
+                  
 
+                  <?php if($type == 'Persoon'):?>
                   <!--Geboorteplaats -->
-                  <div class="element">
-                  <div class="element-text">
+                  <div class="element" style="margin-top:-1.5rem;">
+                  <div class="element-text" style="font-family:Roboto, sans-serif;color:#444;">
                   <?php if($text = metadata('item', array('Item Type Metadata','Geboorteplaats'),array("delimiter" => "; "))):?>
                     <?php echo $text.', ';?>
                   <?php endif;?>
@@ -281,10 +277,15 @@
                   <?php endif;?>
                   </div>
                   </div>
+                  <?php endif;?>
 
-                  <!--Geboortedatum -->
+                  <!--Profiel-->
                   <?php if($text = metadata('item', array('Item Type Metadata','Profiel'),array("delimiter" => "; "))):?>
-                    <div class="element">                        
+                    <div class="element" style="padding:1.5rem;background:#f4f5f8;margin:1.5rem 0;">     
+                         <!-- klooster -->
+                        <?php if($text = metadata('item', array('Item Type Metadata','Kloosternaam'),array("delimiter" => "; "))):?>
+                                <div class="element-text"><?php echo $text;?></div>
+                        <?php endif;?>               
                         <div class="element-text"><?php echo $text;?></div>
                     </div>
                   <?php endif;?>
@@ -303,6 +304,15 @@
                   <?php endif;?>                  
                             
                   <?php if($type == 'Persoon'):?>
+                    <?php if($text = metadata('item', array('Item Type Metadata','Odis'))):?>
+                    <div class="element">
+                        <h3><?php echo __('Links');?></h3>
+                        <div class="element-text">
+                          <a target="_blank" href="<?php echo $text;?>"><?php echo $text;?>
+                        <?php echo __('More information in ODIS-database');?></a>                         
+                        </div>  
+                    </div>
+                  <?php endif;?>   
                     
                     <?php                 
                       $title = metadata('item', array('Dublin Core','Title'));         
@@ -343,7 +353,7 @@
                   <?php if (metadata('item', 'has tags')): ?>
                   <div id="item-tags" class="element">
                       <h3><?php echo __('Tags'); ?></h3>
-                      <div class="element-text"><?php echo tag_string('item'); ?></div>
+                      <div class="element-text" style="word-break: break-all;"><?php echo tag_string('item'); ?></div>
                   </div>
                   <?php endif;?>
 
