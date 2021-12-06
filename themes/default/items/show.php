@@ -41,20 +41,26 @@
                     <?php
                       $files = $item->getFiles();?>
                       <div class="col-12 file-col">
-                        <div class="slider-for">
-                          <?php foreach($files as $file):?>                       
-                            <div class="item-file">
-                              <img src="<?php echo $file->getWebPath("fullsize");?>">
+                          <div class="slider-for">
+                            <?php foreach($files as $file):?>
+                              <div class="item-file">
+                                <?php if($file->hasFullsize()):?>
+                                  <img src="<?php echo $file->getWebPath("fullsize");?>">
+                                <?php else:?>
+                                  <?php echo file_markup($file, array('imageSize' => 'thumbnail',"width" => "100%",       "height"=>"auto"));?>
+                                <?php endif;?>
+                              </div>
+                            <?php endforeach;?>
+                          </div>
+                          <?php if(sizeof($files) > 1):?>
+                            <div class="slider-nav" role="toolbar" style="height:3.5rem;">
+                              <?php foreach($files as $file):?>
+                                <div class="beeld-nav" style="padding:0.5rem;">
+                                      <img src="<?php echo $file->getWebPath("square_thumbnail");?>">
+                                </div>
+                              <?php endforeach;?>
                             </div>
-                          <?php endforeach;?>
-                        </div>
-                        <div class="slider-nav" role="toolbar" style="height:3.5rem;">
-                          <?php foreach($files as $file):?>
-                            <div class="beeld-nav" style="padding:0.5rem;">                                 
-                                  <img src="<?php echo $file->getWebPath("square_thumbnail");?>">                                 
-                            </div>
-                          <?php endforeach;?>
-                        </div>
+                          <?php endif;?>
                       </div>
                   </div>
                 </div>
@@ -184,13 +190,18 @@
                           $missies = explode('|',$text);
                           
                           $missies_after = array();
+
+                         
                           foreach($missies as $missie):
+                            $missie = preg_replace('/\s+/', ' ', trim($missie));
+                            $missie = html_entity_decode($missie, ENT_QUOTES | ENT_XML1, 'UTF-8');
+                         
                             $results = get_records('Item', array('advanced' =>
                                 array(
                                     array(
                                         'element_id' => 50,
-                                        'type' => 'is exactly',
-                                        'terms' => $missie
+                                        'type' => 'contains',
+                                        'terms' => html_entity_decode($missie)
                                     )
                                 )
                             ),9999);
